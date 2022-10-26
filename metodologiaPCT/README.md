@@ -4,13 +4,8 @@
   
   ### Heading
   
-  Responsável por desenvolver as telas do projeto utilizando Angular. Comecei pesquisando por alguns sites de compras e e-commerce para ter uma       ideia inicial e      
-  prosseguir com o desenvolvimento.
-  Com isso desenvolvi a primeira tela para cadastro de produtos com requisição do back-end para o front-end, atribuindo os seguintes valores:
+  Responsável por desenvolver as telas do projeto utilizando Angular. Comecei pesquisando por alguns sites de compras e e-commerce para ter uma ideia inicial e prosseguir com o desenvolvimento. Com isso desenvolvi a primeira tela para cadastro de produtos com requisição do back-end para o front-end, atribuindo os seguintes valores:
   Nome, descrição, preço e categoria.
-  Logo adicionei os métodos para editar e excluir o produto
-  
-  <img></img>
   
   ### Some Code
   ```js
@@ -36,9 +31,78 @@
   }
   }
   ```
-  Com essa parte finalizada, criei a tela para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi    
-  criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção 
+  Logo adicionei o métodos para excluir um ou vários produtos.
+  ### Some Code
+  ```js
+    constructor(private service: ProductsService) { }
+
+  ngOnInit(): void {
+    this.service
+      .getProducts()
+      .subscribe( res => this.products = res )
+  }
+
+  addProduct(product : Product){
+
+    if(product.quantidade != null){ 
+      Cart.products.push(product);
+    }
+    
+    this.ngOnInit();
+  }
+
+  preDelete(product : Product){
+    this.selectedProduct = product;
+
+  }
+
+  deleteProduct(){
+    this.service.delete(this.selectedProduct)
+    .subscribe(
+      res => {this.success = 'Product successfully deleted',
+      this.ngOnInit();
+    },
+      erro => this.failed = 'There was an error deleting the Product'
+      )
+
+  }
+  ```
+  Com essa parte finalizada, criei a tela para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
+
+  ### Some Code 
+  ```js
+  @Output() productsEmitter = new EventEmitter();
+  productPromotion : ProductPromotion
+  success: boolean = false;
   
-  <img></img>
+  errors: String[];
+  id : number;
+  lista_promotion : String[] = ['PRODUCT','TOTAL','PRODUCT_QUANTITY'];
+  lista_type: String[] = ['VALUE', 'PERCENTAGE'];
+  p1: boolean = true;
+  p2: boolean = true;
+  p3: boolean = true;
+  p4: boolean = true;
+  receivePromotion : string = "teste"; 
+  
+
+    pegaValor(){ // Função que foi chamada
+      this.receivePromotion = this.productPromotion.receivePromotion;
+      if(this.receivePromotion == 'PRODUCT'){
+        this.p1 =false;
+      }
+      if(this.receivePromotion == 'PRODUCT_QUANTITY'){
+        this.p2 =false;
+        this.p1 =false;
+      }
+      if(this.receivePromotion == 'TOTAL'){
+        this.productPromotion.product=1;
+        this.p3 =false;
+      }
+      
+    }
+  ```
+  O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
+  
   
 </details></h1>
