@@ -31,42 +31,6 @@
   }
   }
   ```
-  Logo adicionei o métodos para excluir um ou vários produtos.
-  ### Some Code
-  ```js
-    constructor(private service: ProductsService) { }
-
-  ngOnInit(): void {
-    this.service
-      .getProducts()
-      .subscribe( res => this.products = res )
-  }
-
-  addProduct(product : Product){
-
-    if(product.quantidade != null){ 
-      Cart.products.push(product);
-    }
-    
-    this.ngOnInit();
-  }
-
-  preDelete(product : Product){
-    this.selectedProduct = product;
-
-  }
-
-  deleteProduct(){
-    this.service.delete(this.selectedProduct)
-    .subscribe(
-      res => {this.success = 'Product successfully deleted',
-      this.ngOnInit();
-    },
-      erro => this.failed = 'There was an error deleting the Product'
-      )
-
-  }
-  ```
   Com essa parte finalizada, criei a tela para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
 
   ### Some Code 
