@@ -70,3 +70,17 @@
   
   
 </details></h1>
+
+<h1><details>
+
+  <summary>Aprendizados Efetivos HS</summary>
+
+  ### Heading
+  Neste projeto aprendi a mexer com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias se mostrou muito mais completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
+  Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend". Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo específico das requisições possíveis de entrada no serviço desenvolvido.
+
+  - Criação de API que se provê serviços e se comunica com outros aplicações: sei fazer com autonomia
+
+  - Desenvolvimento de scripts em Angular: sei fazer com autonomia 
+
+</details></h1>
