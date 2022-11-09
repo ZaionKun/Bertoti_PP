@@ -1,13 +1,19 @@
-<h1><details>
+<h1>
+
+  ### Contribuições Pessoais
   
-  <summary>Contribuições Pessoais</summary>
+  Responsável por desenvolver requisições na tela de cadastro de produto, onde o usuário inseria
+  dados nos campos da tela e com isso a aplicação passava as informações pro back-end e com isso a aplicação pegava a resposta dos mesmos métodos do back-end e mostrava na tela pro usuário. Nessa parte o usuário precisava preencher os seguintes campos para cadastrar um novo produto:
+  - Nome
+  - Preço
+  - Descrição
+  - Categoria
+
+Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas. Chamando o módulo HTTP para com solicitações e respostas AJAX.
   
-  ### Heading
+  <h2><details>
   
-  Responsável por desenvolver as telas do projeto utilizando Angular. Comecei pesquisando por alguns sites de compras e e-commerce para ter uma ideia inicial e prosseguir com o desenvolvimento. Com isso desenvolvi a primeira tela para cadastro de produtos com requisição do back-end para o front-end, atribuindo os seguintes valores:
-  Nome, descrição, preço e categoria.
-  
-  ### Some Code
+  ### Código para cadastro de produto utilizando Observable
   ```js
   export class ProductsService {
 
@@ -30,8 +36,14 @@
 
   }
   }
+  </details></h2>
+
+  <h1>
+  Com a parte de cadastrar um novo, foi necessário mostrar os produtos em uma lista
+  </h1>
+
   ```
-  Com essa parte finalizada, criei a tela para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
+  Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
 
   ### Some Code 
   ```js
@@ -69,7 +81,7 @@
   O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
   
   
-</details></h1>
+</h1>
 
 <h1><details>
 
