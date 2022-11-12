@@ -1,7 +1,7 @@
 package strategypattern;
 
 
-public class Motorista{
+public class Motorista {
 	
 	private TipoCnh  habilitacao;
 	public void setDirigir(TipoCnh dirigir) {
