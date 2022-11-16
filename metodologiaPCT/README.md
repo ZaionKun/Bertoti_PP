@@ -37,13 +37,68 @@ Por padrão do angular, utilizei o Observable para lidar com a variedade de oper
   }
   }
   </details></h2>
+  </h1>
 
   <h1>
-  Com a parte de cadastrar um novo, foi necessário mostrar os produtos em uma lista
+  Com a parte de cadastrar um novo produto, foi necessário mostrar os produtos em uma lista, para melhor controle do usuário, sendo assim, mostrando opções de edição e remoção de cada produto  
+  
+  <h2><details>
+
+  ### Código para listagem  de produto com as funcionalidades citadas
+
+  ```js
+  
+  export class ProductsListComponent implements OnInit {
+
+  products : Product[] = []
+  id: number;
+  lista : number[] = [1,2,3,4,5];
+  selectedProduct : Product;
+  success : string;
+  failed : string;
+
+  constructor(private service: ProductsService) { }
+
+  ngOnInit(): void {
+    this.service
+      .getProducts()
+      .subscribe( res => this.products = res )
+  }
+
+  addProduct(product : Product){
+
+    if(product.quantidade != null){ 
+      Cart.products.push(product);
+    }
+    
+    this.ngOnInit();
+  }
+
+  preDelete(product : Product){
+    this.selectedProduct = product;
+
+  }
+
+  deleteProduct(){
+    this.service.delete(this.selectedProduct)
+    .subscribe(
+      res => {this.success = 'Product successfully deleted',
+      this.ngOnInit();
+    },
+      erro => this.failed = 'There was an error deleting the Product'
+      )
+
+  }
+
+}
+```
+  </details></h2>
   </h1>
 
   ```
   Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
+
+ 
 
   ### Some Code 
   ```js
