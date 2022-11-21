@@ -13,9 +13,9 @@ public class Produto {
     }
 
     public void cadastrarProduto(Produto produto, Usuario usuario){
-        AcessoUsuario acesso = AcessoUsuario.getAcessoUsuario();
-        acesso.validarAcesso(usuario.getTipo())){}
-        produtos.add(produto);
+        if(AcessoUsuario.getInstancia(usuario.getTipo())){
+            produtos.add(produto);
+        } 
     }
 
     public String getNomeProduto() {

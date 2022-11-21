@@ -1,42 +1,27 @@
 public class AcessoUsuario {
     
-    private String nomeUsuario;
-    private String tipoUsuario;
-    private String mensagemUsario;
-
     private static AcessoUsuario acessoUsuario = new AcessoUsuario();
 
-    public AcessoUsuario(){
-
+    public  AcessoUsuario(){
     }
 
-    public AcessoUsuario(String nomeUsuario, String tipoUsuario, String mensagemUsario) {
-        this.nomeUsuario = nomeUsuario;
-        this.tipoUsuario = tipoUsuario;
-        this.mensagemUsario = mensagemUsario;
+    public static boolean  getInstancia(int validarAcesso) {
+        return acessoUsuario.validarAcesso(validarAcesso);
     }
 
-    public String validarAcesso(Usuario usuario){
+    public boolean validarAcesso(int  identificacao){
 
-        if(usuario.getTipo() == 1){
-            return "Usuário Admin";
+        if(identificacao == 1){
+            System.out.println("usuário admin");
+            return true;
         }
-        else if(usuario.getTipo() == 2){
-            return "Usuário cliente";
+        else if(identificacao == 2){
+            System.out.println("usuário cliente");
+            return true;
         }
-        else return "Usuário sem permissão";
-    }
-
-    public String getNomeUsuario() {
-        return nomeUsuario;
-    }
-
-    public String getTipoUsuario() {
-        return tipoUsuario;
-    }
-
-    public String getMensagemUsario() {
-        return mensagemUsario;
+        else 
+        System.out.println("usuário sem acesso");
+        return false;
     }
 
     public static AcessoUsuario getAcessoUsuario() {
