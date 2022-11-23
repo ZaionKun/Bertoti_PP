@@ -1,3 +1,53 @@
+  # Zaion Felippe Gomes Arruda
+  
+  ## Introdução
+  
+  Olá, seja bem vindo! Sou o Zaion Felippe, estudante de Banco de dados pela FATEC Prof. Jessen Vidal. 
+  
+  Tenho 19 anos e trabalho como Assistente de Projetos e Logística. <br/>
+  
+  <img=""/>
+  
+  ### Meus principais conhecimentos
+  
+  ### Python
+  
+  Python é a linguagem de programação que eu mais tenho conhecimento, fiz vários projetos utilizando alguns frameworks como o Flask, Django, Pandas entre outros.
+  Atualmente trabalho com essa linguagem e com isso tenho uma segurança para desenvolver soluções e inovações.
+  
+  ### VBA 
+  
+  VBA foi a primeira linguagem que estudei, ainda antes da graduação. Mesmo nunca tendo atuado profissionalmente com VBA, realizei diversos projetos pessoais
+  e isso me ajudou na minha carreira pessoal. É uma linguagem que me sinto confortavél em desenvolver qualquer coisa
+  
+  # Projeto 3: 3º Semestre de 2022
+  
+  ### Parceiro Acadêmico
+  MidAll LTDA
+  
+  ### Visão do Projeto
+  
+  A ideia é criar um mini motor de regras com uma interface onde as regras das promoções possam ser cadastradas e aplicadas no momento que os itens forem para o     
+  carrinho de compras. Alguns exemplos de mecânicas: compre 2 produtos e tenha 10% de desconto. Na compra de 2 produtos, ganhe mais 1. Na compra de 3 produtos, 
+  ganhe 50% de desconto no item de menor valor.
+  
+  ### Tecnologias adotadas na solução
+  
+  ### Spring boot
+  O funcionamento do e-commerce foi construído utilizando o Spring Boot.
+  O Spring Boot é um framework Java open source que tem como objetivo facilitar esse processo em aplicações Java. Consequentemente, ele traz mais agilidade para o 
+  processo de desenvolvimento, uma vez que devs conseguem reduzir o tempo gasto com as configurações iniciais.
+  
+  ### Angular 
+  Para visualização da aplicação foi utilizado Angular.
+  Angular é uma plataforma e framework para construção da interface de aplicações usando HTML, CSS e, principalmente, JavaScript, criada pelos desenvolvedores da 
+  Google. Ele possui alguns elementos básicos que tornam essa construção interessante.
+  
+  ### SQLite
+  Para persistências dos dados foi utilizado o SQLite.
+  SQLite é uma biblioteca em linguagem C que implementa um banco de dados SQL embutido. Programas que usam a biblioteca SQLite podem ter acesso a banco de dados SQL 
+  sem executar um processo SGBD separado
+  
 <h1>
 
   ## Contribuições Pessoais
@@ -144,9 +194,8 @@ Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para cons
 O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
 
 
-  Aprendizados Efetivos HS
 
-  ## Heading
+  ## Aprendizados Efetivos HS
   
   Neste projeto aprendi a mexer com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
   Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend".     Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo           específico das requisições possíveis de entrada no serviço desenvolvido.
