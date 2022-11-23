@@ -25,7 +25,7 @@
   ### Parceiro Acadêmico
   MidAll LTDA
   
-  ### Visão do Projeto
+  ### Descrição do Projeto
   
   A ideia é criar um mini motor de regras com uma interface onde as regras das promoções possam ser cadastradas e aplicadas no momento que os itens forem para o     
   carrinho de compras. Alguns exemplos de mecânicas: compre 2 produtos e tenha 10% de desconto. Na compra de 2 produtos, ganhe mais 1. Na compra de 3 produtos, 
