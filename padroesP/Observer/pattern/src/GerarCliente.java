@@ -1,9 +1,12 @@
-public class GeraCliente {
+import java.util.ArrayList;
+import java.util.List;
+
+public class GerarCliente {
 
 	private List<AcaoAposGerarCliente> acoes = new ArrayList<>();
 	private List<Cliente> clientes = new ArrayList<Cliente>();
 
-	public GeraPedido(List<AcaoAposGerarCliente> acoes) {
+	public GerarCliente(List<AcaoAposGerarCliente> acoes) {
 		this.acoes = acoes;
 	}
 
