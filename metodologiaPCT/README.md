@@ -63,7 +63,8 @@ Por padrão do angular, utilizei o Observable para lidar com a variedade de oper
   
 <details>
 
-  Código para cadastro de produto utilizando Observable
+  Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do  
+  produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
 
   ```js
 
@@ -99,7 +100,8 @@ Com a parte de cadastrar um novo produto, foi necessário mostrar os produtos em
   
 <details>
 
-  ## Código para listagem  de produto com as funcionalidades citadas
+  ## Código para listagem  de produto com as funcionalidades citadas, utilizando o método GET para retornar os produtos registrados no sistema e com isso pegando 
+  seu identificador para fazer as funcionalidades, como editar e excluir.
 
   ```js
   
@@ -151,6 +153,7 @@ Com a parte de cadastrar um novo produto, foi necessário mostrar os produtos em
 </details>
 
 Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
+Então peguei a lista de promoções, com o valor que foi dado pelo usuário, e atribui o valor com o tipo da promoção
   
 <details>
   
