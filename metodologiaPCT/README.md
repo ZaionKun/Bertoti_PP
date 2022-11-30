@@ -6,7 +6,7 @@
   
   Tenho 19 anos e trabalho como Assistente de Projetos e Logística. <br/>
   
-  <img=""/>
+  <img src="https://avatars.githubusercontent.com/u/81268185?v=4" height="300" width="250"/>
   
   ### Meus principais conhecimentos
   
