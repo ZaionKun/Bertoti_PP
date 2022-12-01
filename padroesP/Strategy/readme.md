@@ -1,0 +1,1 @@
+<h1 align="center"> <img src = "https://github.com/ZaionKun/Bertoti_PP/blob/main/padroesP/Strategy/pattern/strategy.png" /></h1>
