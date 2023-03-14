@@ -392,3 +392,386 @@ O processo de estudo e implementação do código em testes práticos necessitou
 
   - Desenvolvimento de scripts em Angular: sei fazer com autonomia 
   
+  
+  # Projeto 4: 4º Semestre de 2022
+  
+ ### Parceiro Acadêmico
+  Subiter
+  
+ ### Descrição do Projeto	
+  Temos um desafio de sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos  	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
+
+### Tecnologias adotadas na solução
+###Oracle Cloud
+O Oracle Cloud é uma tecnologia de banco de dados em nuvem desenvolvida pela Oracle Corporation, que oferece diversas vantagens para empresas que precisam de alta disponibilidade, escalabilidade e segurança em seus sistemas de gerenciamento de dados.
+
+### Spring boot
+Spring Boot é um framework de código aberto para construção de aplicações em Java. Ele é projetado para simplificar o desenvolvimento de aplicativos com base em Spring Framework, fornecendo um conjunto de recursos e bibliotecas pré-configurados que permitem que os desenvolvedores criem aplicativos com rapidez e facilidade.
+
+### Vue js
+Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
+
+## Contribuições Pessoais 
+Responsável por criar o template inicial do vue com as configurações adequadas para o projeto. Autor das configurações para receber as requisições do back-end e responsável de realizar alguns métodos como a listagem dos chamados de cliente, suporte
+
+Listagem de chamado dos clientes
+<details>
+  
+    ```js
+     <script>
+	import Chamado_Cliente from "../services/chamado_cliente";
+	import Vue from 'vue'
+	import { BootstrapVue } from 'bootstrap-vue'
+	import 'bootstrap/dist/css/bootstrap.css'
+	import 'bootstrap-vue/dist/bootstrap-vue.css'
+	Vue.use(BootstrapVue)
+	export default {
+	  name: "ChamadoClienteView",
+	  data() {
+	    return {
+	      chamado_clientes: [],
+	      chamado_cliente: {
+		criticidadeChamado: "",
+		dataChamado: "",
+		assuntoChamado:"",
+		descricaoChamado: "",
+		situacaoChamado: "F",
+		solucaoChamado: "",
+	      },
+	      solucao: ""
+	    };
+	  },
+	  mounted() {
+	    this.listar();
+	  },
+	  methods: {
+	    listar() {
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      Chamado_Cliente.listar(token).then((resposta) => {
+		const resp = resposta.data;
+		const result = resp.filter(resp => resp.usuarioChamado.name === "Victor");
+		this.chamado_clientes = result;
+	      });
+	    },
+	    deletar(id) {
+	      Chamado_Cliente.deletar(id).then(() => {
+		this.listar();
+		alert("Deletado com Sucesso");
+	      });
+	    },
+	    finalizar(chamado_cliente) {
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      this.chamado_cliente.criticidadeChamado = chamado_cliente.criticidadeChamado;
+	      this.chamado_cliente.dataChamado = chamado_cliente.dataChamado;
+	      this.chamado_cliente.assuntoChamado = chamado_cliente.assuntoChamado;
+	      this.chamado_cliente.descricaoChamado = chamado_cliente.descricaoChamado;
+	      this.chamado_cliente.solucaoChamado = chamado_cliente.solucaoChamado;
+	      Chamado_Cliente.atualizar(this.chamado_cliente, chamado_cliente.id, token).then(()=>{
+		  alert('Atualizado com sucesso!');
+		  this.limparFormularios();
+		  this.listar();
+		})
+	    },
+	    popularModal(solucao) {
+	      this.solucao = solucao;
+	    },
+	    salvar() {
+	      console.log(this.chamado_cliente)
+	      Chamado_Cliente.atualizar(this.chamado_cliente).then(() => {
+		alert('Atualizado com sucesso!');
+		this.limparFormularios();
+		this.listar();
+	      })
+	    },
+	    limparFormularios() {
+	      this.chamado_cliente.usuarioChamado = "";
+	      this.chamado_cliente.criticidadeChamado = "";
+	      this.chamado_cliente.descricaoChamado = "";
+	      this.chamado_cliente.situacaoChamado = "";
+	    }
+	  },
+	};
+	</script>
+    
+    ```
+</details>
+
+Listagem de chamado dos suportes
+
+<details>
+  
+    ```js
+    <script>
+	import chamado from "../services/chamado_suporte.js";
+	import DatePicker from 'vue2-datepicker';
+	import 'vue2-datepicker/index.css';
+	import Vue from 'vue'
+	import { BootstrapVue } from 'bootstrap-vue'
+	import 'bootstrap/dist/css/bootstrap.css'
+	import 'bootstrap-vue/dist/bootstrap-vue.css'
+	Vue.use(BootstrapVue)
+	export default {
+	  name: "ChamadoSuporteView",
+	  components: { DatePicker },
+	  data() {
+	    return {
+	      chamados: [],
+	      equipamentos:[],
+	      agendamento: {
+		chamadoAgendamento: {
+		  id:""
+		},
+		dataHora:"",
+		pessoas : "",
+		descricao:"",
+		localAtendimento:"",
+		numerosSerie:""
+	      },
+	      chamado:{},
+	      chamadoDto:{
+		criticidadeChamado:"",
+		dataChamado:"",
+		assuntoChamado:"",
+		descricaoChamado:"",
+		situacaoChamado:"",
+		solucaoChamado:""
+	      },
+	      servico: {
+		cep: "",
+		numero: "",
+		inclusao: null,
+		descricao: "",
+		empresa: {
+		  id: ""
+		},
+		tipoServico: {
+		  id: 1
+		}
+	      },
+	      resultadoCEP: ""
+	    };
+	  },
+	  mounted() {
+	    this.listar();
+	    this.listarEquipamentosDisponiveis();
+	  },
+	  methods: {
+	    listarEquipamentosDisponiveis() {
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      chamado.listarEquipamentosDisponiveis(token).then((resposta) => {
+		this.equipamentos = resposta.data;
+	      });
+	    },
+	    listar() {
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      chamado.listar(token).then((resposta) => {
+		this.chamados = resposta.data;
+	      });
+	    },
+	    populaChamado(chamado){
+	      this.chamado = chamado
+	    },
+	    salvarAgendamento(){
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      this.formatarData();
+
+	      this.agendamento.chamadoAgendamento.id = this.chamado.id
+	      chamado.salvarAgendamento(this.agendamento, token).then(() => {
+		alert('Atualizado com sucesso!');
+		this.limparFormulariosAgendamento();
+	      });
+	      this.listar
+	    },
+	    formatarData(){
+		let data = this.agendamento.dataHora.substring(0, 10);
+		let hora = this.agendamento.dataHora.substring(11, 19);
+		this.agendamento.dataHora = data + "T" + hora + ".0000000"
+
+	    },
+	    deletar(id) {
+	      chamado.deletar(id).then(() => {
+		this.listar();
+		alert("Deletado com Sucesso");
+	      });
+	    },
+	    editar(chamado) {
+	      this.chamado = chamado;
+	      this.chamado.situacaoChamado = "Em andamento";
+	      this.chamado.mostrarAgendar = true;
+	      document.getElementById("btnAceitar").style.display = "none";
+	    },
+	    salvar(){
+	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
+	      this.chamadoDto.criticidadeChamado = this.chamado.criticidadeChamado
+	      this.chamadoDto.dataChamado = this.chamado.dataChamado
+	      this.chamadoDto.assuntoChamado = this.chamado.assuntoChamado
+	      this.chamadoDto.descricaoChamado = this.chamado.descricaoChamado
+	      this.chamadoDto.situacaoChamado = this.chamado.situacaoChamado
+	      this.chamadoDto.solucaoChamado = this.chamado.solucaoChamado
+	      chamado.atualizar(this.chamadoDto, this.chamado.id, token).then(()=>{
+		alert('Atualizado com sucesso!');
+		this.limparFormularios();
+		this.listar();
+	      })
+	    },
+	    encerrar(chamado) {
+	      this.chamado = chamado;
+	      var data = new Date();
+	      data = data.toLocaleDateString();
+	      this.chamado.encerramentoChamado = data;
+	      this.chamado.situacaoChamado = "Encerrado";
+	      this.salvar();
+	    },
+	    limparFormularios() {
+	      this.chamado.solucaoChamado = "";
+	      this.chamado.situacaoChamado = "";
+	    },
+	    limparFormulariosAgendamento() {
+	      this.servico.cep = "";
+	      this.servico.numero = "";
+	      this.resultadoCEP.uf = "";
+	      this.resultadoCEP.localidade = "";
+	      this.resultadoCEP.logradouro = "";
+	      this.resultadoCEP.bairro = "";
+	      this.data = "";
+	      this.servico.descricao = "";
+	    },
+	  },
+	};
+	</script>
+
+    ```
+</details>
+
+Criação da tela de login com as requisições do back-end usando token
+
+<details>
+   ```js
+	<template>
+	  <div>
+
+	    <head>
+	      <meta charset="utf-8">
+	    </head>
+
+	    <body>
+	      <form class="box">
+		<center><img src="../assets/logo.png" alt="" width="200" height="110" /></center>
+
+		<input type="text" name="" id="email" placeholder="E-mail" v-model="form.email">
+
+		<input type="password" name="" id="password" placeholder="Password" v-model="form.senha">
+
+		<button id="btn" type="button" class="btn btn-primary" @click="login">
+		  Entrar
+		</button>
+	      </form>
+	    </body>
+	  </div>
+	</template>
+
+	<script>
+	import axios from "axios";
+	export default {
+	  data() {
+	    return {
+	      form: {
+		email: "",
+		senha: "",
+	      },
+	      dados: ""
+	    };
+	  },
+	  methods: {
+	    login() {
+	      var qs = require("qs");
+	      let self = this
+	      axios
+		.post(
+		  "http://localhost:8080/auth/login",
+		  qs.stringify({ email: this.form.email, password: this.form.senha }),
+		  {
+		    headers: {
+		      "Content-Type": "application/x-www-form-urlencoded",
+		    },
+		  }
+		)
+		.then(function (response) {
+		  localStorage.setItem('authUser', JSON.stringify(response.data))
+		  self.$router.push({ name: 'Home' })
+		});
+	    },
+	  },
+	};
+	</script>
+
+	<style scoped>
+	body {
+	  margin: 0;
+	  padding: 0;
+	  font-family: Arial, Helvetica, sans-serif;
+	  background: radial-gradient(#e63808, #f3eb00);
+	  height: 100vh;
+	  overflow: hidden;
+	}
+	.box {
+	  width: 400px;
+	  padding: 40px;
+	  position: absolute;
+	  top: 50%;
+	  left: 50%;
+	  transform: translate(-50%, -50%);
+	  background: #fcfcfc;
+	  text-align: center;
+	  border-radius: 25px;
+	}
+	.box h1 {
+	  color: white;
+	  text-transform: uppercase;
+	  font-weight: 500;
+	}
+	.box input[type="text"],
+	.box input[type="password"] {
+	  border: 0;
+	  background: none;
+	  display: block;
+	  margin: 20px auto;
+	  text-align: center;
+	  border: 2px solid #e63808;
+	  padding: 14px 10px;
+	  width: 200px;
+	  outline: none;
+	  color: rgb(0, 0, 0);
+	  border-radius: 24px;
+	  transition: 0.25s;
+	}
+	.box input[type="text"]:focus,
+	.box input[type="password"]:focus {
+	  width: 280px;
+	  border-color: #f3eb00;
+	}
+	.box button[type="button"] {
+	  border: 0;
+	  background: none;
+	  display: block;
+	  margin: 20px auto;
+	  text-align: center;
+	  border: 2px solid #f3eb00;
+	  padding: 14px 40px;
+	  outline: none;
+	  color: rgb(3, 3, 3);
+	  border-radius: 24px;
+	  transition: 0.25s;
+	  cursor: pointer;
+	}
+	.box button[type="button"]:hover {
+	  background: #2ecc71;
+	  border-color: #2ecc71
+	}
+	</style>
+   ```
+</details>
+
+
+
+
