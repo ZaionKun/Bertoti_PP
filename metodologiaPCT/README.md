@@ -39,6 +39,7 @@ Este projeto tem como objetivo criar um assistente virtual financeiro para ajuda
 Essa abordagem foi implementada no código Python do assistente virtual financeiro, permitindo que o sistema avalie as respostas do usuário às perguntas e determine o perfil de investidor correspondente. Com base nessa informação, o assistente virtual pode fornecer sugestões de investimento adequadas ao perfil de risco do usuário e seus objetivos financeiros
 
 <details>
+	
 ```py
 
 def perfil():
@@ -94,6 +95,8 @@ def perfil():
         sai_som(f'Você é um investidor Pleno pois sua pontuação foi de {result} pontos!')
     if result >= 10:
         sai_som(f'Você é um investidor Experiente pois sua pontuação foi de {result} pontos!')
+
+ ```
         
 </details>
 
@@ -101,25 +104,28 @@ O usuário pode fornecer ao assistente virtual o ticker da empresa desejada e, c
 Com essa funcionalidade, o usuário pode acessar facilmente informações atualizadas sobre empresas que deseja investir, tornando mais fácil e rápido tomar decisões financeiras informadas.
 
 <details>
-def codigo():
-    sai_som('De qual empresa deseja saber o código de ação? ')
-    cod_acao = str(input('')).upper()
 
-    #Imprimi o valor e printa o código de ação
-    if cod_acao == ('NETFLIX'):
-        sai_som('O código de ação dessa empresa é: NFLX34')
+  ```py
+	def codigo():
+	    sai_som('De qual empresa deseja saber o código de ação? ')
+	    cod_acao = str(input('')).upper()
 
-    elif cod_acao == ('ITAU'):
-        sai_som('O código de ação dessa empresa é: ITUB3F')
+	    #Imprimi o valor e printa o código de ação
+	    if cod_acao == ('NETFLIX'):
+		sai_som('O código de ação dessa empresa é: NFLX34')
 
-    elif cod_acao == ('VALE'):
-        sai_som('O código de ação dessa empresa é: VALE5')
+	    elif cod_acao == ('ITAU'):
+		sai_som('O código de ação dessa empresa é: ITUB3F')
 
-    elif cod_acao == ('PETROBRAS'):
-        sai_som('O código de ação dessa empresa é: PETR4F')
+	    elif cod_acao == ('VALE'):
+		sai_som('O código de ação dessa empresa é: VALE5')
 
-    elif cod_acao == ('FACEBOOK'):
-        sai_som('O código de ação dessa empresa é: FB')
+	    elif cod_acao == ('PETROBRAS'):
+		sai_som('O código de ação dessa empresa é: PETR4F')
+
+	    elif cod_acao == ('FACEBOOK'):
+		sai_som('O código de ação dessa empresa é: FB')
+  ```
 </details>
   
  ## Aprendizados Efetivos HS
@@ -138,11 +144,13 @@ Ao coletar essas informações de forma periódica, a aplicação permite que o 
 
 ### Tecnologias adotadas na solução
 ### Java 
+	
 Java é uma linguagem de programação amplamente utilizada no desenvolvimento de aplicativos corporativos. Uma das suas principais vantagens é a portabilidade, ou seja, o código escrito em Java pode ser executado em diferentes plataformas sem a necessidade de adaptações significativas.
 
 Na aplicação em questão, a escolha da linguagem Java pode ter sido motivada por várias razões. Uma delas é a sua ampla disponibilidade de bibliotecas e frameworks para o desenvolvimento de aplicativos de coleta de dados e análise de métricas, o que pode ter acelerado o processo de desenvolvimento da aplicação.
  
 ###PostgreSQL
+	
 a tecnologia PostgreSQL foi utilizada como o sistema gerenciador de banco de dados para armazenar e gerenciar as métricas coletadas pelos servidores remotos. O PostgreSQL é uma opção popular e avançada de sistema de gerenciamento de banco de dados relacional de código aberto, que oferece recursos avançados, incluindo suporte a SQL avançado, extensibilidade, replicação, transações e integridade referencial.
 
  ### Contribuições Pessoais
@@ -151,6 +159,8 @@ Responsável por desenvolver consultas SQL que permitiu a exibição do tamanho 
 Por meio da sua consulta, os usuários da aplicação puderam obter informações precisas sobre o tamanho de cada tabela individualmente, permitindo uma melhor gestão do espaço em disco utilizado pelo sistema de gerenciamento de banco de dados.
 
 <details>
+
+```	
 public static void ExibirTamanhoTabelas(Connection con) {
 		String sql = "SELECT esquema, tabela,\r\n"
 				+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
@@ -179,6 +189,7 @@ public static void ExibirTamanhoTabelas(Connection con) {
 			
 		}
 	}
+```
 </details>
 
 Consulta para retornar o tamanhao do banco de dados
