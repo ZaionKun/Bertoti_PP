@@ -23,7 +23,7 @@
   # Projeto 1: 1º Semestre de 2021
   
   ### Parceiro Acadêmico
-  A definir
+  FATEC São José dos Campos - Prof. Jessen Vidal
   
   ### Descrição do Projeto
   
