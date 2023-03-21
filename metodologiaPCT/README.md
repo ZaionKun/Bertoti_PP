@@ -412,7 +412,7 @@ Spring Boot é um framework de código aberto para construção de aplicações 
 Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
 
 ## Contribuições Pessoais 
-Responsável por criar o template inicial do vue com as configurações adequadas para o projeto. Autor das configurações para receber as requisições do back-end e responsável de realizar alguns métodos como a listagem dos chamados de cliente, suporte
+Responsável por criar o template inicial do VueJs com as configurações adequadas para o projeto. Autor das configurações para receber as requisições do back-end e responsável de realizar algumas funcionalidades como a listagem dos chamados de cliente, suporte, equipamento e serviços, dando algumas funcionalidades diferentes, permitindo visualizar os chamados em aberto, andamento e fechado.
 
 Listagem de chamado dos clientes
 <details>
@@ -772,6 +772,8 @@ Criação da tela de login com as requisições do back-end usando token
    ```
 </details>
 
+  ## Aprendizados Efetivos HS
+  Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
 
 
 
