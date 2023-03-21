@@ -399,7 +399,7 @@ O processo de estudo e implementação do código em testes práticos necessitou
   Subiter
   
  ### Descrição do Projeto	
-  Temos um desafio de sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos  	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
+ Temos um desafio de sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos    	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
 
 ### Tecnologias adotadas na solução
 ###Oracle Cloud
@@ -646,6 +646,7 @@ Listagem de chamado dos suportes
 Criação da tela de login com as requisições do back-end usando token
 
 <details>
+	
    ```js
 	<template>
 	  <div>
@@ -772,8 +773,9 @@ Criação da tela de login com as requisições do back-end usando token
    ```
 </details>
 
-  ## Aprendizados Efetivos HS
-  Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
+## Aprendizados Efetivos HS
+	
+Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
 
 
 
