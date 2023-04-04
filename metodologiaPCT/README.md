@@ -20,6 +20,10 @@
   VBA foi a primeira linguagem que estudei, ainda antes da graduação. Mesmo nunca tendo atuado profissionalmente com VBA, realizei diversos projetos pessoais
   e isso me ajudou na minha carreira pessoal. É uma linguagem que me sinto confortavél em desenvolver qualquer coisa
   
+  <details>
+  
+  <summary>Projeto 1</summary>
+  
   # Projeto 1: 1º Semestre de 2021
   
   ### Parceiro Acadêmico
@@ -132,6 +136,12 @@ Com essa funcionalidade, o usuário pode acessar facilmente informações atuali
  Eu aprendi a desenvolver em Python utilizando APIs, o que me permitiu criar soluções tecnológicas que interagem com serviços externos de maneira eficiente e confiável. API (Interface de Programação de Aplicativos) é um conjunto de rotinas, protocolos e ferramentas para construir software e aplicações que interagem com outros serviços. É uma maneira eficaz de integrar diferentes sistemas e plataformas, permitindo que desenvolvedores possam construir soluções tecnológicas complexas de maneira mais simples. Durante o meu aprendizado, tive a oportunidade de trabalhar com APIs disponíveis na web, como APIs de serviços financeiros, APIs de serviços de redes sociais, dentre outras. Aprendi a usar bibliotecas Python, como requests e urllib, para fazer requisições HTTP às APIs, processar as respostas e extrair as informações relevantes.Ao trabalhar com APIs em Python, pude desenvolver projetos que se beneficiam da integração com serviços externos, como por exemplo, o assistente virtual financeiro que descrevemos anteriormente. Foi possível acessar informações atualizadas de serviços financeiros, como cotações de ações e índices, e incorporá-las ao sistema do assistente virtual para fornecer recomendações personalizadas ao usuário.
 A capacidade de integrar diferentes serviços em uma solução tecnológica é uma habilidade valiosa para qualquer desenvolvedor, e o conhecimento em Python e APIs é uma combinação poderosa para o desenvolvimento de soluções inovadoras e eficientes.
 
+</details>
+
+<details>
+
+<summary>Projeto 2</summary>
+
   # Projeto 2: 2º Semestre de 2021
   
   ### Parceiro Acadêmico
@@ -217,6 +227,12 @@ public static void ExibirSelectTamanhoBanco(Connection con) {
 Durante o desenvolvimento do projeto, tive a oportunidade de aprender a utilizar um sistema de gerenciamento de banco de dados (SGBDs), a fim de coletar e manipular informações para a geração de séries históricas e métricas importantes para os usuários da aplicação.
 Com essa experiência, aprimorei minhas habilidades em manipulação de dados em ambiente de banco de dados, desenvolvendo consultas SQL e outros comandos para obter informações específicas e relevantes. Além disso, também tive a oportunidade de conhecer ferramentas de gerenciamento de banco de dados, como o PostgreSQL, e aprender a utilizá-las de maneira efetiva. Com isso contribui para o desenvolvimento da aplicação, criando consultas e rotinas que permitiram a coleta de métricas importantes, tais como o tamanho das tabelas e do banco de dados
  
+</details>
+
+<details>
+
+<summary>Projeto 3</summary>
+
   # Projeto 3: 3º Semestre de 2022
   
   ### Parceiro Acadêmico
@@ -350,7 +366,7 @@ Com a parte de cadastrar um novo produto, foi necessário mostrar os produtos em
 
 Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
 Então peguei a lista de promoções, com o valor que foi dado pelo usuário, e atribui o valor com o tipo da promoção
-  
+
 <details>
   
     ```js
@@ -403,7 +419,12 @@ O processo de estudo e implementação do código em testes práticos necessitou
 
   - Desenvolvimento de scripts em Angular: sei fazer com autonomia 
   
-  
+ </details>
+ 
+<details>
+
+<summary>Projeto 4</summary>
+
   # Projeto 4: 4º Semestre de 2022
   
  ### Parceiro Acadêmico
@@ -788,5 +809,4 @@ Criação da tela de login com as requisições do back-end usando token
 	
 Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
 
-
-
+</details>
