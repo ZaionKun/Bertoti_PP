@@ -44,6 +44,8 @@ Essa abordagem foi implementada no código Python do assistente virtual financei
 
 <details>
 	
+<summary>Descobrindo seu perfil</summary>
+
 ```py
 
 def perfil():
@@ -109,6 +111,8 @@ Com essa funcionalidade, o usuário pode acessar facilmente informações atuali
 
 <details>
 
+<summary>Buscando código de ação</summary>
+
   ```py
 	def codigo():
 	    sai_som('De qual empresa deseja saber o código de ação? ')
@@ -159,67 +163,40 @@ Java é uma linguagem de programação amplamente utilizada no desenvolvimento d
 
 Na aplicação em questão, a escolha da linguagem Java pode ter sido motivada por várias razões. Uma delas é a sua ampla disponibilidade de bibliotecas e frameworks para o desenvolvimento de aplicativos de coleta de dados e análise de métricas, o que pode ter acelerado o processo de desenvolvimento da aplicação.
  
-###PostgreSQL
+### PostgreSQL
 	
 a tecnologia PostgreSQL foi utilizada como o sistema gerenciador de banco de dados para armazenar e gerenciar as métricas coletadas pelos servidores remotos. O PostgreSQL é uma opção popular e avançada de sistema de gerenciamento de banco de dados relacional de código aberto, que oferece recursos avançados, incluindo suporte a SQL avançado, extensibilidade, replicação, transações e integridade referencial.
 
  ### Contribuições Pessoais
-Responsável por desenvolver consultas SQL que permitiu a exibição do tamanho das tabelas e do banco de dados na aplicação. Esses itens foi identificado como uma das "dores" do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
+Responsável por desenvolver consultas SQL que permitiu a exibição do tamanho das tabelas e do banco de dados na aplicação. Esses itens foi identificado como uma das principais do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
 
 Por meio da sua consulta, os usuários da aplicação puderam obter informações precisas sobre o tamanho de cada tabela individualmente, permitindo uma melhor gestão do espaço em disco utilizado pelo sistema de gerenciamento de banco de dados.
 
 <details>
 
-```	
-public static void ExibirTamanhoTabelas(Connection con) {
-		String sql = "SELECT esquema, tabela,\r\n"
-				+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
-				+ "       pg_size_pretty(pg_total_relation_size(esq_tab)) AS tamanho_total\r\n"
-				+ "  FROM (SELECT tablename AS tabela,\r\n"
-				+ "               schemaname AS esquema,\r\n"
-				+ "               schemaname||'.'||tablename AS esq_tab\r\n"
-				+ "          FROM pg_catalog.pg_tables\r\n"
-				+ "         WHERE schemaname NOT\r\n"
-				+ "            IN ('pg_catalog', 'information_schema', 'pg_toast') ) AS x\r\n"
-				+ " ORDER BY pg_total_relation_size(esq_tab) DESC;";
+<summary>Consulta SQL para retornar o tamanho da tabela</summary>
+
+```
+
+	String sql = "SELECT esquema, tabela,\r\n"
+		+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
+		+ "       pg_size_pretty(pg_total_relation_size(esq_tab)) AS tamanho_total\r\n"
+		+ "  FROM (SELECT tablename AS tabela,\r\n"
+		+ "               schemaname AS esquema,\r\n"
+		+ "               schemaname||'.'||tablename AS esq_tab\r\n"
+		+ "          FROM pg_catalog.pg_tables\r\n"
+		+ "         WHERE schemaname NOT\r\n"
+		+ "            IN ('pg_catalog', 'information_schema', 'pg_toast') ) AS x\r\n"
+		+ " ORDER BY pg_total_relation_size(esq_tab) DESC;";
 		
-		try {
-			PreparedStatement pesquisa = con.prepareStatement(sql);
-			ResultSet result = pesquisa.executeQuery();
-			
-			while(result.next()) {
-				System.out.println("==========================================================");
-				System.out.println("NOME: " + result.getString("tabela") + "\n");
-				System.out.println("TAMANHO: "+result.getString("tamanho") + "\n");
-				System.out.println("TAMANHO TOTAL: " + result.getString("tamanho_total")); //Tempo somado de todas as selects
-				System.out.println("==========================================================");
-			}
-		}
-		catch(Exception e) {
-			
-		}
-	}
 ```
 </details>
 
-Consulta para retornar o tamanhao do banco de dados
-
 <details>
-public static void ExibirSelectTamanhoBanco(Connection con) {
-		String sql = "SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;";
-		
-		try {
-			PreparedStatement pesquisa = con.prepareStatement(sql);
-			ResultSet result = pesquisa.executeQuery();
-			
-			while(result.next()) {
-				System.out.println(result.getString("datname") + " " + result.getString("size"));
-			}
-		}
-		catch(Exception e) {
-			
-		}
-	}
+
+<summary>Consulta para retornar o tamanhao do banco de dados</summary>
+
+	String sql = "SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;";
 
 </details>
 
@@ -261,22 +238,17 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
   SQLite é uma biblioteca em linguagem C que implementa um banco de dados SQL embutido. Programas que usam a biblioteca SQLite podem ter acesso a banco de dados SQL 
   sem executar um processo SGBD separado
   
-<h1>
-
-  ## Contribuições Pessoais 
-  Responsável por desenvolver requisições na tela de cadastro de produto, onde o usuário inseria
-  dados nos campos da tela e com isso a aplicação passava as informações pro back-end e com isso a aplicação pegava a resposta dos mesmos métodos do back-end e mostrava na tela pro usuário. Nessa parte o usuário precisava preencher os seguintes campos para cadastrar um novo produto:
-  - Nome
-  - Preço
-  - Descrição
-  - Categoria
-
-Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas. Chamando o módulo HTTP para com solicitações e respostas AJAX.
+  ### Contribuições Pessoais 
+  
+  Responsável por realizar integração do back-end com o front-end, enviando e recebendo requisções entre eles e criando as telas para melhor UX do cliente. 
+  
+  Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas, chamando o módulo HTTP para com solicitações e respostas AJAX.
+  Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do  
+  produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
   
 <details>
 
-  Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do  
-  produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
+<summary>Observable</summary>
 
   ```js
 
@@ -306,104 +278,10 @@ Por padrão do angular, utilizei o Observable para lidar com a variedade de oper
   
 </details>
 
-  </h1>
-  
-Com a parte de cadastrar um novo produto, foi necessário mostrar os produtos em uma lista, para melhor controle do usuário, sendo assim, mostrando opções de edição e remoção de cada produto  
-  
 <details>
 
-  ## Código para listagem  de produto com as funcionalidades citadas, utilizando o método GET para retornar os produtos registrados no sistema e com isso pegando 
-  seu identificador para fazer as funcionalidades, como editar e excluir.
+<summary>Colocar as telas feitas aqui</summary>
 
-  ```js
-  
-  export class ProductsListComponent implements OnInit {
-
-  products : Product[] = []
-  id: number;
-  lista : number[] = [1,2,3,4,5];
-  selectedProduct : Product;
-  success : string;
-  failed : string;
-
-  constructor(private service: ProductsService) { }
-
-  ngOnInit(): void {
-    this.service
-      .getProducts()
-      .subscribe( res => this.products = res )
-  }
-
-  addProduct(product : Product){
-
-    if(product.quantidade != null){ 
-      Cart.products.push(product);
-    }
-    
-    this.ngOnInit();
-  }
-
-  preDelete(product : Product){
-    this.selectedProduct = product;
-
-  }
-
-  deleteProduct(){
-    this.service.delete(this.selectedProduct)
-    .subscribe(
-      res => {this.success = 'Product successfully deleted',
-      this.ngOnInit();
-    },
-      erro => this.failed = 'There was an error deleting the Product'
-      )
-
-  }
-  }
-
-  ```
-
-</details>
-
-Com essa parte finalizada, fiz o mesmo para criar uma nova promoção, para conseguirmos atribuir essa promoção ao um produto. O objetivo foi criar promoções flexíveis de uma forma interativa, deixando o usuário ditar as regras da promoção e podendo alterar sua regra editando ou até mesmo deletando e criando uma nova.
-Então peguei a lista de promoções, com o valor que foi dado pelo usuário, e atribui o valor com o tipo da promoção
-
-<details>
-  
-    ```js
-
-    @Output() productsEmitter = new EventEmitter();
-    productPromotion : ProductPromotion
-    success: boolean = false;
-
-    errors: String[];
-    id : number;
-    lista_promotion : String[] = ['PRODUCT','TOTAL','PRODUCT_QUANTITY'];
-    lista_type: String[] = ['VALUE', 'PERCENTAGE'];
-    p1: boolean = true;
-    p2: boolean = true;
-    p3: boolean = true;
-    p4: boolean = true;
-    receivePromotion : string = "teste"; 
-
-
-      pegaValor(){ // Função que foi chamada
-        this.receivePromotion = this.productPromotion.receivePromotion;
-        if(this.receivePromotion == 'PRODUCT'){
-          this.p1 =false;
-        }
-        if(this.receivePromotion == 'PRODUCT_QUANTITY'){
-          this.p2 =false;
-          this.p1 =false;
-        }
-        if(this.receivePromotion == 'TOTAL'){
-          this.productPromotion.product=1;
-          this.p3 =false;
-        }
-
-      }
-
-    ```
- 
 </details>
   
 O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
@@ -430,379 +308,32 @@ O processo de estudo e implementação do código em testes práticos necessitou
  ### Parceiro Acadêmico
   Subiter
   
- ### Descrição do Projeto	
+ ### Descrição do Projeto
+ 
  Temos um desafio de sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos    	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
 
 ### Tecnologias adotadas na solução
-###Oracle Cloud
+
+### Oracle Cloud
+
 O Oracle Cloud é uma tecnologia de banco de dados em nuvem desenvolvida pela Oracle Corporation, que oferece diversas vantagens para empresas que precisam de alta disponibilidade, escalabilidade e segurança em seus sistemas de gerenciamento de dados.
 
 ### Spring boot
+
 Spring Boot é um framework de código aberto para construção de aplicações em Java. Ele é projetado para simplificar o desenvolvimento de aplicativos com base em Spring Framework, fornecendo um conjunto de recursos e bibliotecas pré-configurados que permitem que os desenvolvedores criem aplicativos com rapidez e facilidade.
 
 ### Vue js
+
 Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
 
-## Contribuições Pessoais 
-Responsável por criar o template inicial do VueJs com as configurações adequadas para o projeto. Autor das configurações para receber as requisições do back-end e responsável de realizar algumas funcionalidades como a listagem dos chamados de cliente, suporte, equipamento e serviços, dando algumas funcionalidades diferentes, permitindo visualizar os chamados em aberto, andamento e fechado.
+### Contribuições Pessoais 
 
-Listagem de chamado dos clientes
-<details>
-  
-    ```js
-     <script>
-	import Chamado_Cliente from "../services/chamado_cliente";
-	import Vue from 'vue'
-	import { BootstrapVue } from 'bootstrap-vue'
-	import 'bootstrap/dist/css/bootstrap.css'
-	import 'bootstrap-vue/dist/bootstrap-vue.css'
-	Vue.use(BootstrapVue)
-	export default {
-	  name: "ChamadoClienteView",
-	  data() {
-	    return {
-	      chamado_clientes: [],
-	      chamado_cliente: {
-		criticidadeChamado: "",
-		dataChamado: "",
-		assuntoChamado:"",
-		descricaoChamado: "",
-		situacaoChamado: "F",
-		solucaoChamado: "",
-	      },
-	      solucao: ""
-	    };
-	  },
-	  mounted() {
-	    this.listar();
-	  },
-	  methods: {
-	    listar() {
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      Chamado_Cliente.listar(token).then((resposta) => {
-		const resp = resposta.data;
-		const result = resp.filter(resp => resp.usuarioChamado.name === "Victor");
-		this.chamado_clientes = result;
-	      });
-	    },
-	    deletar(id) {
-	      Chamado_Cliente.deletar(id).then(() => {
-		this.listar();
-		alert("Deletado com Sucesso");
-	      });
-	    },
-	    finalizar(chamado_cliente) {
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      this.chamado_cliente.criticidadeChamado = chamado_cliente.criticidadeChamado;
-	      this.chamado_cliente.dataChamado = chamado_cliente.dataChamado;
-	      this.chamado_cliente.assuntoChamado = chamado_cliente.assuntoChamado;
-	      this.chamado_cliente.descricaoChamado = chamado_cliente.descricaoChamado;
-	      this.chamado_cliente.solucaoChamado = chamado_cliente.solucaoChamado;
-	      Chamado_Cliente.atualizar(this.chamado_cliente, chamado_cliente.id, token).then(()=>{
-		  alert('Atualizado com sucesso!');
-		  this.limparFormularios();
-		  this.listar();
-		})
-	    },
-	    popularModal(solucao) {
-	      this.solucao = solucao;
-	    },
-	    salvar() {
-	      console.log(this.chamado_cliente)
-	      Chamado_Cliente.atualizar(this.chamado_cliente).then(() => {
-		alert('Atualizado com sucesso!');
-		this.limparFormularios();
-		this.listar();
-	      })
-	    },
-	    limparFormularios() {
-	      this.chamado_cliente.usuarioChamado = "";
-	      this.chamado_cliente.criticidadeChamado = "";
-	      this.chamado_cliente.descricaoChamado = "";
-	      this.chamado_cliente.situacaoChamado = "";
-	    }
-	  },
-	};
-	</script>
-    
-    ```
-</details>
-
-Listagem de chamado dos suportes
+Responsável por criar o template inicial do VueJs com as configurações adequadas para o projeto. Autor das comunicações entre camadas e responsável de realizar algumas funcionalidades para melhorar a UX.
 
 <details>
-  
-    ```js
-    <script>
-	import chamado from "../services/chamado_suporte.js";
-	import DatePicker from 'vue2-datepicker';
-	import 'vue2-datepicker/index.css';
-	import Vue from 'vue'
-	import { BootstrapVue } from 'bootstrap-vue'
-	import 'bootstrap/dist/css/bootstrap.css'
-	import 'bootstrap-vue/dist/bootstrap-vue.css'
-	Vue.use(BootstrapVue)
-	export default {
-	  name: "ChamadoSuporteView",
-	  components: { DatePicker },
-	  data() {
-	    return {
-	      chamados: [],
-	      equipamentos:[],
-	      agendamento: {
-		chamadoAgendamento: {
-		  id:""
-		},
-		dataHora:"",
-		pessoas : "",
-		descricao:"",
-		localAtendimento:"",
-		numerosSerie:""
-	      },
-	      chamado:{},
-	      chamadoDto:{
-		criticidadeChamado:"",
-		dataChamado:"",
-		assuntoChamado:"",
-		descricaoChamado:"",
-		situacaoChamado:"",
-		solucaoChamado:""
-	      },
-	      servico: {
-		cep: "",
-		numero: "",
-		inclusao: null,
-		descricao: "",
-		empresa: {
-		  id: ""
-		},
-		tipoServico: {
-		  id: 1
-		}
-	      },
-	      resultadoCEP: ""
-	    };
-	  },
-	  mounted() {
-	    this.listar();
-	    this.listarEquipamentosDisponiveis();
-	  },
-	  methods: {
-	    listarEquipamentosDisponiveis() {
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      chamado.listarEquipamentosDisponiveis(token).then((resposta) => {
-		this.equipamentos = resposta.data;
-	      });
-	    },
-	    listar() {
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      chamado.listar(token).then((resposta) => {
-		this.chamados = resposta.data;
-	      });
-	    },
-	    populaChamado(chamado){
-	      this.chamado = chamado
-	    },
-	    salvarAgendamento(){
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      this.formatarData();
 
-	      this.agendamento.chamadoAgendamento.id = this.chamado.id
-	      chamado.salvarAgendamento(this.agendamento, token).then(() => {
-		alert('Atualizado com sucesso!');
-		this.limparFormulariosAgendamento();
-	      });
-	      this.listar
-	    },
-	    formatarData(){
-		let data = this.agendamento.dataHora.substring(0, 10);
-		let hora = this.agendamento.dataHora.substring(11, 19);
-		this.agendamento.dataHora = data + "T" + hora + ".0000000"
+<summary>Imagens e código do template</summary>
 
-	    },
-	    deletar(id) {
-	      chamado.deletar(id).then(() => {
-		this.listar();
-		alert("Deletado com Sucesso");
-	      });
-	    },
-	    editar(chamado) {
-	      this.chamado = chamado;
-	      this.chamado.situacaoChamado = "Em andamento";
-	      this.chamado.mostrarAgendar = true;
-	      document.getElementById("btnAceitar").style.display = "none";
-	    },
-	    salvar(){
-	      let token = JSON.parse(localStorage.getItem("authUser")).access_token;
-	      this.chamadoDto.criticidadeChamado = this.chamado.criticidadeChamado
-	      this.chamadoDto.dataChamado = this.chamado.dataChamado
-	      this.chamadoDto.assuntoChamado = this.chamado.assuntoChamado
-	      this.chamadoDto.descricaoChamado = this.chamado.descricaoChamado
-	      this.chamadoDto.situacaoChamado = this.chamado.situacaoChamado
-	      this.chamadoDto.solucaoChamado = this.chamado.solucaoChamado
-	      chamado.atualizar(this.chamadoDto, this.chamado.id, token).then(()=>{
-		alert('Atualizado com sucesso!');
-		this.limparFormularios();
-		this.listar();
-	      })
-	    },
-	    encerrar(chamado) {
-	      this.chamado = chamado;
-	      var data = new Date();
-	      data = data.toLocaleDateString();
-	      this.chamado.encerramentoChamado = data;
-	      this.chamado.situacaoChamado = "Encerrado";
-	      this.salvar();
-	    },
-	    limparFormularios() {
-	      this.chamado.solucaoChamado = "";
-	      this.chamado.situacaoChamado = "";
-	    },
-	    limparFormulariosAgendamento() {
-	      this.servico.cep = "";
-	      this.servico.numero = "";
-	      this.resultadoCEP.uf = "";
-	      this.resultadoCEP.localidade = "";
-	      this.resultadoCEP.logradouro = "";
-	      this.resultadoCEP.bairro = "";
-	      this.data = "";
-	      this.servico.descricao = "";
-	    },
-	  },
-	};
-	</script>
-
-    ```
-</details>
-
-Criação da tela de login com as requisições do back-end usando token
-
-<details>
-	
-   ```js
-	<template>
-	  <div>
-
-	    <head>
-	      <meta charset="utf-8">
-	    </head>
-
-	    <body>
-	      <form class="box">
-		<center><img src="../assets/logo.png" alt="" width="200" height="110" /></center>
-
-		<input type="text" name="" id="email" placeholder="E-mail" v-model="form.email">
-
-		<input type="password" name="" id="password" placeholder="Password" v-model="form.senha">
-
-		<button id="btn" type="button" class="btn btn-primary" @click="login">
-		  Entrar
-		</button>
-	      </form>
-	    </body>
-	  </div>
-	</template>
-
-	<script>
-	import axios from "axios";
-	export default {
-	  data() {
-	    return {
-	      form: {
-		email: "",
-		senha: "",
-	      },
-	      dados: ""
-	    };
-	  },
-	  methods: {
-	    login() {
-	      var qs = require("qs");
-	      let self = this
-	      axios
-		.post(
-		  "http://localhost:8080/auth/login",
-		  qs.stringify({ email: this.form.email, password: this.form.senha }),
-		  {
-		    headers: {
-		      "Content-Type": "application/x-www-form-urlencoded",
-		    },
-		  }
-		)
-		.then(function (response) {
-		  localStorage.setItem('authUser', JSON.stringify(response.data))
-		  self.$router.push({ name: 'Home' })
-		});
-	    },
-	  },
-	};
-	</script>
-
-	<style scoped>
-	body {
-	  margin: 0;
-	  padding: 0;
-	  font-family: Arial, Helvetica, sans-serif;
-	  background: radial-gradient(#e63808, #f3eb00);
-	  height: 100vh;
-	  overflow: hidden;
-	}
-	.box {
-	  width: 400px;
-	  padding: 40px;
-	  position: absolute;
-	  top: 50%;
-	  left: 50%;
-	  transform: translate(-50%, -50%);
-	  background: #fcfcfc;
-	  text-align: center;
-	  border-radius: 25px;
-	}
-	.box h1 {
-	  color: white;
-	  text-transform: uppercase;
-	  font-weight: 500;
-	}
-	.box input[type="text"],
-	.box input[type="password"] {
-	  border: 0;
-	  background: none;
-	  display: block;
-	  margin: 20px auto;
-	  text-align: center;
-	  border: 2px solid #e63808;
-	  padding: 14px 10px;
-	  width: 200px;
-	  outline: none;
-	  color: rgb(0, 0, 0);
-	  border-radius: 24px;
-	  transition: 0.25s;
-	}
-	.box input[type="text"]:focus,
-	.box input[type="password"]:focus {
-	  width: 280px;
-	  border-color: #f3eb00;
-	}
-	.box button[type="button"] {
-	  border: 0;
-	  background: none;
-	  display: block;
-	  margin: 20px auto;
-	  text-align: center;
-	  border: 2px solid #f3eb00;
-	  padding: 14px 40px;
-	  outline: none;
-	  color: rgb(3, 3, 3);
-	  border-radius: 24px;
-	  transition: 0.25s;
-	  cursor: pointer;
-	}
-	.box button[type="button"]:hover {
-	  background: #2ecc71;
-	  border-color: #2ecc71
-	}
-	</style>
-   ```
 </details>
 
 ## Aprendizados Efetivos HS
