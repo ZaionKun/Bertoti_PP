@@ -292,7 +292,7 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
 
 <summary>Tela de listagem de produtos</summary>
 
- <img src="" width="600" height="300"/>
+ <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/list_products.png" width="600" height="300"/>
  
  Com a finalidade de agilizar o gerenciamento dos produtos no sistema, implementei uma tela de listagem que possibilita a adição de promoções, a edição e exclusão  dos produtos cadastrados.
 
@@ -302,7 +302,7 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
 
 <summary>Tela de promoção</summary>
 
- <img src="" width="600" height="300"/>
+ <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/promotion.png" width="600" height="300"/>
  
  Tendo os produtos, era necessário ter a opção para inserir uma promoção neles, dando alguns tipos de promoções 
 
@@ -312,7 +312,7 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
 
 <summary>Tela de carrinho de compras</summary>
 
- <img src="" width="600" height="300"/>
+ <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/carrinho%20de%20compras.png" width="600" height="300"/>
  
 Desenvolvi uma tela para refletir no carrinho de compras do usuário os produtos registrados juntamente com suas promoções, visando uma melhor experiência de compra
 
