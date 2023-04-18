@@ -280,13 +280,45 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
 
 <details>
 
-<summary>Colocar as telas feitas aqui</summary>
+<summary>Tela de cadastro de produtos</summary>
+
+ <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/products.png" width="600" height="300"/>
+ 
+ Esta tela foi desenvolvida para permitir o registro de novos produtos no sistema. Nela, é possível preencher informações como nome, descrição, categoria e preço facilitando a inclusão e gerenciamento de novos itens no sistema.
+
+</details>
+
+<details>
+
+<summary>Tela de listagem de produtos</summary>
+
+ <img src="" width="600" height="300"/>
+ 
+ Com a finalidade de agilizar o gerenciamento dos produtos no sistema, implementei uma tela de listagem que possibilita a adição de promoções, a edição e exclusão  dos produtos cadastrados.
+
+</details>
+
+<details>
+
+<summary>Tela de promoção</summary>
+
+ <img src="" width="600" height="300"/>
+ 
+ Tendo os produtos, era necessário ter a opção para inserir uma promoção neles, dando alguns tipos de promoções 
+
+</details>
+
+<details>
+
+<summary>Tela de carrinho de compras</summary>
+
+ <img src="" width="600" height="300"/>
+ 
+Desenvolvi uma tela para refletir no carrinho de compras do usuário os produtos registrados juntamente com suas promoções, visando uma melhor experiência de compra
 
 </details>
   
 O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
-
-
 
   ## Aprendizados Efetivos HS
   
