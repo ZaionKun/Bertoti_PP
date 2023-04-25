@@ -360,13 +360,143 @@ Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedor
 
 ### Contribuições Pessoais 
 
-Responsável por criar o template inicial do VueJs com as configurações adequadas para o projeto. Autor das comunicações entre camadas e responsável de realizar algumas funcionalidades para melhorar a UX.
+Responsável por criar o template inicial do VueJs com as configurações adequadas para o projeto. Autor das comunicações entre camadas e responsável de realizar algumas funcionalidades para melhorar a UX e dockerizando o front-end.
 
 <details>
 
-<summary>Imagens e código do template</summary>
+<summary>Docker File</summary>
+
+```yml
+FROM node:lts-alpine
+
+RUN npm install -g http-server
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 4200
+
+CMD [ "http-server", "dist" ]	
+
+```
+
+Esses são os comandos para criar uma imagem para a execução do projeto.Ele instala as dependências do projeto, constrói a aplicação e define um comando para executar o servidor http-server e servir a pasta "dist" na porta 4200.
 
 </details>
+
+<details>
+
+<summary>Tela de login</summary>
+
+<img src="" width="600" height="300"/>
+
+Utilizei css para desevolver as cores da tela e deixando os inputs com movimento ao escrever.
+
+```css
+
+<style scoped>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: radial-gradient(#e63808, #f3eb00);
+  height: 100vh;
+  overflow: hidden;
+}
+.box {
+  width: 400px;
+  padding: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fcfcfc;
+  text-align: center;
+  border-radius: 25px;
+}
+.box h1 {
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.box input[type="text"],
+.box input[type="password"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #e63808;
+  padding: 14px 10px;
+  width: 200px;
+  outline: none;
+  color: rgb(0, 0, 0);
+  border-radius: 24px;
+  transition: 0.25s;
+}
+.box input[type="text"]:focus,
+.box input[type="password"]:focus {
+  width: 280px;
+  border-color: #f3eb00;
+}
+.box button[type="button"] {
+  border: 0;
+  background: none;
+  display: block;
+  margin: 20px auto;
+  text-align: center;
+  border: 2px solid #f3eb00;
+  padding: 14px 40px;
+  outline: none;
+  color: rgb(3, 3, 3);
+  border-radius: 24px;
+  transition: 0.25s;
+  cursor: pointer;
+}
+.box button[type="button"]:hover {
+  background: #2ecc71;
+  border-color: #2ecc71
+}
+</style>
+
+```
+
+</details>
+
+<details>
+
+<summary>Token</summary>
+
+Foi necessário criar token ao fazer o login para questões de segurança do sistema, no front-end realizei a passagem do token em todas as funções, segue um exemplo abaixo:
+
+```js
+
+export default{
+    listar:(token) =>{
+        return http.get('/servico', {headers:{Authorization: `Bearer ${token}`}})
+    },
+
+    salvar:(servico, token)=>{
+        return http.post('/servico', servico, {headers:{Authorization: `Bearer ${token}`}})
+    },
+
+    deletar:(id, token)=>{
+        return http.delete('/servico/' + id, {headers:{Authorization: `Bearer ${token}`}})
+    },
+
+    atualizar:(servico, token)=>{
+        return http.put('/servico/' + servico.id , servico, {headers:{Authorization: `Bearer ${token}`}})
+    }
+}
+
+```
 
 ## Aprendizados Efetivos HS
 	
