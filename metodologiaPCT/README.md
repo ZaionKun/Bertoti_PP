@@ -38,9 +38,8 @@ Este projeto tem como objetivo criar um assistente virtual financeiro para ajuda
   Neste projeto de assistente virtual financeiro, a tecnologia Python foi utilizada como linguagem de programação para a criação do software. Python é uma linguagem de programação de alto nível, com sintaxe simples e de fácil leitura, que é amplamente utilizada no desenvolvimento de soluções tecnológicas. É uma escolha popular para desenvolvimento de assistentes virtuais, pois tem uma grande variedade de bibliotecas disponíveis para processamento de linguagem natural, reconhecimento de voz, acesso a APIs de serviços financeiros, dentre outras funcionalidades.
   
   ### Contribuições Pessoais
-  O método de perfil de investidor é uma técnica usada no mercado financeiro para classificar investidores de acordo com seu apetite ao risco. Para o projeto do assistente virtual financeiro, desenvolvi uma abordagem para determinar o perfil de investidor do usuário com base em perguntas-chave que ajudam a avaliar o grau de aversão ou tolerância ao risco de cada indivíduo.
-
-Essa abordagem foi implementada no código Python do assistente virtual financeiro, permitindo que o sistema avalie as respostas do usuário às perguntas e determine o perfil de investidor correspondente. Com base nessa informação, o assistente virtual pode fornecer sugestões de investimento adequadas ao perfil de risco do usuário e seus objetivos financeiros
+  
+Minhas contribuições para este projeto pode ajudar os usuários a tomar decisões informadas sobre finanças pessoais e investimentos, tornando esses assuntos mais acessíveis e compreensíveis para todos.
 
 <details>
 	
@@ -103,11 +102,13 @@ def perfil():
         sai_som(f'Você é um investidor Experiente pois sua pontuação foi de {result} pontos!')
 
  ```
+ 
+Esse é um código consiste em uma função chamada perfil(). Ela tem como objetivo realizar uma espécie de "questionário" para determinar o perfil do investidor, a partir de algumas perguntas relacionadas ao comportamento financeiro e ao conhecimento em investimentos.
+As perguntas são feitas por meio de uma mensagem sonora, seguida de uma pergunta apresentada na tela, onde o usuário deve responder digitando "sim" ou "não". As respostas são armazenadas em variáveis, que são avaliadas em um bloco de decisão condicional.
+Cada resposta "sim" adiciona 2 pontos à pontuação total, enquanto cada resposta "não" adiciona apenas 1 ponto. Depois de avaliar todas as respostas, o código determina o perfil do investidor com base na pontuação total.
+Se a pontuação for menor que 8, o investidor é classificado como "Iniciante". Se a pontuação estiver entre 8 e 9, o investidor é classificado como "Pleno". Se a pontuação for maior ou igual a 10, o investidor é classificado como "Experiente".
         
 </details>
-
-O usuário pode fornecer ao assistente virtual o ticker da empresa desejada e, com base nessas informações, o sistema irá buscar o código de ação correspondente.
-Com essa funcionalidade, o usuário pode acessar facilmente informações atualizadas sobre empresas que deseja investir, tornando mais fácil e rápido tomar decisões financeiras informadas.
 
 <details>
 
@@ -134,6 +135,68 @@ Com essa funcionalidade, o usuário pode acessar facilmente informações atuali
 	    elif cod_acao == ('FACEBOOK'):
 		sai_som('O código de ação dessa empresa é: FB')
   ```
+  
+Este código contém uma função chamada codigo(), que solicita ao usuário o nome da empresa da qual ele deseja obter o código de ação. Em seguida, é feita uma verificação condicional para determinar qual é a empresa selecionada e, em seguida, é exibido o código de ação correspondente.
+Cada if é verificado em ordem e, se uma correspondência for encontrada, o código correspondente é exibido e nenhum outro if será verificado.
+É importante notar que o código pressupõe que o usuário digitará o nome da empresa corretamente, sem erros de digitação ou grafia. Se o usuário digitar o nome da empresa de maneira diferente do que foi previsto, o código não será capaz de reconhecer e retornar o código de ação correto.
+
+</details>
+
+<details>
+
+<summary>Notícias</summary>
+
+```py
+
+from config import sai_som
+import requests
+from bs4 import BeautifulSoup
+#Site utilizado: https://www.infomoney.com.br/ (Podendo haver expansão)
+response = requests.get('https://www.infomoney.com.br/')
+conteudo = response.content
+site = BeautifulSoup(conteudo, 'html.parser')
+
+#Html da notícia
+noticias = site.find('div', attrs={'class': 'col-12 col-lg-6'})
+noticias2 = site.find('div', attrs={'class': 'col-12 col-lg-6 px-0 px-lg-3 mb-3 mb-lg-0'})
+
+def informacoes():
+    #Notícia 1:
+    atributo1 = noticias.find('div', attrs={'class': 'row m-0 border-t-mobile py-3 py-lg-0 pb-lg-3'})
+    titulo1 = atributo1.find('span', attrs={'class': 'hl-title hl-title-4'})
+    resposta1 = titulo1.text
+    sai_som(resposta1)
+    print()
+
+     #Notícia 2
+    atributo2 = noticias.find('div', attrs={'class': 'row m-0 py-3 border-t'})
+    titulo2 = atributo2.find('span', attrs={'class': 'hl-title hl-title-4'})
+    resposta2 = titulo2.text
+    sai_som(resposta2 )
+    print()
+
+    #Notícia 3
+    atributo3 = noticias2.find('div', attrs={'class': 'row m-0 mx-3 mx-lg-0 mt-3 position-relative'})
+    titulo3 = atributo3.find('span', attrs={'class': 'hl-title hl-title-8'})
+    resposta3 = titulo3.text[15:]
+    sai_som(resposta3 )
+    print()
+    #row m-0 mx-3 mx-lg-0 mt-3 mt-lg-2 position-relative
+
+    #Notícia 4
+    atributo4 = noticias2.find('div', attrs={'class': 'row m-0 mx-3 mx-lg-0 mt-3 mt-lg-2 position-relative'})
+    titulo4 = atributo4.find('span', attrs={'class': 'hl-title hl-title-8'})
+    resposta4 = titulo4.text[15:]
+    sai_som(resposta4)
+    print()
+
+```
+
+Esse código é responsável por extrair notícias do site InfoMoney e reproduzir em voz alta utilizando a função sai_som que está definida no arquivo config.py.
+O código utiliza a biblioteca requests para fazer uma requisição ao site e obter o seu conteúdo, que é armazenado na variável conteudo. Em seguida, utiliza a biblioteca BeautifulSoup para "parsear" o conteúdo HTML e extrair as informações desejadas.
+As notícias são representadas no código pelos atributos noticias e noticias2, que correspondem aos dois blocos de notícias que aparecem na página inicial do InfoMoney. Para cada notícia, o código utiliza o método find do objeto BeautifulSoup para encontrar o elemento HTML que contém o título da notícia, e em seguida extrai o texto do título usando o atributo text.
+O código então chama a função sai_som para reproduzir o título da notícia em voz alta, e em seguida imprime uma linha vazia. O processo é repetido para as quatro notícias que o código está configurado para extrair.
+
 </details>
   
  ## Aprendizados Efetivos HS
