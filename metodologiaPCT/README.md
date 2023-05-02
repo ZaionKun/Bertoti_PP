@@ -231,35 +231,114 @@ Na aplicação em questão, a escolha da linguagem Java pode ter sido motivada p
 a tecnologia PostgreSQL foi utilizada como o sistema gerenciador de banco de dados para armazenar e gerenciar as métricas coletadas pelos servidores remotos. O PostgreSQL é uma opção popular e avançada de sistema de gerenciamento de banco de dados relacional de código aberto, que oferece recursos avançados, incluindo suporte a SQL avançado, extensibilidade, replicação, transações e integridade referencial.
 
  ### Contribuições Pessoais
-Responsável por desenvolver consultas SQL que permitiu a exibição do tamanho das tabelas e do banco de dados na aplicação. Esses itens foi identificado como uma das principais do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
+Responsável por desenvolver consultas SQL que permitiu a exibir algumas métricas do banco de dados na aplicação. Esses itens foi identificado como um dos principais items do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
 
-Por meio da sua consulta, os usuários da aplicação puderam obter informações precisas sobre o tamanho de cada tabela individualmente, permitindo uma melhor gestão do espaço em disco utilizado pelo sistema de gerenciamento de banco de dados.
+Por meio de sua consultas, os usuários da aplicação puderam obter informações precisas sobre as  tabelas individualmente, permitindo uma melhor gestão do espaço em disco utilizado pelo sistema de gerenciamento de banco de dados.
 
 <details>
 
-<summary>Consulta SQL para retornar o tamanho da tabela</summary>
+<summary>Consulta para retornar o tamanho da tabela</summary>
 
-```
+```java
 
-	String sql = "SELECT esquema, tabela,\r\n"
-		+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
-		+ "       pg_size_pretty(pg_total_relation_size(esq_tab)) AS tamanho_total\r\n"
-		+ "  FROM (SELECT tablename AS tabela,\r\n"
-		+ "               schemaname AS esquema,\r\n"
-		+ "               schemaname||'.'||tablename AS esq_tab\r\n"
-		+ "          FROM pg_catalog.pg_tables\r\n"
-		+ "         WHERE schemaname NOT\r\n"
-		+ "            IN ('pg_catalog', 'information_schema', 'pg_toast') ) AS x\r\n"
-		+ " ORDER BY pg_total_relation_size(esq_tab) DESC;";
+public static void ExibirTamanhoTabelas(Connection con) {
+		String sql = "SELECT esquema, tabela,\r\n"
+				+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
+				+ "       pg_size_pretty(pg_total_relation_size(esq_tab)) AS tamanho_total\r\n"
+				+ "  FROM (SELECT tablename AS tabela,\r\n"
+				+ "               schemaname AS esquema,\r\n"
+				+ "               schemaname||'.'||tablename AS esq_tab\r\n"
+				+ "          FROM pg_catalog.pg_tables\r\n"
+				+ "         WHERE schemaname NOT\r\n"
+				+ "            IN ('pg_catalog', 'information_schema', 'pg_toast') ) AS x\r\n"
+				+ " ORDER BY pg_total_relation_size(esq_tab) DESC;";
 		
+		try {
+			PreparedStatement pesquisa = con.prepareStatement(sql);
+			ResultSet result = pesquisa.executeQuery();
+			
+			while(result.next()) {
+				System.out.println("==========================================================");
+				System.out.println("NOME: " + result.getString("tabela") + "\n");
+				System.out.println("TAMANHO: "+result.getString("tamanho") + "\n");
+				System.out.println("TAMANHO TOTAL: " + result.getString("tamanho_total")); //Tempo somado de todas as selects
+				System.out.println("==========================================================");
+			}
+		}
+		catch(Exception e) {
+			
+		}
+	}	
+
 ```
+Esse código é um método que recebe como parâmetro uma conexão com um banco de dados PostgreSQL e exibe o tamanho e o tamanho total de todas as tabelas desse banco de dados, em ordem decrescente de tamanho total.
+Para isso, ele executa uma consulta SQL que seleciona o nome da tabela, o nome do esquema, o tamanho e o tamanho total de cada tabela. A consulta utiliza a função "pg_relation_size" para obter o tamanho da tabela e "pg_total_relation_size" para obter o tamanho total, que inclui também o tamanho dos índices, por exemplo.
+Em seguida, o código executa a consulta usando a conexão fornecida como parâmetro e itera sobre o resultado para exibir o nome, o tamanho e o tamanho total de cada tabela em um formato legível. Ele também imprime uma linha de separação para cada tabela.	
+	
 </details>
 
 <details>
 
 <summary>Consulta para retornar o tamanhao do banco de dados</summary>
+	
+```Java
 
-	String sql = "SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;";
+	public static void ExibirSelectTamanhoBanco(Connection con) {
+		String sql = "SELECT pg_database.datname, pg_size_pretty(pg_database_size(pg_database.datname)) AS size FROM pg_database;";
+		
+		try {
+			PreparedStatement pesquisa = con.prepareStatement(sql);
+			ResultSet result = pesquisa.executeQuery();
+			
+			while(result.next()) {
+				System.out.println(result.getString("datname") + " " + result.getString("size"));
+			}
+		}
+		catch(Exception e) {
+			
+		}
+	}
+	
+```
+	
+Esse código é outro método que também recebe como parâmetro uma conexão com um banco de dados PostgreSQL e exibe o tamanho do banco de dados em que a conexão está estabelecida, juntamente com o nome do banco.
+Para isso, ele executa uma consulta SQL que seleciona o nome de cada banco de dados no servidor PostgreSQL e o tamanho de cada banco de dados em bytes. A função "pg_size_pretty" é usada para converter o tamanho em bytes para um formato mais legível, como KB, MB ou GB.
+Em seguida, o código executa a consulta usando a conexão fornecida como parâmetro e itera sobre o resultado para exibir o nome e o tamanho de cada banco de dados em um formato legível. Ele imprime uma linha para cada banco de dados, contendo o nome do banco de dados e seu tamanho.
+	
+</details>
+	
+<details>
+
+<summary>Select para pegar os selects mais demorados</summary>
+	
+```Java
+	
+	public static void ExibirSelect10MaisDemoradas(Connection con) {
+		String sql = "SELECT total_exec_time, query\r\n"
+				+ "FROM pg_stat_statements\r\n"
+				+ "ORDER BY total_exec_time\r\n"
+				+ "DESC LIMIT 10;";
+		
+		try {
+			PreparedStatement pesquisa = con.prepareStatement(sql);
+			ResultSet result = pesquisa.executeQuery();
+			
+			while(result.next()) {
+				System.out.println("==========================================================");
+				System.out.println(result.getString("query") + "\n");
+				System.out.println("TEMPO TOTAL: " + result.getString("total_exec_time"));
+				System.out.println("==========================================================");
+			}
+		}
+		catch(Exception e) {
+			
+		}
+	}	
+	
+```
+
+Esse código executa uma consulta SQL que seleciona o tempo total de execução e a consulta em si armazenados na tabela "pg_stat_statements", que é uma extensão do PostgreSQL que armazena estatísticas sobre o desempenho das consultas. A consulta é ordenada em ordem decrescente de tempo total de execução e limitada a 10 resultados.
+Em seguida, o código executa a consulta usando a conexão fornecida como parâmetro e itera sobre o resultado para exibir a consulta e o tempo total de execução de cada consulta em um formato legível. Ele também imprime uma linha de separação para cada consulta.
 
 </details>
 
