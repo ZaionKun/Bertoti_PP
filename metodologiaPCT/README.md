@@ -454,22 +454,20 @@ Com um construtor utilizando dos métodos do HttpClient para inserir um novo cad
 
  <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/carrinho%20de%20compras.png" width="600" height="300"/>
  
-Desenvolvi uma tela para refletir no carrinho de compras do usuário os produtos registrados juntamente com suas promoções, visando uma melhor experiência de compra
+Desenvolvi uma tela para refletir no carrinho de compras do usuário os produtos registrados juntamente com suas promoções, visando uma melhor experiência de compra.
+O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
 
 </details>
   
-O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
-
-  ## Aprendizados Efetivos HS
+## Aprendizados Efetivos HS
   
-  Neste projeto aprendi a mexer com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
-  Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend".     Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo           específico das requisições possíveis de entrada no serviço desenvolvido.
+ Neste projeto aprendi a mexer com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
+ Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend".     Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo           específico das requisições possíveis de entrada no serviço desenvolvido.
 
   - Criação de API que se provê serviços e se comunica com outros aplicações: sei fazer com autonomia
 
   - Desenvolvimento de scripts em Angular: sei fazer com autonomia 
-  
- </details>
+</details>
  
 <details>
 
@@ -534,8 +532,10 @@ A imagem é baseada na imagem Alpine do Node.js LTS. O arquivo instrui o Docker 
 
 <summary>Tela de login</summary>
 
-<img src="" width="600" height="300"/>
-
+<img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/tela%20login.png" width="400" height="300"/>
+	
+Para tela ficar com esse design, usei o código abaixo:
+	
 ```css
 
 <style scoped>
@@ -638,8 +638,11 @@ export default{
 ```
 O token é usado para autenticação e autorização, garantindo que apenas usuários autorizados possam criar, atualizar ou excluir serviços.
 	
+</details>
+	
 ## Aprendizados Efetivos HS
 	
 Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
 
 </details>
+
