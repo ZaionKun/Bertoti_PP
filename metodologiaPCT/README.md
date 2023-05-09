@@ -384,10 +384,6 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
   
   Responsável por realizar integração do back-end com o front-end, enviando e recebendo requisções entre eles e criando as telas para melhor UX do cliente. 
   
-  Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas, chamando o módulo HTTP para com solicitações e respostas AJAX.
-  Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do  
-  produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
-  
 <details>
 
 <summary>Observable</summary>
@@ -417,7 +413,9 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
   }
 
   ```
-  
+Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas, chamando o módulo HTTP para com solicitações e respostas AJAX.
+Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
+	
 </details>
 
 <details>
@@ -528,9 +526,8 @@ EXPOSE 4200
 CMD [ "http-server", "dist" ]	
 
 ```
-
-Esses são os comandos para criar uma imagem para a execução do projeto.Ele instala as dependências do projeto, constrói a aplicação e define um comando para executar o servidor http-server e servir a pasta "dist" na porta 4200.
-
+A imagem é baseada na imagem Alpine do Node.js LTS. O arquivo instrui o Docker a instalar o servidor http-server globalmente, definir um diretório de trabalho para a aplicação e copiar os arquivos de configuração do projeto para o contêiner. Em seguida, o Docker instala as dependências do projeto, compila a aplicação e expõe a porta 4200 para permitir conexões de entrada. Finalmente, o Docker define um comando padrão para iniciar o servidor http-server e servir a pasta "dist" na porta 4200 quando o contêiner for iniciado. Este Dockerfile é útil para facilitar o processo de implantação de um projeto Node.js e garantir que a aplicação seja executada de forma consistente em diferentes ambientes.
+	
 </details>
 
 <details>
@@ -538,8 +535,6 @@ Esses são os comandos para criar uma imagem para a execução do projeto.Ele in
 <summary>Tela de login</summary>
 
 <img src="" width="600" height="300"/>
-
-Utilizei css para desevolver as cores da tela e deixando os inputs com movimento ao escrever.
 
 ```css
 
@@ -609,6 +604,8 @@ body {
 </style>
 
 ```
+Utilizei css para desevolver as cores da tela e deixando os inputs com movimento ao escrever.
+Especificamente, esse código cria uma caixa centralizada na página que contém um título, dois campos de entrada (para texto e senha) e um botão. A caixa tem um fundo branco, bordas vermelhas e um raio de borda arredondado. O gradiente radial de vermelho para amarelo cria um fundo atraente e dinâmico para a página. Quando o usuário clica em um campo de entrada, a borda muda para amarelo para indicar que está ativo. Quando o usuário passa o mouse sobre o botão, a cor de fundo e a cor da borda mudam para verde para indicar que é um botão interativo.
 
 </details>
 
@@ -639,7 +636,8 @@ export default{
 }
 
 ```
-
+O token é usado para autenticação e autorização, garantindo que apenas usuários autorizados possam criar, atualizar ou excluir serviços.
+	
 ## Aprendizados Efetivos HS
 	
 Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
