@@ -237,48 +237,6 @@ Por meio de sua consultas, os usuários da aplicação puderam obter informaçõ
 
 <details>
 
-<summary>Consulta para retornar o tamanho da tabela</summary>
-
-```java
-
-public static void ExibirTamanhoTabelas(Connection con) {
-		String sql = "SELECT esquema, tabela,\r\n"
-				+ "       pg_size_pretty(pg_relation_size(esq_tab)) AS tamanho,\r\n"
-				+ "       pg_size_pretty(pg_total_relation_size(esq_tab)) AS tamanho_total\r\n"
-				+ "  FROM (SELECT tablename AS tabela,\r\n"
-				+ "               schemaname AS esquema,\r\n"
-				+ "               schemaname||'.'||tablename AS esq_tab\r\n"
-				+ "          FROM pg_catalog.pg_tables\r\n"
-				+ "         WHERE schemaname NOT\r\n"
-				+ "            IN ('pg_catalog', 'information_schema', 'pg_toast') ) AS x\r\n"
-				+ " ORDER BY pg_total_relation_size(esq_tab) DESC;";
-		
-		try {
-			PreparedStatement pesquisa = con.prepareStatement(sql);
-			ResultSet result = pesquisa.executeQuery();
-			
-			while(result.next()) {
-				System.out.println("==========================================================");
-				System.out.println("NOME: " + result.getString("tabela") + "\n");
-				System.out.println("TAMANHO: "+result.getString("tamanho") + "\n");
-				System.out.println("TAMANHO TOTAL: " + result.getString("tamanho_total")); //Tempo somado de todas as selects
-				System.out.println("==========================================================");
-			}
-		}
-		catch(Exception e) {
-			
-		}
-	}	
-
-```
-Esse código é um método que recebe como parâmetro uma conexão com um banco de dados PostgreSQL e exibe o tamanho e o tamanho total de todas as tabelas desse banco de dados, em ordem decrescente de tamanho total.
-Para isso, ele executa uma consulta SQL que seleciona o nome da tabela, o nome do esquema, o tamanho e o tamanho total de cada tabela. A consulta utiliza a função "pg_relation_size" para obter o tamanho da tabela e "pg_total_relation_size" para obter o tamanho total, que inclui também o tamanho dos índices, por exemplo.
-Em seguida, o código executa a consulta usando a conexão fornecida como parâmetro e itera sobre o resultado para exibir o nome, o tamanho e o tamanho total de cada tabela em um formato legível. Ele também imprime uma linha de separação para cada tabela.	
-	
-</details>
-
-<details>
-
 <summary>Consulta para retornar o tamanhao do banco de dados</summary>
 	
 ```Java
@@ -308,38 +266,201 @@ Em seguida, o código executa a consulta usando a conexão fornecida como parâm
 </details>
 	
 <details>
+	
+<summary>Integração JOptionPane no projeto</summary>
 
-<summary>Select para pegar os selects mais demorados</summary>
-	
-```Java
-	
-	public static void ExibirSelect10MaisDemoradas(Connection con) {
-		String sql = "SELECT total_exec_time, query\r\n"
-				+ "FROM pg_stat_statements\r\n"
-				+ "ORDER BY total_exec_time\r\n"
-				+ "DESC LIMIT 10;";
+```java
+
+public class TelaRegister extends JFrame {
+
+	public TelaRegister() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 396, 500);
+		contentPane = new JPanel();
+		contentPane.setBackground(Color.DARK_GRAY);
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
-		try {
-			PreparedStatement pesquisa = con.prepareStatement(sql);
-			ResultSet result = pesquisa.executeQuery();
-			
-			while(result.next()) {
-				System.out.println("==========================================================");
-				System.out.println(result.getString("query") + "\n");
-				System.out.println("TEMPO TOTAL: " + result.getString("total_exec_time"));
-				System.out.println("==========================================================");
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setBounds(10, 11, 360, 439);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("PORTA:");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblNewLabel.setBounds(10, 31, 61, 14);
+		panel.add(lblNewLabel);
+		
+		JLabel lblDatabase = new JLabel("DATABASE:");
+		lblDatabase.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblDatabase.setBounds(10, 67, 95, 14);
+		panel.add(lblDatabase);
+		
+		JLabel lblUsurio = new JLabel("USUÃ�RIO:");
+		lblUsurio.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblUsurio.setBounds(10, 102, 84, 14);
+		panel.add(lblUsurio);
+		
+		JLabel lblSenha = new JLabel("SENHA:");
+		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 16));
+		lblSenha.setBounds(10, 137, 61, 14);
+		panel.add(lblSenha);
+		
+		txfPor = new JTextField();
+		txfPor.setBackground(Color.LIGHT_GRAY);
+		txfPor.setBounds(116, 29, 190, 20);
+		panel.add(txfPor);
+		txfPor.setColumns(10);
+		
+		txfDat = new JTextField();
+		txfDat.setColumns(10);
+		txfDat.setBackground(Color.LIGHT_GRAY);
+		txfDat.setBounds(115, 65, 190, 20);
+		panel.add(txfDat);
+		
+		txfUser = new JTextField();
+		txfUser.setColumns(10);
+		txfUser.setBackground(Color.LIGHT_GRAY);
+		txfUser.setBounds(116, 100, 190, 20);
+		panel.add(txfUser);
+		
+		txfPass = new JTextField();
+		txfPass.setColumns(10);
+		txfPass.setBackground(Color.LIGHT_GRAY);
+		txfPass.setBounds(116, 135, 190, 20);
+		panel.add(txfPass);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(TelaRegister.class.getResource("/img/necto.png")));
+		lblNewLabel_1.setBounds(10, 282, 340, 146);
+		panel.add(lblNewLabel_1);
+		
+		JButton btnSub = new JButton("SUBMIT");
+		btnSub.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				LoginModel login = new LoginModel();
+				
+				login.setBanco(txfDat.getText());
+				login.setPorta(txfPor.getText());
+				login.setUsuario(txfUser.getText());
+				login.setSenha(txfPass.getText());
+				
+				LoginController lc = new LoginController(login);
+				
+				if(lc.iniciarConexao()) {
+					Principal telaPrinc = new Principal(login);
+					telaPrinc.setVisible(true);
+				}
 			}
-		}
-		catch(Exception e) {
-			
-		}
-	}	
+		});
+		btnSub.setBackground(Color.LIGHT_GRAY);
+		btnSub.setFont(new Font("Tahoma", Font.BOLD, 14));
+		btnSub.setBounds(10, 176, 340, 40);
+		panel.add(btnSub);
+	}
+}
 	
 ```
+A classe TelaRegister define o conteúdo e o comportamento da janela de registro.	
+O código define uma janela de registro com campos de entrada para informações de conexão (porta, banco de dados, usuário e senha) e um botão "SUBMIT" para enviar essas informações e iniciar uma conexão. Se a conexão for bem-sucedida, uma nova janela chamada Principal é aberta.
+	
+</details>
+	
+<details>
 
-Esse código executa uma consulta SQL que seleciona o tempo total de execução e a consulta em si armazenados na tabela "pg_stat_statements", que é uma extensão do PostgreSQL que armazena estatísticas sobre o desempenho das consultas. A consulta é ordenada em ordem decrescente de tempo total de execução e limitada a 10 resultados.
-Em seguida, o código executa a consulta usando a conexão fornecida como parâmetro e itera sobre o resultado para exibir a consulta e o tempo total de execução de cada consulta em um formato legível. Ele também imprime uma linha de separação para cada consulta.
+<summary>Configurando opções de métricas</summary>
 
+```java
+
+	public class Principal extends JFrame {
+	
+	private JPanel contentPane;
+
+	public Principal(LoginModel login) {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 582, 424);
+		
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mnMetricas = new JMenu("M\u00E9tricas");
+		menuBar.add(mnMetricas);
+		
+		JMenuItem mntmTamanhoBancos = new JMenuItem("Tamanho dos Bancos");
+		mntmTamanhoBancos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				TamanhoBancosView tela = new TamanhoBancosView(login);
+				tela.setVisible(true);
+				dispose();
+				
+				
+			}
+		});
+		mnMetricas.add(mntmTamanhoBancos);
+		
+		JMenuItem mntmTamanhoTabelas = new JMenuItem("Tamanho Tabelas");
+		mntmTamanhoTabelas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				TamanhoTabelasView tela = new TamanhoTabelasView(login);
+				tela.setVisible(true);
+				dispose();
+			}
+		});
+		mnMetricas.add(mntmTamanhoTabelas);
+		
+		JMenuItem mntmInstrucoes1000x = new JMenuItem("Instru\u00E7\u00F5es Chamadas Mais de 1000x");
+		mntmInstrucoes1000x.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelectsChamadas1000xView tela = new SelectsChamadas1000xView(login);
+				tela.setVisible(true);
+				dispose();
+			}
+		});
+		mnMetricas.add(mntmInstrucoes1000x);
+		
+		JMenuItem mntmIstrucoesMaisDemoradas = new JMenuItem("Instru\u00E7\u00F5es Mais Demoradas");
+		mntmIstrucoesMaisDemoradas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelectsMaisDemoradasView tela = new SelectsMaisDemoradasView(login);
+				tela.setVisible(true);
+				dispose();
+			}
+		});
+		mnMetricas.add(mntmIstrucoesMaisDemoradas);
+		
+		JMenuItem mntmInstrucoesMaisDemoradasMedia = new JMenuItem("Instru\u00E7\u00F5es Mais Demoradas Em Media");
+		mntmInstrucoesMaisDemoradasMedia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				SelectsMaisDemoradasMediaView tela = new SelectsMaisDemoradasMediaView(login);
+				tela.setVisible(true);
+				dispose();
+			}
+		});
+		mnMetricas.add(mntmInstrucoesMaisDemoradasMedia);
+		
+		JMenu mnSair = new JMenu("Sair");
+		menuBar.add(mnSair);
+		
+		JMenuItem mntmSair = new JMenuItem("Sair");
+		mntmSair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+		mnSair.add(mntmSair);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(new BorderLayout(0, 0));
+	}
+}
+	
+```
+Com isso foi definido um menu de métricas onde contém as opções das métricas do banco, podendo fazer a chamada das funcionalidades criadas, logo quando uma opção de métrica é selecionada, uma nova janela correspondente é aberta e a janela principal é fechada
+	
 </details>
 
 ## Aprendizados Efetivos HS
@@ -426,6 +547,22 @@ Com um construtor utilizando dos métodos do HttpClient para inserir um novo cad
  
  Esta tela foi desenvolvida para permitir o registro de novos produtos no sistema. Nela, é possível preencher informações como nome, descrição, categoria e preço facilitando a inclusão e gerenciamento de novos itens no sistema.
 
+```js
+
+@Output() productsEmitter = new EventEmitter();
+productPromotion : ProductPromotion
+success: boolean = false;
+errors: String[];
+id : number;
+lista_promotion : String[] = ['PRODUCT','TOTAL','PRODUCT_QUANTITY'];
+lista_type: String[] = ['VALUE', 'PERCENTAGE'];
+p1: boolean = true;
+p2: boolean = true;
+p3: boolean = true;
+p4: boolean = true;
+receivePromotion : string = "teste";
+	
+```
 </details>
 
 <details>
