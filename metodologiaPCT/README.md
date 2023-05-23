@@ -66,34 +66,9 @@ def perfil():
 
     sai_som('Você conseguiria destinar de 10% a 15% do seu salario a investimentos? ')
     p6 = str(input('')).upper()
-
-
-    if p1 == 'SIM':
-        result +=2
-    else:
-        result +=1
-    if p2 == 'SIM':
-        result +=2
-    else:
-        result +=1
-    if p3 == 'SIM':
-        result +=2
-    else:
-        result +=1
-    if p4 == 'SIM':
-        result +=2
-    else:
-        result +=1
-    if p5 == 'SIM':
-        result +=2
-    else:
-        result +=1
-    if p6 == 'SIM':
-        result +=2
-    else:
-        result +=1
-
-
+	
+    #bloco de condição -> atribuir link do código completo
+	
     if result <8:
         sai_som(f'Você é um investidor Iniciante pois sua pontuação foi de {result} pontos!')
     if result >= 8 and result <10:
@@ -174,21 +149,8 @@ def informacoes():
     resposta2 = titulo2.text
     sai_som(resposta2 )
     print()
-
-    #Notícia 3
-    atributo3 = noticias2.find('div', attrs={'class': 'row m-0 mx-3 mx-lg-0 mt-3 position-relative'})
-    titulo3 = atributo3.find('span', attrs={'class': 'hl-title hl-title-8'})
-    resposta3 = titulo3.text[15:]
-    sai_som(resposta3 )
-    print()
-    #row m-0 mx-3 mx-lg-0 mt-3 mt-lg-2 position-relative
-
-    #Notícia 4
-    atributo4 = noticias2.find('div', attrs={'class': 'row m-0 mx-3 mx-lg-0 mt-3 mt-lg-2 position-relative'})
-    titulo4 = atributo4.find('span', attrs={'class': 'hl-title hl-title-8'})
-    resposta4 = titulo4.text[15:]
-    sai_som(resposta4)
-    print()
+    
+   #Mais notícias -> atribuir link do código completo
 
 ```
 
@@ -200,8 +162,30 @@ O código então chama a função sai_som para reproduzir o título da notícia 
 </details>
   
  ## Aprendizados Efetivos HS
- Eu aprendi a desenvolver em Python utilizando APIs, o que me permitiu criar soluções tecnológicas que interagem com serviços externos de maneira eficiente e confiável. API (Interface de Programação de Aplicativos) é um conjunto de rotinas, protocolos e ferramentas para construir software e aplicações que interagem com outros serviços. É uma maneira eficaz de integrar diferentes sistemas e plataformas, permitindo que desenvolvedores possam construir soluções tecnológicas complexas de maneira mais simples. Durante o meu aprendizado, tive a oportunidade de trabalhar com APIs disponíveis na web, como APIs de serviços financeiros, APIs de serviços de redes sociais, dentre outras. Aprendi a usar bibliotecas Python, como requests e urllib, para fazer requisições HTTP às APIs, processar as respostas e extrair as informações relevantes.Ao trabalhar com APIs em Python, pude desenvolver projetos que se beneficiam da integração com serviços externos, como por exemplo, o assistente virtual financeiro que descrevemos anteriormente. Foi possível acessar informações atualizadas de serviços financeiros, como cotações de ações e índices, e incorporá-las ao sistema do assistente virtual para fornecer recomendações personalizadas ao usuário.
-A capacidade de integrar diferentes serviços em uma solução tecnológica é uma habilidade valiosa para qualquer desenvolvedor, e o conhecimento em Python e APIs é uma combinação poderosa para o desenvolvimento de soluções inovadoras e eficientes.
+### - Introdução às APIs: 
+	
+	Definição de API (Interface de Programação de Aplicativos)
+	Importância das APIs para a construção de software e aplicações
+	Facilidade de integração entre diferentes sistemas e plataformas
+
+- Desenvolvimento em Python com APIs:
+	Utilização de bibliotecas Python, como requests e urllib
+	Requisições HTTP às APIs e processamento de respostas
+	Extração de informações relevantes dos dados retornados pelas APIs
+	
+- Exemplos de APIs na web:
+	APIs de serviços financeiros para acessar cotações de ações e índices
+	APIs de serviços de redes sociais para interagir com plataformas sociais
+	Outras APIs disponíveis para integração com diferentes serviços
+
+- Benefícios da integração com serviços externos:
+	Desenvolvimento de soluções tecnológicas complexas de maneira simplificada
+	Acesso a informações atualizadas e relevantes de serviços externos
+	Incorporação de dados de serviços externos para fornecer recomendações personalizadas
+
+- A importância do conhecimento em Python e APIs:
+	Habilidade valiosa para qualquer desenvolvedor
+	Combinação poderosa para o desenvolvimento de soluções eficientes e inovadoras
 
 </details>
 
