@@ -109,6 +109,7 @@ Se a pontuação for menor que 8, o investidor é classificado como "Iniciante".
 
 	    elif cod_acao == ('FACEBOOK'):
 		sai_som('O código de ação dessa empresa é: FB')
+	
   ```
   
 Este código contém uma função chamada codigo(), que solicita ao usuário o nome da empresa da qual ele deseja obter o código de ação. Em seguida, é feita uma verificação condicional para determinar qual é a empresa selecionada e, em seguida, é exibido o código de ação correspondente.
@@ -161,29 +162,33 @@ O código então chama a função sai_som para reproduzir o título da notícia 
 
 </details>
   
- ## Aprendizados Efetivos HS
-### - Introdução às APIs: 
+## Aprendizados Efetivos HS
+- Introdução às APIs: 	
 	
 	Definição de API (Interface de Programação de Aplicativos)
 	Importância das APIs para a construção de software e aplicações
 	Facilidade de integração entre diferentes sistemas e plataformas
 
 - Desenvolvimento em Python com APIs:
+	
 	Utilização de bibliotecas Python, como requests e urllib
 	Requisições HTTP às APIs e processamento de respostas
 	Extração de informações relevantes dos dados retornados pelas APIs
 	
 - Exemplos de APIs na web:
+	
 	APIs de serviços financeiros para acessar cotações de ações e índices
 	APIs de serviços de redes sociais para interagir com plataformas sociais
 	Outras APIs disponíveis para integração com diferentes serviços
 
 - Benefícios da integração com serviços externos:
+	
 	Desenvolvimento de soluções tecnológicas complexas de maneira simplificada
 	Acesso a informações atualizadas e relevantes de serviços externos
 	Incorporação de dados de serviços externos para fornecer recomendações personalizadas
 
 - A importância do conhecimento em Python e APIs:
+	
 	Habilidade valiosa para qualquer desenvolvedor
 	Combinação poderosa para o desenvolvimento de soluções eficientes e inovadoras
 
@@ -258,93 +263,42 @@ Em seguida, o código executa a consulta usando a conexão fornecida como parâm
 public class TelaRegister extends JFrame {
 
 	public TelaRegister() {
+		// Configurações da janela
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 396, 500);
+		
+		// Painel principal
 		contentPane = new JPanel();
 		contentPane.setBackground(Color.DARK_GRAY);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		// Painel secundário
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.GRAY);
 		panel.setBounds(10, 11, 360, 439);
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
+		// Labels e campos de texto
 		JLabel lblNewLabel = new JLabel("PORTA:");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblNewLabel.setBounds(10, 31, 61, 14);
-		panel.add(lblNewLabel);
-		
-		JLabel lblDatabase = new JLabel("DATABASE:");
-		lblDatabase.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblDatabase.setBounds(10, 67, 95, 14);
-		panel.add(lblDatabase);
-		
-		JLabel lblUsurio = new JLabel("USUÃ�RIO:");
-		lblUsurio.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblUsurio.setBounds(10, 102, 84, 14);
-		panel.add(lblUsurio);
-		
-		JLabel lblSenha = new JLabel("SENHA:");
-		lblSenha.setFont(new Font("Times New Roman", Font.BOLD, 16));
-		lblSenha.setBounds(10, 137, 61, 14);
-		panel.add(lblSenha);
-		
+		// ...
 		txfPor = new JTextField();
-		txfPor.setBackground(Color.LIGHT_GRAY);
-		txfPor.setBounds(116, 29, 190, 20);
-		panel.add(txfPor);
-		txfPor.setColumns(10);
+		// ...
 		
-		txfDat = new JTextField();
-		txfDat.setColumns(10);
-		txfDat.setBackground(Color.LIGHT_GRAY);
-		txfDat.setBounds(115, 65, 190, 20);
-		panel.add(txfDat);
-		
-		txfUser = new JTextField();
-		txfUser.setColumns(10);
-		txfUser.setBackground(Color.LIGHT_GRAY);
-		txfUser.setBounds(116, 100, 190, 20);
-		panel.add(txfUser);
-		
-		txfPass = new JTextField();
-		txfPass.setColumns(10);
-		txfPass.setBackground(Color.LIGHT_GRAY);
-		txfPass.setBounds(116, 135, 190, 20);
-		panel.add(txfPass);
-		
+		// Ícone
 		JLabel lblNewLabel_1 = new JLabel("");
 		lblNewLabel_1.setIcon(new ImageIcon(TelaRegister.class.getResource("/img/necto.png")));
 		lblNewLabel_1.setBounds(10, 282, 340, 146);
 		panel.add(lblNewLabel_1);
 		
+		// Botão de submit
 		JButton btnSub = new JButton("SUBMIT");
-		btnSub.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				LoginModel login = new LoginModel();
-				
-				login.setBanco(txfDat.getText());
-				login.setPorta(txfPor.getText());
-				login.setUsuario(txfUser.getText());
-				login.setSenha(txfPass.getText());
-				
-				LoginController lc = new LoginController(login);
-				
-				if(lc.iniciarConexao()) {
-					Principal telaPrinc = new Principal(login);
-					telaPrinc.setVisible(true);
-				}
-			}
-		});
-		btnSub.setBackground(Color.LIGHT_GRAY);
-		btnSub.setFont(new Font("Tahoma", Font.BOLD, 14));
-		btnSub.setBounds(10, 176, 340, 40);
-		panel.add(btnSub);
+		// ...
 	}
 }
+
 	
 ```
 A classe TelaRegister define o conteúdo e o comportamento da janela de registro.	
@@ -358,99 +312,100 @@ O código define uma janela de registro com campos de entrada para informações
 
 ```java
 
-	public class Principal extends JFrame {
-	
-	private JPanel contentPane;
+public class Principal extends JFrame {
+    private JPanel contentPane;
 
-	public Principal(LoginModel login) {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 582, 424);
-		
-		JMenuBar menuBar = new JMenuBar();
-		setJMenuBar(menuBar);
-		
-		JMenu mnMetricas = new JMenu("M\u00E9tricas");
-		menuBar.add(mnMetricas);
-		
-		JMenuItem mntmTamanhoBancos = new JMenuItem("Tamanho dos Bancos");
-		mntmTamanhoBancos.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				TamanhoBancosView tela = new TamanhoBancosView(login);
-				tela.setVisible(true);
-				dispose();
-				
-				
-			}
-		});
-		mnMetricas.add(mntmTamanhoBancos);
-		
-		JMenuItem mntmTamanhoTabelas = new JMenuItem("Tamanho Tabelas");
-		mntmTamanhoTabelas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				TamanhoTabelasView tela = new TamanhoTabelasView(login);
-				tela.setVisible(true);
-				dispose();
-			}
-		});
-		mnMetricas.add(mntmTamanhoTabelas);
-		
-		JMenuItem mntmInstrucoes1000x = new JMenuItem("Instru\u00E7\u00F5es Chamadas Mais de 1000x");
-		mntmInstrucoes1000x.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelectsChamadas1000xView tela = new SelectsChamadas1000xView(login);
-				tela.setVisible(true);
-				dispose();
-			}
-		});
-		mnMetricas.add(mntmInstrucoes1000x);
-		
-		JMenuItem mntmIstrucoesMaisDemoradas = new JMenuItem("Instru\u00E7\u00F5es Mais Demoradas");
-		mntmIstrucoesMaisDemoradas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelectsMaisDemoradasView tela = new SelectsMaisDemoradasView(login);
-				tela.setVisible(true);
-				dispose();
-			}
-		});
-		mnMetricas.add(mntmIstrucoesMaisDemoradas);
-		
-		JMenuItem mntmInstrucoesMaisDemoradasMedia = new JMenuItem("Instru\u00E7\u00F5es Mais Demoradas Em Media");
-		mntmInstrucoesMaisDemoradasMedia.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				SelectsMaisDemoradasMediaView tela = new SelectsMaisDemoradasMediaView(login);
-				tela.setVisible(true);
-				dispose();
-			}
-		});
-		mnMetricas.add(mntmInstrucoesMaisDemoradasMedia);
-		
-		JMenu mnSair = new JMenu("Sair");
-		menuBar.add(mnSair);
-		
-		JMenuItem mntmSair = new JMenuItem("Sair");
-		mntmSair.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-		});
-		mnSair.add(mntmSair);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
-	}
+    public Principal(LoginModel login) {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 582, 424);
+        
+        // Criação da barra de menu
+        JMenuBar menuBar = new JMenuBar();
+        setJMenuBar(menuBar);
+        
+        // Menu "Métricas"
+        JMenu mnMetricas = new JMenu("Métricas");
+        menuBar.add(mnMetricas);
+        
+        // Item de menu "Tamanho dos Bancos"
+        JMenuItem mntmTamanhoBancos = new JMenuItem("Tamanho dos Bancos");
+        // ...
+        mnMetricas.add(mntmTamanhoBancos);
+        
+        // Item de menu "Tamanho Tabelas"
+        JMenuItem mntmTamanhoTabelas = new JMenuItem("Tamanho Tabelas");
+        // ...
+        mnMetricas.add(mntmTamanhoTabelas);
+        
+        // Item de menu "Instruções Chamadas Mais de 1000x"
+        JMenuItem mntmInstrucoes1000x = new JMenuItem("Instruções Chamadas Mais de 1000x");
+        // ...
+        mnMetricas.add(mntmInstrucoes1000x);
+        
+        // Item de menu "Instruções Mais Demoradas"
+        JMenuItem mntmInstrucoesMaisDemoradas = new JMenuItem("Instruções Mais Demoradas");
+        // ...
+        mnMetricas.add(mntmInstrucoesMaisDemoradas);
+        
+        // Item de menu "Instruções Mais Demoradas Em Média"
+        JMenuItem mntmInstrucoesMaisDemoradasMedia = new JMenuItem("Instruções Mais Demoradas Em Média");
+        // ...
+        mnMetricas.add(mntmInstrucoesMaisDemoradasMedia);
+        
+        // Menu "Sair"
+        JMenu mnSair = new JMenu("Sair");
+        menuBar.add(mnSair);
+        
+        // Item de menu "Sair"
+        JMenuItem mntmSair = new JMenuItem("Sair");
+        // ...
+        mnSair.add(mntmSair);
+        
+        // Painel de conteúdo
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(new BorderLayout(0, 0));
+    }
 }
+
 	
 ```
-Com isso foi definido um menu de métricas onde contém as opções das métricas do banco, podendo fazer a chamada das funcionalidades criadas, logo quando uma opção de métrica é selecionada, uma nova janela correspondente é aberta e a janela principal é fechada
+	
+A classe Principal representa a janela principal da aplicação, que possui um menu de métricas relacionadas ao banco de dados. O menu é composto por várias opções, como "Tamanho dos Bancos", "Tamanho Tabelas", "Instruções Chamadas Mais de 1000x", "Instruções Mais Demoradas" e "Instruções Mais Demoradas Em Média". Cada opção do menu é associada a um evento de clique que abre uma nova janela correspondente à métrica selecionada.
+Quando uma opção de métrica é selecionada, a janela principal é fechada e substituída pela janela da métrica selecionada. Essa abordagem permite que o usuário navegue entre as diferentes métricas disponíveis na aplicação, cada uma com sua própria janela e funcionalidades específicas.
+Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagirem com as métricas do banco de dados, facilitando a análise e visualização dos dados relevantes.
 	
 </details>
 
 ## Aprendizados Efetivos HS
-Durante o desenvolvimento do projeto, tive a oportunidade de aprender a utilizar um sistema de gerenciamento de banco de dados (SGBDs), a fim de coletar e manipular informações para a geração de séries históricas e métricas importantes para os usuários da aplicação.
-Com essa experiência, aprimorei minhas habilidades em manipulação de dados em ambiente de banco de dados, desenvolvendo consultas SQL e outros comandos para obter informações específicas e relevantes. Além disso, também tive a oportunidade de conhecer ferramentas de gerenciamento de banco de dados, como o PostgreSQL, e aprender a utilizá-las de maneira efetiva. Com isso contribui para o desenvolvimento da aplicação, criando consultas e rotinas que permitiram a coleta de métricas importantes, tais como o tamanho das tabelas e do banco de dados
- 
+
+- Utilização de um Sistema de Gerenciamento de Banco de Dados (SGBD):
+	
+	Aprendi a utilizar um SGBD para coletar, armazenar e manipular informações.
+	Tornei-me familiarizado com as funcionalidades oferecidas pelo SGBD.
+	
+- Manipulação de dados em ambiente de banco de dados:
+
+	Desenvolvi habilidades na criação de consultas SQL para extrair informações específicas do banco de dados.
+	Utilizei outros comandos, além de consultas, para manipular e transformar os dados conforme necessário.
+
+- Conhecimento em ferramentas de gerenciamento de banco de dados:
+	
+	Adquiri experiência no uso de ferramentas de gerenciamento de banco de dados, como o PostgreSQL.
+	Aprendi a utilizar essas ferramentas de forma efetiva para administrar e configurar o banco de dados.
+
+- Desenvolvimento de consultas e rotinas:
+	
+	Contribuí para o desenvolvimento da aplicação criando consultas SQL e rotinas que permitiram a coleta de métricas importantes.
+	Utilizei consultas SQL para obter informações relevantes, como o tamanho das tabelas e do banco de dados.
+
+- Geração de séries históricas e métricas:
+	
+	Utilizei as habilidades em manipulação de dados e consultas SQL para gerar séries históricas e métricas relevantes para os usuários da aplicação.
+	Contribuí para a geração de informações valiosas que auxiliaram os usuários na análise e tomada de decisões.
+	Essas experiências e habilidades foram aplicadas ao longo do projeto, contribuindo para o desenvolvimento da aplicação e agregando valor ao produto final.
+	
 </details>
 
 <details>
@@ -518,36 +473,16 @@ Com essa experiência, aprimorei minhas habilidades em manipulação de dados em
   }
 
   ```
-Por padrão do angular, utilizei o Observable para lidar com a variedade de operações assíncronas, chamando o módulo HTTP para com solicitações e respostas AJAX.
-Com um construtor utilizando dos métodos do HttpClient para inserir um novo cadastro de produto. Para a construnção utilizei o  Observable. No cadastro do produto era necessário passar alguns parâmetros, como o disconto, nome, preço, descrição e informar a categoria do produto.
+	
+Por padrão do Angular, utilizei o Observable para lidar com a variedade de operações assíncronas, como solicitações e respostas AJAX, no contexto da comunicação HTTP. Para isso, fiz uso do módulo HttpClient fornecido pelo Angular.
+No construtor da classe ProductsService, injetei a dependência do HttpClient, permitindo assim que eu utilizasse os métodos disponíveis para realizar requisições HTTP. O método insert foi criado para inserir um novo cadastro de produto no sistema.
+Ao utilizar o Observable<Product> como tipo de retorno do método insert, estou indicando que a chamada para o servidor retornará um fluxo de dados assíncrono, representando o resultado da operação de inserção. Isso é especialmente útil quando lidamos com operações que podem levar algum tempo para serem concluídas, como as requisições HTTP.
+Dentro do método insert, criei um objeto obj que contém as propriedades do produto a ser cadastrado, como desconto, nome, preço, descrição e categoria. Em seguida, utilizei o método http.post<Product>('http://localhost:8080/products', obj) do HttpClient para enviar uma requisição HTTP POST para o endpoint http://localhost:8080/products, passando o objeto obj como carga útil (payload) da requisição.
+O Observable<Product> retornado pela chamada ao http.post permite que o código que consome esse método se inscreva (subscribe) no fluxo de dados assíncrono resultante. Dessa forma, é possível aguardar a resposta do servidor e realizar ações apropriadas, como tratar a resposta recebida, exibir mensagens ao usuário ou atualizar o estado da aplicação.
+Ao utilizar o Observable, estamos adotando uma abordagem reativa para lidar com operações assíncronas. Isso nos permite trabalhar de forma mais eficiente e concisa, evitando bloqueios e tornando o código mais fácil de entender e dar manutenção.
 	
 </details>
 
-<details>
-
-<summary>Tela de cadastro de produtos</summary>
-
- <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/products.png" width="600" height="300"/>
- 
- Esta tela foi desenvolvida para permitir o registro de novos produtos no sistema. Nela, é possível preencher informações como nome, descrição, categoria e preço facilitando a inclusão e gerenciamento de novos itens no sistema.
-
-```js
-
-@Output() productsEmitter = new EventEmitter();
-productPromotion : ProductPromotion
-success: boolean = false;
-errors: String[];
-id : number;
-lista_promotion : String[] = ['PRODUCT','TOTAL','PRODUCT_QUANTITY'];
-lista_type: String[] = ['VALUE', 'PERCENTAGE'];
-p1: boolean = true;
-p2: boolean = true;
-p3: boolean = true;
-p4: boolean = true;
-receivePromotion : string = "teste";
-	
-```
-</details>
 
 <details>
 
@@ -555,8 +490,12 @@ receivePromotion : string = "teste";
 
  <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/list_products.png" width="600" height="300"/>
  
- Com a finalidade de agilizar o gerenciamento dos produtos no sistema, implementei uma tela de listagem que possibilita a adição de promoções, a edição e exclusão  dos produtos cadastrados.
-
+Com a finalidade de agilizar o gerenciamento dos produtos no sistema, implementei uma tela de listagem que possibilita a adição de promoções, a edição e exclusão dos produtos cadastrados. Essa tela apresenta uma visualização organizada e intuitiva dos produtos, permitindo ao usuário acessar facilmente as funcionalidades de edição e exclusão de cada produto.
+Ao adicionar uma promoção a um produto, o usuário pode especificar um desconto a ser aplicado ao preço original. Isso permite a criação de ofertas especiais e a atualização do valor do produto de forma dinâmica.
+A funcionalidade de edição dos produtos cadastrados permite ao usuário atualizar informações como nome, preço, descrição e categoria do produto. Isso oferece flexibilidade para ajustar os detalhes dos produtos de acordo com as necessidades do negócio.
+Além disso, a opção de exclusão dos produtos cadastrados proporciona uma forma prática de remover itens que não são mais necessários no sistema, mantendo o banco de dados organizado e atualizado.
+Essa tela de listagem, com suas funcionalidades de adição de promoções, edição e exclusão de produtos, contribui para uma gestão eficiente e facilita o processo de manutenção do catálogo de produtos no sistema.
+	
 </details>
 
 <details>
@@ -565,7 +504,10 @@ receivePromotion : string = "teste";
 
  <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/promotion.png" width="600" height="300"/>
  
- Tendo os produtos, era necessário ter a opção para inserir uma promoção neles, dando alguns tipos de promoções 
+Tendo os produtos cadastrados no sistema, foi necessário implementar a opção de inserir promoções neles, oferecendo diferentes tipos de descontos e ofertas especiais. Essa funcionalidade permite que o usuário aplique promoções de forma flexível e personalizada aos produtos, proporcionando benefícios aos clientes e impulsionando as vendas.
+Ao acessar a opção de inserir uma promoção, o usuário pode selecionar entre diversos tipos de descontos, como desconto percentual, desconto em valor fixo ou promoções especiais, como "Leve 2, Pague 1" ou "Desconto progressivo". Essa variedade de opções permite ao usuário criar promoções atrativas e adaptadas às estratégias de marketing da empresa.
+Ao selecionar um tipo de promoção, o usuário pode definir os parâmetros correspondentes, como a porcentagem de desconto, o valor fixo do desconto ou as condições especiais da promoção. Essas informações são então aplicadas aos produtos selecionados, atualizando seus preços e refletindo as promoções no sistema.
+A inclusão de opções de promoções no sistema proporciona uma maior flexibilidade e controle sobre as estratégias de vendas da empresa. Permite a criação de campanhas promocionais mais eficientes, capazes de atrair e fidelizar clientes, além de impulsionar o volume de vendas dos produtos. Essa funcionalidade contribui para o sucesso e a competitividade do negócio, ao proporcionar ações promocionais personalizadas e impactantes.
 
 </details>
 
@@ -575,8 +517,10 @@ receivePromotion : string = "teste";
 
  <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/carrinho%20de%20compras.png" width="600" height="300"/>
  
-Desenvolvi uma tela para refletir no carrinho de compras do usuário os produtos registrados juntamente com suas promoções, visando uma melhor experiência de compra.
-O processo de estudo e implementação do código em testes práticos necessitou de consultas à documentação oficial do Angular. Em poucas semanas, a implementação foi finalizada, realizando as etapas explicadas nos capítulos anteriores.
+Desenvolvi uma tela dedicada ao carrinho de compras do usuário, onde são exibidos os produtos registrados juntamente com suas respectivas promoções. Essa tela foi projetada com o objetivo de proporcionar uma experiência de compra aprimorada, facilitando a visualização e o gerenciamento dos produtos selecionados pelo usuário.
+Durante o processo de desenvolvimento, foram necessárias pesquisas e consultas à documentação oficial do Angular, a fim de obter informações e orientações sobre as melhores práticas e recursos disponíveis. Essa pesquisa permitiu a implementação eficiente das funcionalidades necessárias, seguindo as etapas explicadas nos capítulos anteriores do projeto.
+Após algumas semanas de trabalho, a implementação da tela do carrinho de compras foi concluída com sucesso. A tela foi cuidadosamente projetada para exibir de forma clara e organizada os produtos selecionados pelo usuário, juntamente com as promoções aplicáveis a cada um deles. Isso permite que o usuário tenha uma visão completa dos produtos em seu carrinho, incluindo informações sobre preços, descontos e qualquer outra promoção especial disponível.
+A tela do carrinho de compras visa melhorar a experiência de compra do usuário, oferecendo uma interface intuitiva e funcionalidades úteis, como a possibilidade de atualizar quantidades, remover produtos do carrinho e visualizar o valor total a ser pago. Com essa implementação, espera-se que o processo de compra seja mais eficiente e agradável para o usuário, contribuindo para o sucesso da plataforma de e-commerce.
 
 </details>
   
@@ -623,7 +567,7 @@ Responsável por criar o template inicial do VueJs com as configurações adequa
 
 <details>
 
-<summary>Docker File</summary>
+<summary>Deploy com Docker </summary>
 
 ```yml
 FROM node:lts-alpine
@@ -651,11 +595,11 @@ A imagem é baseada na imagem Alpine do Node.js LTS. O arquivo instrui o Docker 
 
 <details>
 
-<summary>Tela de login</summary>
+<summary>Frontend</summary>
 
 <img src="https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/tela%20login.png" width="400" height="300"/>
 	
-Para tela ficar com esse design, usei o código abaixo:
+Para tela de login ficar com esse design, usei o código abaixo:
 	
 ```css
 
@@ -732,7 +676,7 @@ Especificamente, esse código cria uma caixa centralizada na página que contém
 
 <details>
 
-<summary>Token</summary>
+<summary>Integração de token Back-End com Front-End</summary>
 
 Foi necessário criar token ao fazer o login para questões de segurança do sistema, no front-end realizei a passagem do token em todas as funções, segue um exemplo abaixo:
 
@@ -763,7 +707,29 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
 	
 ## Aprendizados Efetivos HS
 	
-Além de aprender a trabalhar com o VueJs e a consultar a documentação oficial da tecnologia, também aprendi a importância de se dedicar a um estudo aprofundado para obter um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, eles geralmente cobrem apenas as partes mais superficiais e básicas de um assunto. Ao se aprofundar na documentação da tecnologia, pude entender melhor as suas nuances e recursos mais avançados. Além disso, essa experiência me ensinou a importância de sempre buscar novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Com isso, consegui desenvolver um projeto mais completo e eficiente, além de ter adquirido habilidades valiosas para minha carreira profissional.
+- Aprendizado do Vue.js: 
+	
+	Durante o projeto, foi necessário aprender a trabalhar com o Vue.js, uma tecnologia JavaScript popular para construção de interfaces de usuário.
 
+- Consulta à documentação oficial:
+	
+	Para aprofundar o conhecimento na tecnologia, foi fundamental consultar a documentação oficial do Vue.js. Isso permitiu compreender melhor as nuances e recursos mais avançados da 	tecnologia.
+
+- Estudo aprofundado: 
+	
+	A experiência ressaltou a importância de se dedicar a um estudo aprofundado para adquirir um conhecimento mais sólido e consistente. Embora tutoriais possam ser úteis, é necessário ir     	  além e explorar a documentação completa da tecnologia.
+
+- Conhecimento sólido: 
+	
+	O estudo aprofundado proporcionou um entendimento mais completo do Vue.js, permitindo o desenvolvimento de um projeto mais completo e eficiente.
+
+- Busca constante por conhecimento: 
+	
+	A experiência destacou a importância de buscar constantemente novos conhecimentos e se manter atualizado em relação às novas tecnologias e tendências de mercado. Isso é essencial para 	se manter relevante e competitivo no campo profissional.
+
+- Habilidades valiosas:
+	
+	Aprofundar-se na documentação e adquirir um conhecimento mais sólido do Vue.js resultou no desenvolvimento de habilidades valiosas, que podem ser aplicadas em futuros projetos e        
+	contribuir para o crescimento profissional.
 </details>
 
