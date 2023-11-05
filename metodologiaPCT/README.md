@@ -7,19 +7,49 @@
   Tenho 20 anos e trabalho como Assistente de Projetos e Logística. <br/>
   
   <img src="https://avatars.githubusercontent.com/u/81268185?v=4" height="150" width="150"/>
+
+  ---
   
-  ### Meus principais conhecimentos
+  ### Meus principais conhecimentos :bar_chart:
   
-  ### Python
+  ### <code>Python</code>
   
   Python é a linguagem de programação que eu mais tenho conhecimento, fiz vários projetos utilizando alguns frameworks como o Flask, Django, Pandas entre outros.
   Atualmente trabalho com essa linguagem e com isso tenho uma segurança para desenvolver soluções e inovações.
   
-  ### VBA 
+  ### <code>VBA</code>
   
   VBA foi a primeira linguagem que estudei, ainda antes da graduação. Mesmo nunca tendo atuado profissionalmente com VBA, realizei diversos projetos pessoais
-  e isso me ajudou na minha carreira pessoal. É uma linguagem que me sinto confortavél em desenvolver qualquer coisa
+  e isso me ajudou na minha carreira pessoal. É uma linguagem que me sinto confortavél em desenvolver qualquer coisa.
+
+  ### <code>SQL</code>
   
+  O SQL sempre desempenhou um papel fundamental em meus projetos, sendo uma ferramenta que integrei desde projetos pessoais até ambientes profissionais. Durante meu 
+  período na faculdade, tive a oportunidade de aprofundar meus conhecimentos e aprimorar minhas habilidades em SQL. Esta experiência acadêmica não apenas solidificou minha 
+  compreensão dos fundamentos, mas também me permitiu explorar técnicas avançadas para otimizar e aprimorar meus bancos de dados, bem como refinar minhas consultas. Como  
+  resultado, ganhei a capacidade de criar soluções mais eficientes e robustas, garantindo um desempenho superior em meus projetos, tanto pessoais quanto profissionais.
+
+  ### <code>NOSql</code>
+ Durante minha experiência acadêmica na faculdade, tive meu primeiro contato com bancos de dados NoSQL. Ao longo desse período, adquiri conhecimentos sólidos que me 
+ capacitaram a desenvolver e implementar bancos de dados não relacionais de forma eficaz. Estou apto a aplicar soluções NoSQL em situações específicas, atendendo às 
+ necessidades do projeto de forma personalizada.
+
+ ### <code>Metodologia Ágil (Scrum)</code>
+ Durante meu período na faculdade, aprendi e dediquei-me ao desenvolvimento em Scrum, aplicando essa metodologia em todos os projetos 
+ acadêmicos. Essa experiência não apenas consolidou minha compreensão teórica do Scrum, mas também me forneceu habilidades práticas valiosas. Ao ingressar no cenário 
+ profissional, consegui aplicar essas habilidades de forma eficaz. A experiência adquirida durante os projetos acadêmicos serviu como uma base sólida para minha carreira, 
+ permitindo-me utilizar o Scrum de maneira prática e bem-sucedida em contextos profissionais, indo além do ambiente acadêmico.
+
+
+ ### <code>DevOps</code>
+ Durante minha jornada acadêmica, dediquei-me ao estudo e à aplicação prática de práticas DevOps. Esta experiência acadêmica serviu como um campo de 
+ testes valioso, permitindo-me aprofundar meus conhecimentos em integração contínua, entrega contínua e automação de processos de desenvolvimento. Após ingressar na minha 
+ carreira profissional, pude aplicar essas habilidades de DevOps em ambientes do mundo real. Gerenciei com sucesso pipelines de CI/CD, implementei técnicas eficazes de 
+ automação e colaborei estreitamente com equipes de desenvolvimento e operações para melhorar a eficiência operacional. A sólida base que construí durante meus projetos 
+ acadêmicos não apenas fortaleceu minha compreensão do DevOps, mas também me permitiu implementar práticas eficazes em cenários profissionais, contribuindo 
+ significativamente para o sucesso dos projetos e processos de entrega
+ 
+ ---
   <details>
   
   <summary>Projeto 1</summary>
