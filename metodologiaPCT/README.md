@@ -733,3 +733,144 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
 	contribuir para o crescimento profissional.
 </details>
 
+<details>
+
+<summary>Projeto 5</summary>
+
+  # Projeto 5: 5º Semestre de 2023
+  
+ ### Parceiro Acadêmico
+  MidAll LTDA
+  
+ ### Descrição do Projeto
+ 
+Automatizar a jornada de download de arquivos, armazenados em uma plataforma de vídeo, transferindo-os para a nuvem, através do desenvolvimento de uma aplicação como serviço, contando apenas com um menu de configuração para o usuário, que terá os parâmetros necessários para o processo de download do serviço automaticamente , gerando alertas em caso de erro no processamento. Salve os metadados do arquivo para construir um dashboard para monitorar a execução do serviço e posteriormente analisar resultados e indicadores.
+
+
+### Tecnologias adotadas na solução
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" width="40" height="40"/> Microsoft SQL Server
+
+O SQL Server é um software de gerenciamento de banco de dados relacional que permite que os usuários armazenem, acessem e manipulem dados de forma eficiente. Ele usa a linguagem SQL (Structured Query Language) para executar operações de banco de dados, como consultas, inserções, atualizações e exclusões.
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" width="40" height="40"/> Python
+
+ Python é uma linguagem de programação amplamente usada em aplicações da Web, desenvolvimento de software, ciência de dados e machine learning (ML).
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" width="40" height="40"/> VueJs
+
+Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
+
+### Contribuições Pessoais 
+
+Encarregado de definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lido com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas que garantam a eficiência operacional, colaboração contínua e entrega confiável do produto final.
+
+<details>
+
+<summary>Arquitetura do projeto</summary>
+
+Para mais detalhes da arquitetura, acesse o link abaixo:
+
+### Back-end
+#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCTZABU=/)
+
+<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/backend-miro.png" /></h1>
+
+### Front-end
+#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCVa9pE=/)
+
+<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/frontend-miro.png" /></h1>
+	
+</details>
+
+<details>
+
+<summary>Continuous Integration</summary>
+
+### Back-end
+No desenvolvimento do backend, segui uma abordagem cuidadosa para evitar problemas relacionados a versões de bibliotecas e incompatibilidades. Inicialmente, implementei uma metodologia rigorosa para gerenciar as dependências, garantindo que as versões das bibliotecas fossem compatíveis entre si. Estabeleci um padrão consistente para importações de bibliotecas, promovendo uma estrutura organizada e fácil de manter. Além disso, priorizei a execução de testes unitários abrangentes, assegurando que cada componente do código fosse validado quanto à sua funcionalidade, confiabilidade e integridade
+
+<details> 
+	
+```yml
+
+name: Python application
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Sort imports with isort
+        run: |
+          isort .
+      - name: Test with pytest
+        run: |
+          pytest
+  
+```
+</details>
+
+### Front-end
+
+No frontend, assegurei que todas as bibliotecas fossem instaladas na mesma versão para evitar conflitos e inconsistências. Realizei uma verificação minuciosa das dependências, garantindo que estivessem sincronizadas. Além disso, desenvolvi e executei testes para validar a integridade e o desempenho das funcionalidades implementadas. Essas medidas garantiram não apenas a estabilidade do sistema, mas também uma experiência consistente e sem problemas para os usuários finais. 
+
+<details>
+
+ ```yml
+name: Vue.js CI
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test  
+  
+```
+</details>
+</details>
+
+	
+## Aprendizados Efetivos HS
+	
+nesse projeto aprendi alguns tópicos de devops, teste de unidades, ci/cd, Garantia de Qualidade, documentação de desenvolvimento do projeto.
+
