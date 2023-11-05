@@ -4,7 +4,7 @@
   
   Olá, seja bem vindo! Sou o Zaion Felippe, estudante de Banco de dados pela FATEC Prof. Jessen Vidal. 
   
-  Tenho 19 anos e trabalho como Assistente de Projetos e Logística. <br/>
+  Tenho 20 anos e trabalho como Assistente de Projetos e Logística. <br/>
   
   <img src="https://avatars.githubusercontent.com/u/81268185?v=4" height="150" width="150"/>
   
@@ -867,10 +867,108 @@ jobs:
   
 ```
 </details>
+
 </details>
 
+<details>
+	
+<summary>Serviço de transferência de arquivos</summary>
+</br>
+
+No âmbito deste projeto, desenvolvi um serviço altamente eficiente responsável por capturar as configurações pré-definidas ou definidas pelo usuário. Este serviço foi projetado para transferir arquivos de uma nuvem para outra, otimizando o processo ao transformar esses arquivos em bytes antes da transferência. Após a conclusão bem-sucedida da transferência, o serviço automaticamente realiza a exclusão do arquivo na nuvem de origem. Essa solução não apenas garante uma transferência segura e confiável dos dados, mas também otimiza o uso do espaço de armazenamento, proporcionando uma experiência eficaz e sem complicações para o usuário final.
+</br>
+
+<details>
+
+```py
+
+class FileModelService:
+    def __init__(self):
+        self.google_drive = GoogleDrive()
+        self.azure = Azure()
+
+    def transfer_files(self):
+        container_client = self.azure.connection_azure(use_json=True)
+        files_drive = self.google_drive.list_files().get('files')
+
+        if not files_drive:
+            print("Nenhum arquivo encontrado no Google Drive.")
+            return
+
+        with open(sp.PARAMETERS_TRANSFER) as f:
+            params = json.load(f)
+        folder_name = params.get('folder_azure')
+
+        for item in files_drive:
+            file_name = item.split("(")[0].strip()
+            file_id = item.split("(")[1].replace(")", "")
+            file_content = self.google_drive.download_file(file_id)
+
+            if not isinstance(file_content, bytes):
+                file_content = bytes(str(file_content), 'utf-8')
+
+            transfer = FileTransferModel()
+            transfer.name = file_name
+            transfer.size = len(file_content)
+            transfer.format = file_name.split(".")[-1]
+            transfer.date_upload = datetime.now()
+            transfer.data_transfer = datetime.now()
+            
+            blob_path = f"{folder_name}/{file_name}" if folder_name else file_name
+            
+            if blob_path != None:
+                blob_client = container_client.get_blob_client(container='midall', blob=blob_path)
+            else:
+                blob_client = container_client.get_blob_client(container='midall', blob=file_name)
+            try:
+                blob_client.upload_blob(file_content, overwrite=True)
+                print(f"Arquivo {file_name} transferido com sucesso para o Azure Blob Storage!")
+                self.google_drive.remove_files(file_id)
+                print(f"Arquivo {file_name} deletado do Google Drive!")
+                transfer.status = 'transferido'
+                plyer.notification.notify(
+                    title='Transferência Concluída',
+                    message=f'Arquivo "{file_name}" foi transferido com sucesso para o Azure Blob Storage!',
+                    app_name='Midall Transfer',
+                    timeout=5
+                )
+            except AzureError as ex:
+                print('Um erro ocorreu durante o upload do arquivo: {}'.format(ex))
+                transfer.status = 'erro: {}'.format(str(ex))
+                plyer.notification.notify(
+                    title='Ocorreu um erro ao transferir',
+                    message=f'Arquivo "{file_name}" não foi transferido!',
+                    app_name='Midall Transfer',
+                    timeout=5
+                )
+            transfer.save()
+
+            if not isinstance(file_content, bytes):
+                file_content = bytes(str(file_content), 'utf-8')
+
+```
+</details>
+
+Além disso, implementei um sistema de alertas para fornecer notificações precisas durante todo o processo de transferência de arquivos. Os alertas são acionados quando o arquivo é transferido com sucesso, quando ocorre um erro durante a transferência ou quando o arquivo é deletado na nuvem de origem. Esses alertas são essenciais para manter os usuários informados em tempo real sobre o status das operações, garantindo transparência, confiabilidade e um controle eficaz sobre o fluxo de dados entre as nuvens.
+</br>
+</details>
 	
 ## Aprendizados Efetivos HS
 	
-nesse projeto aprendi alguns tópicos de devops, teste de unidades, ci/cd, Garantia de Qualidade, documentação de desenvolvimento do projeto.
+- DevOps e CI/CD:
+Aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
 
+- Teste de Unidades e Garantia de Qualidade:
+Aprimorei minhas habilidades em teste de unidades, assegurando a funcionalidade e integridade do código.
+Compreendi os princípios essenciais da garantia de qualidade, promovendo um produto final confiável e de alta qualidade.
+
+- Documentação e Padronização:
+Estabeleci padrões consistentes para a documentação de desenvolvimento do projeto, garantindo clareza e coesão nas informações compartilhadas.
+Sincronizei versões de bibliotecas para evitar conflitos, mantendo a estabilidade do sistema.
+
+- Manipulação Avançada de Dados:
+Adquiri habilidades sólidas na transformação de arquivos em bytes, facilitando a transferência segura de dados para outra nuvem de armazenamento.
+
+Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
+
+</details>
