@@ -14,7 +14,8 @@
   
   ### <code>Python</code>
   
-  Python é a linguagem de programação que eu mais tenho conhecimento, fiz vários projetos utilizando alguns frameworks como o Flask, Django, Pandas entre outros.
+  Python é a linguagem de programação que eu mais tenho conhecimento, fiz vários projetos utilizando alguns frameworks como o Flask e Django, e diversos RPAs entre outras 
+  aplicações.
   Atualmente trabalho com essa linguagem e com isso tenho uma segurança para desenvolver soluções e inovações.
   
   ### <code>VBA</code>
@@ -25,7 +26,8 @@
   ### <code>SQL</code>
   
   O SQL sempre desempenhou um papel fundamental em meus projetos, sendo uma ferramenta que integrei desde projetos pessoais até ambientes profissionais. Durante meu 
-  período na faculdade, tive a oportunidade de aprofundar meus conhecimentos e aprimorar minhas habilidades em SQL. Esta experiência acadêmica não apenas solidificou minha 
+  período na faculdade, tive a oportunidade de aprofundar meus conhecimentos e aprimorar minhas habilidades em SQL. Esta experiência acadêmica não apenas solidificou 
+  minha 
   compreensão dos fundamentos, mas também me permitiu explorar técnicas avançadas para otimizar e aprimorar meus bancos de dados, bem como refinar minhas consultas. Como  
   resultado, ganhei a capacidade de criar soluções mais eficientes e robustas, garantindo um desempenho superior em meus projetos, tanto pessoais quanto profissionais.
 
