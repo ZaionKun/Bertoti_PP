@@ -14,14 +14,15 @@
   
   ### <code>Python</code>
   
-  Python é a linguagem de programação que eu mais tenho conhecimento, fiz vários projetos utilizando alguns frameworks como o Flask e Django, e diversos RPAs entre outras 
-  aplicações.
-  Atualmente trabalho com essa linguagem e com isso tenho uma segurança para desenvolver soluções e inovações.
+  Python é a linguagem de programação que eu tenho mais conhecimento. Fiz vários projetos utilizando alguns frameworks 
+  como o Flask e Django; e diversos RPAs entre outras aplicações.
+  Atualmente trabalho com essa linguagem, portanto, tenho uma segurança para desenvolver soluções e inovações.
   
   ### <code>VBA</code>
   
-  VBA foi a primeira linguagem que estudei, ainda antes da graduação. Mesmo nunca tendo atuado profissionalmente com VBA, realizei diversos projetos pessoais
-  e isso me ajudou na minha carreira pessoal. É uma linguagem que me sinto confortavél em desenvolver qualquer coisa.
+  VBA foi a primeira linguagem que estudei, mesmo antes de iniciar o cusro de banco de dados. Mesmo nunca tendo atuado 	 
+  profissionalmente com VBA, realizei diversos projetos pessoais os quais me ajudaram na minha carreira pessoal. É uma 
+  linguagem que me sinto confortavél em desenvolver RPA (Robotic Process Automation) entre outros temas.
 
   ### <code>SQL</code>
   
@@ -29,7 +30,7 @@
   período na faculdade, tive a oportunidade de aprofundar meus conhecimentos e aprimorar minhas habilidades em SQL. Esta experiência acadêmica não apenas solidificou 
   minha 
   compreensão dos fundamentos, mas também me permitiu explorar técnicas avançadas para otimizar e aprimorar meus bancos de dados, bem como refinar minhas consultas. Como  
-  resultado, ganhei a capacidade de criar soluções mais eficientes e robustas, garantindo um desempenho superior em meus projetos, tanto pessoais quanto profissionais.
+  resultado, adquiri a capacidade de criar soluções mais eficientes e robustas, garantindo um desempenho superior em meus projetos, tanto pessoais quanto profissionais.
 
   ### <code>NOSql</code>
  Durante minha experiência acadêmica na faculdade, tive meu primeiro contato com bancos de dados NoSQL. Ao longo desse período, adquiri conhecimentos sólidos que me 
@@ -37,7 +38,7 @@
  necessidades do projeto de forma personalizada.
 
  ### <code>Metodologia Ágil (Scrum)</code>
- Durante meu período na faculdade, aprendi e dediquei-me ao desenvolvimento em Scrum, aplicando essa metodologia em todos os projetos 
+ Durante o período na faculdade, aprendi e dediquei-me ao desenvolvimento em Scrum, aplicando essa metodologia em todos os projetos 
  acadêmicos. Essa experiência não apenas consolidou minha compreensão teórica do Scrum, mas também me forneceu habilidades práticas valiosas. Ao ingressar no cenário 
  profissional, consegui aplicar essas habilidades de forma eficaz. A experiência adquirida durante os projetos acadêmicos serviu como uma base sólida para minha carreira, 
  permitindo-me utilizar o Scrum de maneira prática e bem-sucedida em contextos profissionais, indo além do ambiente acadêmico.
@@ -45,7 +46,7 @@
 
  ### <code>DevOps</code>
  Durante minha jornada acadêmica, dediquei-me ao estudo e à aplicação prática de práticas DevOps. Esta experiência acadêmica serviu como um campo de 
- testes valioso, permitindo-me aprofundar meus conhecimentos em integração contínua, entrega contínua e automação de processos de desenvolvimento. Após ingressar na minha 
+ testes valioso, permitindo-me aprofundar meus conhecimentos em integração contínua e automações de processos de desenvolvimento. Após ingressar na minha 
  carreira profissional, pude aplicar essas habilidades de DevOps em ambientes do mundo real. Gerenciei com sucesso pipelines de CI/CD, implementei técnicas eficazes de 
  automação e colaborei estreitamente com equipes de desenvolvimento e operações para melhorar a eficiência operacional. A sólida base que construí durante meus projetos 
  acadêmicos não apenas fortaleceu minha compreensão do DevOps, mas também me permitiu implementar práticas eficazes em cenários profissionais, contribuindo 
@@ -63,7 +64,7 @@
   
   ### Descrição do Projeto
   
-Este projeto tem como objetivo criar um assistente virtual financeiro para ajudar pessoas a gerenciar melhor suas finanças pessoais. O assistente virtual será capaz de se comunicar com o usuário por meio de comandos de voz ou texto, e terá acesso a informações financeiras do usuário, como contas bancárias, cartões de crédito e investimentos.
+Este projeto tem como objetivo criar um assistente virtual financeiro para ajudar pessoas a gerenciar melhor suas finanças pessoais. O assistente virtual foi capaz de se comunicar com o usuário por meio de comandos de voz ou texto, com acesso a informações financeiras do usuário, como contas bancárias, cartões de crédito e investimentos.
   
   ### Tecnologias adotadas na solução
   ### <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" width="40" height="40"/> Python 
@@ -238,21 +239,21 @@ O código então chama a função sai_som para reproduzir o título da notícia 
    ### Descrição do Projeto
  A aplicação em questão tem como objetivo principal coletar métricas de um ou mais Sistemas Gerenciadores de Banco de Dados remotos, em intervalos regulares de tempo. Essas métricas incluem informações relevantes para o gerenciamento e manutenção desses sistemas, como por exemplo, uso de CPU, uso de memória, número de conexões, tempo de resposta, entre outras.
 
-Ao coletar essas informações de forma periódica, a aplicação permite que o usuário tenha acesso a uma série histórica de dados, que pode ser utilizada para identificar padrões de uso, detectar problemas e avaliar o desempenho dos SGBDs ao longo do tempo. Com base nessas informações, o usuário poderá tomar decisões quanto à necessidade de manutenções, balanceamento e aumento de capacidade, bem como melhorias na infraestrutura (servidores), de forma a garantir a disponibilidade e a eficiência dos sistemas gerenciados pelo SGBD.
+Ao coletar essas informações de forma periódica, a aplicação permite que o usuário tenha acesso a uma série histórica de dados, que pode ser utilizada para identificar padrões de uso, detectar problemas e avaliar o desempenho dos SGBDs ao longo do tempo. Com base nessas informações, o usuário é capaz de tomar decisões quanto à necessidade de manutenções, balanceamento e aumento de capacidade, bem como melhorias na infraestrutura (servidores), de forma a garantir a disponibilidade e a eficiência dos sistemas gerenciados pelo SGBD.
 
 ### Tecnologias adotadas na solução
 ### <img src="https://github.com/devicons/devicon/blob/master/icons/java/java-original.svg" width="40" height="40"/> Java  
 	
 Java é uma linguagem de programação amplamente utilizada no desenvolvimento de aplicativos corporativos. Uma das suas principais vantagens é a portabilidade, ou seja, o código escrito em Java pode ser executado em diferentes plataformas sem a necessidade de adaptações significativas.
 
-Na aplicação em questão, a escolha da linguagem Java pode ter sido motivada por várias razões. Uma delas é a sua ampla disponibilidade de bibliotecas e frameworks para o desenvolvimento de aplicativos de coleta de dados e análise de métricas, o que pode ter acelerado o processo de desenvolvimento da aplicação.
+Na aplicação em questão, a escolha da linguagem Java foi motivada por várias razões. Uma delas é a sua ampla disponibilidade de bibliotecas e frameworks para o desenvolvimento de aplicativos de coleta de dados e análise de métricas, o que pode ter acelerado o processo de desenvolvimento da aplicação.
  
 ### <img src="https://github.com/devicons/devicon/blob/master/icons/postgresql/postgresql-original.svg" width="40" height="40"/> PostgreSQL
 	
-a tecnologia PostgreSQL foi utilizada como o sistema gerenciador de banco de dados para armazenar e gerenciar as métricas coletadas pelos servidores remotos. O PostgreSQL é uma opção popular e avançada de sistema de gerenciamento de banco de dados relacional de código aberto, que oferece recursos avançados, incluindo suporte a SQL avançado, extensibilidade, replicação, transações e integridade referencial.
+A tecnologia PostgreSQL foi utilizada como o sistema gerenciador de banco de dados para armazenar e gerenciar as métricas coletadas pelos servidores remotos. O PostgreSQL é uma opção popular e avançada de sistema de gerenciamento de banco de dados relacional de código aberto, que oferece recursos avançados, incluindo suporte a SQL avançado, extensibilidade, replicação, transações e integridade referencial.
 
  ### Contribuições Pessoais
-Responsável por desenvolver consultas SQL que permitiu a exibir algumas métricas do banco de dados na aplicação. Esses itens foi identificado como um dos principais items do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
+Responsável por desenvolver consultas SQL que permitiram exibir algumas métricas do banco de dados na aplicação. Esses itens foram identificados como um dos principais items do projeto, ou seja, uma necessidade importante a ser atendida para a efetividade da ferramenta.
 
 Por meio de sua consultas, os usuários da aplicação puderam obter informações precisas sobre as  tabelas individualmente, permitindo uma melhor gestão do espaço em disco utilizado pelo sistema de gerenciamento de banco de dados.
 
@@ -435,7 +436,7 @@ Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagir
 - Geração de séries históricas e métricas:
 	
 	Utilizei as habilidades em manipulação de dados e consultas SQL para gerar séries históricas e métricas relevantes para os usuários da aplicação.
-	Contribuí para a geração de informações valiosas que auxiliaram os usuários na análise e tomada de decisões.
+	Contribuí para a geração de informações valiosas que auxiliaram os usuários na análise e tomadas de decisões.
 	Essas experiências e habilidades foram aplicadas ao longo do projeto, contribuindo para o desenvolvimento da aplicação e agregando valor ao produto final.
 	
 </details>
@@ -451,7 +452,7 @@ Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagir
   
   ### Descrição do Projeto
   
-  A ideia é criar um mini motor de regras com uma interface onde as regras das promoções possam ser cadastradas e aplicadas no momento que os itens forem para o     
+  O projeto consiste na criação de  um mini motor de regras com uma interface onde as regras das promoções possam ser cadastradas e aplicadas no momento que os itens forem para o     
   carrinho de compras. Alguns exemplos de mecânicas: compre 2 produtos e tenha 10% de desconto. Na compra de 2 produtos, ganhe mais 1. Na compra de 3 produtos, 
   ganhe 50% de desconto no item de menor valor.
   
@@ -558,7 +559,7 @@ A tela do carrinho de compras visa melhorar a experiência de compra do usuário
   
 ## Aprendizados Efetivos HS
   
- Neste projeto aprendi a mexer com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
+ Neste projeto aprendi a trabalhar com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias, se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
  Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend".     Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo           específico das requisições possíveis de entrada no serviço desenvolvido.
 
   - Criação de API que se provê serviços e se comunica com outros aplicações: sei fazer com autonomia
@@ -577,7 +578,7 @@ A tela do carrinho de compras visa melhorar a experiência de compra do usuário
   
  ### Descrição do Projeto
  
- Temos um desafio de sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos    	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
+ O projeto teve como desafio a sincronização dos dados administrativos, financeiros e operacionais referentes aos serviços prestados pela empresa. A falta de organização dos    	dados acarreta lentidão para atender chamados, e confusão na interpretação dos indicadores comerciais e financeiros.
 
 ### Tecnologias adotadas na solução
 
@@ -776,7 +777,7 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
   
  ### Descrição do Projeto
  
-Automatizar a jornada de download de arquivos, armazenados em uma plataforma de vídeo, transferindo-os para a nuvem, através do desenvolvimento de uma aplicação como serviço, contando apenas com um menu de configuração para o usuário, que terá os parâmetros necessários para o processo de download do serviço automaticamente , gerando alertas em caso de erro no processamento. Salve os metadados do arquivo para construir um dashboard para monitorar a execução do serviço e posteriormente analisar resultados e indicadores.
+Este projeto consiste na automatização a jornada de download de arquivos, armazenados em uma plataforma de vídeo, transferindo-os para a nuvem, através do desenvolvimento de uma aplicação como serviço, contando apenas com um menu de configuração para o usuário, que terá os parâmetros necessários para o processo de download do serviço automaticamente , gerando alertas em caso de erro no processamento. Salve os metadados do arquivo para construir um dashboard para monitorar a execução do serviço e posteriormente analisar resultados e indicadores.
 
 
 ### Tecnologias adotadas na solução
@@ -795,7 +796,7 @@ Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedor
 
 ### Contribuições Pessoais 
 
-Encarregado de definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lido com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas que garantam a eficiência operacional, colaboração contínua e entrega confiável do produto final.
+Fui encarregado a de definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lidei com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas que garantam a eficiência operacional, colaboração contínua e entrega confiável do produto final.
 
 <details>
 
@@ -988,18 +989,18 @@ Além disso, implementei um sistema de alertas para fornecer notificações prec
 ## Aprendizados Efetivos HS
 	
 - DevOps e CI/CD:
-Aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
+aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
 
 - Teste de Unidades e Garantia de Qualidade:
-Aprimorei minhas habilidades em teste de unidades, assegurando a funcionalidade e integridade do código.
+aprimorei minhas habilidades em teste de unidades, assegurando a funcionalidade e integridade do código.
 Compreendi os princípios essenciais da garantia de qualidade, promovendo um produto final confiável e de alta qualidade.
 
 - Documentação e Padronização:
-Estabeleci padrões consistentes para a documentação de desenvolvimento do projeto, garantindo clareza e coesão nas informações compartilhadas.
+estabeleci padrões consistentes para a documentação de desenvolvimento do projeto, garantindo clareza e coesão nas informações compartilhadas.
 Sincronizei versões de bibliotecas para evitar conflitos, mantendo a estabilidade do sistema.
 
 - Manipulação Avançada de Dados:
-Adquiri habilidades sólidas na transformação de arquivos em bytes, facilitando a transferência segura de dados para outra nuvem de armazenamento.
+adquiri habilidades sólidas na transformação de arquivos em bytes, facilitando a transferência segura de dados para outra nuvem de armazenamento.
 
 Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
 
