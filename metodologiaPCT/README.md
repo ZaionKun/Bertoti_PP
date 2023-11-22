@@ -1104,3 +1104,342 @@ adquiri habilidades sólidas na transformação de arquivos em bytes, facilitand
 Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
 
 </details>
+
+<details>
+
+<summary>Projeto 6</summary>
+
+  # Projeto 6: 6º Semestre de 2023
+  
+ ### Parceiro Acadêmico
+  Visiona
+  
+ ### Descrição do Projeto
+ 
+Este projeto consiste na automatização a jornada de download de arquivos, armazenados em uma plataforma de vídeo, transferindo-os para a nuvem, através do desenvolvimento de uma aplicação como serviço, contando apenas com um menu de configuração para o usuário, que terá os parâmetros necessários para o processo de download do serviço automaticamente , gerando alertas em caso de erro no processamento. Salve os metadados do arquivo para construir um dashboard para monitorar a execução do serviço e posteriormente analisar resultados e indicadores.
+
+
+### Tecnologias adotadas na solução
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" width="40" height="40"/> Microsoft SQL Server
+
+O SQL Server é um software de gerenciamento de banco de dados relacional que permite que os usuários armazenem, acessem e manipulem dados de forma eficiente. Ele usa a linguagem SQL (Structured Query Language) para executar operações de banco de dados, como consultas, inserções, atualizações e exclusões.
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" width="40" height="40"/> Python
+
+ Python é uma linguagem de programação amplamente usada em aplicações da Web, desenvolvimento de software, ciência de dados e machine learning (ML).
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" width="40" height="40"/> VueJs
+
+Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
+
+### Contribuições Pessoais 
+
+Fui encarregado a de definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lidei com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas que garantam a eficiência operacional, colaboração contínua e entrega confiável do produto final.
+
+<details>
+
+<summary>Arquitetura do projeto</summary>
+
+Para mais detalhes da arquitetura, acesse o link abaixo:
+
+### Back-end
+#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCTZABU=/)
+
+<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/backend-miro.png" /></h1>
+
+### Front-end
+#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCVa9pE=/)
+
+<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/frontend-miro.png" /></h1>
+	
+</details>
+
+<details>
+
+<summary>Continuous Integration</summary>
+
+### Back-end
+No desenvolvimento do backend, segui uma abordagem cuidadosa para evitar problemas relacionados a versões de bibliotecas e incompatibilidades. Inicialmente, implementei uma metodologia rigorosa para gerenciar as dependências, garantindo que as versões das bibliotecas fossem compatíveis entre si. Estabeleci um padrão consistente para importações de bibliotecas, promovendo uma estrutura organizada e fácil de manter. Além disso, priorizei a execução de testes unitários abrangentes, assegurando que cada componente do código fosse validado quanto à sua funcionalidade, confiabilidade e integridade
+
+<details> 
+	
+```yml
+
+name: Python application
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v3
+        with:
+          python-version: "3.10"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+      - name: Sort imports with isort
+        run: |
+          isort .
+      - name: Test with pytest
+        run: |
+          pytest
+  
+```
+</details>
+
+### Front-end
+
+No frontend, assegurei que todas as bibliotecas fossem instaladas na mesma versão para evitar conflitos e inconsistências. Realizei uma verificação minuciosa das dependências, garantindo que estivessem sincronizadas. Além disso, desenvolvi e executei testes para validar a integridade e o desempenho das funcionalidades implementadas. Essas medidas garantiram não apenas a estabilidade do sistema, mas também uma experiência consistente e sem problemas para os usuários finais. 
+
+<details>
+
+ ```yml
+name: Vue.js CI
+
+on:
+  push:
+    branches:
+      - '*'
+  pull_request:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Test
+        run: npm run test  
+  
+```
+</details>
+
+</details>
+
+<details>
+	
+<summary>Serviço de transferência de arquivos</summary>
+</br>
+
+No âmbito deste projeto, desenvolvi um serviço altamente eficiente responsável por capturar as configurações pré-definidas ou definidas pelo usuário. Este serviço foi projetado para transferir arquivos de uma nuvem para outra, otimizando o processo ao transformar esses arquivos em bytes antes da transferência. Após a conclusão bem-sucedida da transferência, o serviço automaticamente realiza a exclusão do arquivo na nuvem de origem. Essa solução não apenas garante uma transferência segura e confiável dos dados, mas também otimiza o uso do espaço de armazenamento, proporcionando uma experiência eficaz e sem complicações para o usuário final.
+</br>
+
+<details>
+
+```py
+
+class FileModelService:
+    def __init__(self):
+        self.google_drive = GoogleDrive()
+        self.azure = Azure()
+
+    def transfer_files(self):
+        container_client = self.azure.connection_azure(use_json=True)
+        files_drive = self.google_drive.list_files().get('files')
+
+        if not files_drive:
+            print("Nenhum arquivo encontrado no Google Drive.")
+            return
+
+        with open(sp.PARAMETERS_TRANSFER) as f:
+            params = json.load(f)
+        folder_name = params.get('folder_azure')
+
+        for item in files_drive:
+            file_name = item.split("(")[0].strip()
+            file_id = item.split("(")[1].replace(")", "")
+            file_content = self.google_drive.download_file(file_id)
+
+            if not isinstance(file_content, bytes):
+                file_content = bytes(str(file_content), 'utf-8')
+
+            transfer = FileTransferModel()
+            transfer.name = file_name
+            transfer.size = len(file_content)
+            transfer.format = file_name.split(".")[-1]
+            transfer.date_upload = datetime.now()
+            transfer.data_transfer = datetime.now()
+            
+            blob_path = f"{folder_name}/{file_name}" if folder_name else file_name
+            
+            if blob_path != None:
+                blob_client = container_client.get_blob_client(container='midall', blob=blob_path)
+            else:
+                blob_client = container_client.get_blob_client(container='midall', blob=file_name)
+            try:
+                blob_client.upload_blob(file_content, overwrite=True)
+                print(f"Arquivo {file_name} transferido com sucesso para o Azure Blob Storage!")
+                self.google_drive.remove_files(file_id)
+                print(f"Arquivo {file_name} deletado do Google Drive!")
+                transfer.status = 'transferido'
+                plyer.notification.notify(
+                    title='Transferência Concluída',
+                    message=f'Arquivo "{file_name}" foi transferido com sucesso para o Azure Blob Storage!',
+                    app_name='Midall Transfer',
+                    timeout=5
+                )
+            except AzureError as ex:
+                print('Um erro ocorreu durante o upload do arquivo: {}'.format(ex))
+                transfer.status = 'erro: {}'.format(str(ex))
+                plyer.notification.notify(
+                    title='Ocorreu um erro ao transferir',
+                    message=f'Arquivo "{file_name}" não foi transferido!',
+                    app_name='Midall Transfer',
+                    timeout=5
+                )
+            transfer.save()
+
+            if not isinstance(file_content, bytes):
+                file_content = bytes(str(file_content), 'utf-8')
+
+```
+</details>
+
+Além disso, implementei um funcionalidade de alertas para fornecer notificações precisas durante todo o processo de transferência de arquivos. Os alertas são acionados quando o arquivo é transferido com sucesso, quando ocorre um erro durante a transferência ou quando o arquivo é deletado na nuvem de origem. Esses alertas são essenciais para manter os usuários informados em tempo real sobre o status das operações, garantindo transparência, confiabilidade e um controle eficaz sobre o fluxo de dados entre as nuvens. Para tudo isso ficar de uma forma légivel e estrutural implementei com o padrão de projeto "observer", Neste trecho, quando a transferência de um arquivo é concluída com sucesso, o código notifica os observadores sobre essa mudança de estado específica (a conclusão bem-sucedida da transferência) usando plyer.notification.notify. Portanto, neste contexto:
+
+O FileModelService atua como o objeto "observado".
+O método transfer_files atua como o método que muda o estado do objeto observado.
+O plyer.notification.notify atua como o mecanismo de notificação que informa outros objetos (observadores) sobre a mudança de estado.
+
+</br>
+</details>
+
+<details>
+
+<summary>Padrões de projetos</summary>
+</br>
+Para conseguir fazer as transferências dos arquivos, foi necessário abrir conexão com as clouds, com isso segui com "Singleton Pattern". Concentrei a conexão em uma única classe persistente em toda a execução do programa para ambas clouds
+
+</br>
+
+Drive:
+
+<details>
+	
+```py
+
+class GoogleDrive:
+    def __init__(self):
+        self.credentials = None
+
+    def get_creds(client_id, client_secret):
+        flow = InstalledAppFlow.from_client_config(
+            {
+                "installed": {
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                    "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob"],
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                }
+            },
+            scopes=["https://www.googleapis.com/auth/drive"],
+        )
+
+        credentials = flow.run_local_server(port=0, access_type='offline', include_granted_scopes=False)
+
+        with open(sp.DRIVE_CREDENTIALS, "w") as token:
+            json.dump({
+                "token": credentials.token,
+                "refresh_token": credentials.refresh_token,
+                "token_uri": credentials.token_uri,
+                "client_id": credentials.client_id,
+                "client_secret": credentials.client_secret,
+                "scopes": credentials.scopes,
+            }, token)
+
+        credentials = credentials
+        return credentials, {"message": "Conexão realizada com sucesso."}
+
+```
+</br>
+</details>
+
+Azure:
+
+<details>
+	
+```py
+
+class Azure():
+    def __init__(self):
+        self.account_name = None
+        self.account_key = None
+        self.container_name = None
+
+    def connection_azure(self, account_name=None, account_key=None, container_name=None, use_json=True):
+        if use_json:
+            if os.path.exists(sp.AZURE_CREDENTIALS):
+                with open(sp.AZURE_CREDENTIALS, "r") as f:
+                    credentials = json.load(f)
+                if (account_name is None or account_name == credentials["account_name"]) and \
+                (account_key is None or account_key == credentials["account_key"]) and \
+                (container_name is None or container_name == credentials["container_name"]):
+                    connect_str = f'DefaultEndpointsProtocol=https;AccountName={credentials["account_name"]};AccountKey={credentials["account_key"]};EndpointSuffix=core.windows.net'
+                    return BlobServiceClient.from_connection_string(connect_str)
+
+            use_json = False
+
+        if account_name is not None and account_key is not None and container_name is not None:
+            credentials = {"account_name": account_name, "account_key": account_key, "container_name": container_name}
+            with open(sp.AZURE_CREDENTIALS, "w") as f:
+                json.dump(credentials, f)
+
+        connect_str = 'DefaultEndpointsProtocol=https;AccountName={};AccountKey={};EndpointSuffix=core.windows.net'.format(credentials["account_name"], credentials["account_key"])
+
+        blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+        return blob_service_client
+```
+</br>
+</details>
+
+
+</details>
+	
+## Aprendizados Efetivos HS
+	
+- DevOps e CI/CD:
+aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
+
+- Teste de Unidades e Garantia de Qualidade:
+aprimorei minhas habilidades em teste de unidades, assegurando a funcionalidade e integridade do código.
+Compreendi os princípios essenciais da garantia de qualidade, promovendo um produto final confiável e de alta qualidade.
+
+- Documentação e Padronização:
+estabeleci padrões consistentes para a documentação de desenvolvimento do projeto, garantindo clareza e coesão nas informações compartilhadas.
+Sincronizei versões de bibliotecas para evitar conflitos, mantendo a estabilidade do sistema.
+
+- Manipulação Avançada de Dados:
+adquiri habilidades sólidas na transformação de arquivos em bytes, facilitando a transferência segura de dados para outra nuvem de armazenamento.
+
+Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
+
+</details>
