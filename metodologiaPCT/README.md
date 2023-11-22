@@ -982,8 +982,107 @@ class FileModelService:
 ```
 </details>
 
-Além disso, implementei um sistema de alertas para fornecer notificações precisas durante todo o processo de transferência de arquivos. Os alertas são acionados quando o arquivo é transferido com sucesso, quando ocorre um erro durante a transferência ou quando o arquivo é deletado na nuvem de origem. Esses alertas são essenciais para manter os usuários informados em tempo real sobre o status das operações, garantindo transparência, confiabilidade e um controle eficaz sobre o fluxo de dados entre as nuvens.
+Além disso, implementei um funcionalidade de alertas para fornecer notificações precisas durante todo o processo de transferência de arquivos. Os alertas são acionados quando o arquivo é transferido com sucesso, quando ocorre um erro durante a transferência ou quando o arquivo é deletado na nuvem de origem. Esses alertas são essenciais para manter os usuários informados em tempo real sobre o status das operações, garantindo transparência, confiabilidade e um controle eficaz sobre o fluxo de dados entre as nuvens. Para tudo isso ficar de uma forma légivel e estrutural implementei com o padrão de projeto "observer", Neste trecho, quando a transferência de um arquivo é concluída com sucesso, o código notifica os observadores sobre essa mudança de estado específica (a conclusão bem-sucedida da transferência) usando plyer.notification.notify. Portanto, neste contexto:
+
+O FileModelService atua como o objeto "observado".
+O método transfer_files atua como o método que muda o estado do objeto observado.
+O plyer.notification.notify atua como o mecanismo de notificação que informa outros objetos (observadores) sobre a mudança de estado.
+
 </br>
+</details>
+
+<details>
+
+<summary>Padrões de projetos</summary>
+</br>
+Para conseguir fazer as transferências dos arquivos, foi necessário abrir conexão com as clouds, com isso segui com "Singleton Pattern". Concentrei a conexão em uma única classe persistente em toda a execução do programa para ambas clouds
+
+</br>
+
+Drive:
+
+<details>
+	
+```py
+
+class GoogleDrive:
+    def __init__(self):
+        self.credentials = None
+
+    def get_creds(client_id, client_secret):
+        flow = InstalledAppFlow.from_client_config(
+            {
+                "installed": {
+                    "client_id": client_id,
+                    "client_secret": client_secret,
+                    "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob"],
+                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+                    "token_uri": "https://oauth2.googleapis.com/token",
+                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+                }
+            },
+            scopes=["https://www.googleapis.com/auth/drive"],
+        )
+
+        credentials = flow.run_local_server(port=0, access_type='offline', include_granted_scopes=False)
+
+        with open(sp.DRIVE_CREDENTIALS, "w") as token:
+            json.dump({
+                "token": credentials.token,
+                "refresh_token": credentials.refresh_token,
+                "token_uri": credentials.token_uri,
+                "client_id": credentials.client_id,
+                "client_secret": credentials.client_secret,
+                "scopes": credentials.scopes,
+            }, token)
+
+        credentials = credentials
+        return credentials, {"message": "Conexão realizada com sucesso."}
+
+```
+</br>
+</details>
+
+Azure:
+
+<details>
+	
+```py
+
+class Azure():
+    def __init__(self):
+        self.account_name = None
+        self.account_key = None
+        self.container_name = None
+
+    def connection_azure(self, account_name=None, account_key=None, container_name=None, use_json=True):
+        if use_json:
+            if os.path.exists(sp.AZURE_CREDENTIALS):
+                with open(sp.AZURE_CREDENTIALS, "r") as f:
+                    credentials = json.load(f)
+                if (account_name is None or account_name == credentials["account_name"]) and \
+                (account_key is None or account_key == credentials["account_key"]) and \
+                (container_name is None or container_name == credentials["container_name"]):
+                    connect_str = f'DefaultEndpointsProtocol=https;AccountName={credentials["account_name"]};AccountKey={credentials["account_key"]};EndpointSuffix=core.windows.net'
+                    return BlobServiceClient.from_connection_string(connect_str)
+
+            use_json = False
+
+        if account_name is not None and account_key is not None and container_name is not None:
+            credentials = {"account_name": account_name, "account_key": account_key, "container_name": container_name}
+            with open(sp.AZURE_CREDENTIALS, "w") as f:
+                json.dump(credentials, f)
+
+        connect_str = 'DefaultEndpointsProtocol=https;AccountName={};AccountKey={};EndpointSuffix=core.windows.net'.format(credentials["account_name"], credentials["account_key"])
+
+        blob_service_client = BlobServiceClient.from_connection_string(connect_str)
+
+        return blob_service_client
+```
+</br>
+</details>
+
+
 </details>
 	
 ## Aprendizados Efetivos HS
