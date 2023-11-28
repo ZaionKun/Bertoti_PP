@@ -1116,22 +1116,33 @@ Estes aprendizados não apenas enriqueceram minha experiência, mas também cont
   
  ### Descrição do Projeto
  
-Este projeto consiste na automatização a jornada de download de arquivos, armazenados em uma plataforma de vídeo, transferindo-os para a nuvem, através do desenvolvimento de uma aplicação como serviço, contando apenas com um menu de configuração para o usuário, que terá os parâmetros necessários para o processo de download do serviço automaticamente , gerando alertas em caso de erro no processamento. Salve os metadados do arquivo para construir um dashboard para monitorar a execução do serviço e posteriormente analisar resultados e indicadores.
+A organização reconhece a necessidade crucial de implementar um Sistema de Informação Geográfica (SIG) para otimizar análises e aprimorar os processos internos. Os dados essenciais para esta iniciativa estão disponíveis na esfera pública do ProAgro, um programa do governo federal dedicado ao financiamento agrícola para pequenos e médios produtores brasileiros.
+No entanto, enfrentamos desafios significativos que exigem atenção cuidadosa durante a implementação. Um desses desafios é a falta de organização dos dados, o que pode impactar negativamente a eficácia do SIG. Além disso, a presença de informações sensíveis requer uma abordagem de segurança robusta para garantir a confidencialidade e integridade dos dados.
+Outro ponto crítico a ser abordado é o volume considerável de dados disponíveis no ProAgro. O excesso de informações pode sobrecarregar o sistema, tornando imperativa a implementação de estratégias eficientes de gerenciamento de dados para garantir a eficácia e a rapidez das análises.
+Dessa forma, a implementação bem-sucedida do SIG não apenas implica a integração tecnológica, mas também a resolução desses desafios específicos, garantindo que o sistema seja uma ferramenta eficiente e segura para melhorar a tomada de decisões e a gestão de processos relacionados ao financiamento agrícola.
 
 
 ### Tecnologias adotadas na solução
 
-### <img src="https://github.com/devicons/devicon/blob/master/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" width="40" height="40"/> Microsoft SQL Server
+### <img src="https://github.com/devicons/devicon/blob/master/icons/mysql/mysql-original.svg" width="40" height="40"/> MySql
 
-O SQL Server é um software de gerenciamento de banco de dados relacional que permite que os usuários armazenem, acessem e manipulem dados de forma eficiente. Ele usa a linguagem SQL (Structured Query Language) para executar operações de banco de dados, como consultas, inserções, atualizações e exclusões.
+O MySQL é um sistema de gerenciamento de banco de dados, que utiliza a linguagem SQL como interface.
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/redis/redis-original.svg" width="40" height="40"/> Redis
+
+Redis é um armazenamento de estrutura de dados em memória, usado como um banco de dados em memória distribuído de chave-valor, cache e agente de mensagens, com durabilidade opcional.
+
+### <img src="https://github.com/devicons/devicon/blob/master/icons/mongodb/mongodb-original.svg" width="40" height="40"/> MongoDB
+
+MongoDB é um software de banco de dados orientado a documentos livre, de código aberto e multiplataforma, escrito na linguagem C++. Classificado como um programa de banco de dados NoSQL, o MongoDB usa documentos semelhantes a JSON com esquemas.
 
 ### <img src="https://github.com/devicons/devicon/blob/master/icons/python/python-original.svg" width="40" height="40"/> Python
 
  Python é uma linguagem de programação amplamente usada em aplicações da Web, desenvolvimento de software, ciência de dados e machine learning (ML).
 
-### <img src="https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg" width="40" height="40"/> VueJs
+### <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" width="40" height="40"/> ReactJs
 
-Vue.js é um framework JavaScript flexível e reativo que ajuda os desenvolvedores a construir interfaces de usuário escaláveis e reutilizáveis, tornando o desenvolvimento de aplicativos mais eficiente e intuitivo.
+O React é uma biblioteca front-end JavaScript de código aberto com foco em criar interfaces de usuário em páginas web.
 
 ### Contribuições Pessoais 
 
@@ -1426,20 +1437,24 @@ class Azure():
 	
 ## Aprendizados Efetivos HS
 	
-- DevOps e CI/CD:
-aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
+- Arquitetura de Cache e Desempenho:
+Aprimorei minha compreensão sobre bancos de dados em cache, explorando arquiteturas eficazes para melhorar o desempenho de sistemas. Compreendi a importância de estratégias de caching inteligentes para reduzir o tempo de resposta e otimizar o acesso a dados frequentemente utilizados.
 
-- Teste de Unidades e Garantia de Qualidade:
-aprimorei minhas habilidades em teste de unidades, assegurando a funcionalidade e integridade do código.
-Compreendi os princípios essenciais da garantia de qualidade, promovendo um produto final confiável e de alta qualidade.
+- NoSQL e Modelagem Não Relacional:
+Aprofundei meus conhecimentos em bancos de dados não relacionais, explorando conceitos fundamentais de NoSQL. Compreendi as nuances da modelagem não relacional, adaptando meu entendimento de esquemas tradicionais para estruturas mais flexíveis, como documentos, grafos ou chave-valor.
 
-- Documentação e Padronização:
-estabeleci padrões consistentes para a documentação de desenvolvimento do projeto, garantindo clareza e coesão nas informações compartilhadas.
-Sincronizei versões de bibliotecas para evitar conflitos, mantendo a estabilidade do sistema.
+- Compreensão da LGPD:
+Aprofundei meus conhecimentos na Lei Geral de Proteção de Dados (LGPD), compreendendo as diretrizes e regulamentações para o tratamento e proteção de dados pessoais. Explorei as responsabilidades e obrigações necessárias para garantir a conformidade, minimizando riscos de violações de privacidade.
 
-- Manipulação Avançada de Dados:
-adquiri habilidades sólidas na transformação de arquivos em bytes, facilitando a transferência segura de dados para outra nuvem de armazenamento.
+- Implementação de Termos de Aceite do Usuário:
+Desenvolvi expertise na criação e implementação de termos de aceite do usuário, garantindo que as políticas de privacidade e práticas de coleta e tratamento de dados estejam claramente comunicadas. Adotei abordagens transparentes para fornecer aos usuários informações claras sobre como seus dados serão utilizados, fortalecendo a confiança e conformidade com as normativas da LGPD.
 
-Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
+- Backups de Versões do Banco de Dados:
+Aprimorei minhas práticas em relação aos backups de versões do banco de dados, implementando medidas robustas para proteger as informações armazenadas, alinhando-me aos requisitos da LGPD para preservação da integridade e confidencialidade das informações.
+
+- Atualização Contínua e Conformidade:
+Estabeleci uma cultura de atualização contínua em relação às diretrizes da LGPD, ajustando políticas e práticas conforme necessário. Mantive-me informado sobre as melhores práticas emergentes em termos de privacidade de dados, garantindo uma postura proativa na conformidade com regulamentações e na proteção dos dados dos usuários.
+
+Os conhecimentos adquiridos não apenas enriqueceram minha experiência, mas também desempenharam um papel significativo na elevação da qualidade e no sucesso deste projeto. Essas aprendizagens foram fundamentais para me preparar e superar desafios multifacetados no desenvolvimento de software, consolidando uma base sólida de conhecimento que se revelou crucial para o êxito dessa empreitada.
 
 </details>
