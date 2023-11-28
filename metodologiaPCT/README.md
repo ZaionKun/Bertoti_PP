@@ -1159,14 +1159,10 @@ Fui encarregado a de definir e estruturar a arquitetura do projeto, responsável
 Para mais detalhes da arquitetura, acesse o link abaixo:
 
 ### Back-end
-#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCTZABU=/)
+#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVNJ7807c=/)
 
-<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/backend-miro.png" /></h1>
-
-### Front-end
+### NOSql
 #### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCVa9pE=/)
-
-<h1 align="center"> <img src = "https://github.com/TechNinjass/midall-parent/blob/main/docs/Images/frontend-miro.png" /></h1>
 	
 </details>
 
