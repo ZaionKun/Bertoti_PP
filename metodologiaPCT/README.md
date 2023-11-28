@@ -1140,6 +1140,10 @@ MongoDB é um software de banco de dados orientado a documentos livre, de códig
 
  Python é uma linguagem de programação amplamente usada em aplicações da Web, desenvolvimento de software, ciência de dados e machine learning (ML).
 
+### <img src="https://github.com/devicons/devicon/blob/master/icons/docker/docker-original.svg" width="40" height="40"/> Docker
+
+Docker é um conjunto de produtos de plataforma como serviço que usam virtualização de nível de sistema operacional para entregar software em pacotes chamados contêineres. Os contêineres são isolados uns dos outros e agrupam seus próprios softwares, bibliotecas e arquivos de configuração.
+
 ### <img src="https://github.com/devicons/devicon/blob/master/icons/react/react-original.svg" width="40" height="40"/> ReactJs
 
 O React é uma biblioteca front-end JavaScript de código aberto com foco em criar interfaces de usuário em páginas web.
