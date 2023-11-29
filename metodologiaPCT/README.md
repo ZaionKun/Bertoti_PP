@@ -1659,6 +1659,8 @@ volumes:
 
 	
 ## Aprendizados Efetivos HS
+
+### Hard Skills
 	
 - Arquitetura de Cache e Desempenho:
 Aprimorei minha compreensão sobre bancos de dados em cache, explorando arquiteturas eficazes para melhorar o desempenho de sistemas. Compreendi a importância de estratégias de caching inteligentes para reduzir o tempo de resposta e otimizar o acesso a dados frequentemente utilizados.
@@ -1679,5 +1681,17 @@ Aprimorei minhas práticas em relação aos backups de versões do banco de dado
 Estabeleci uma cultura de atualização contínua em relação às diretrizes da LGPD, ajustando políticas e práticas conforme necessário. Mantive-me informado sobre as melhores práticas emergentes em termos de privacidade de dados, garantindo uma postura proativa na conformidade com regulamentações e na proteção dos dados dos usuários.
 
 Os conhecimentos adquiridos não apenas enriqueceram minha experiência, mas também desempenharam um papel significativo na elevação da qualidade e no sucesso deste projeto. Essas aprendizagens foram fundamentais para me preparar e superar desafios multifacetados no desenvolvimento de software, consolidando uma base sólida de conhecimento que se revelou crucial para o êxito dessa empreitada.
+
+### Soft Skills
+
+- Liderança na equipe de back-end:
+  	Como era o membro da equipe que mais tinha conhecimentos sobre as tecnologias, os liderei;
+  
+- Proatividade:
+ 	Este projeto foi um pouco maior do que os outros, sendo assim, tomei a  frente pra realizar algumas tarefas que ainda não tinham sido determinadas para um membro específico do grupo;
+
+- Trabalho em equipe:
+  	 Revisei o código de meus colegas e os ajudei a realizar suas tarefas;
+
 
 </details>
