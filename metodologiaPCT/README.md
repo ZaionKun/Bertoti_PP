@@ -1268,180 +1268,24 @@ Eu me comprometo a utilizar os dados exclusivamente para a finalidade para a qua
 
 Implementei a integração do Redis para otimizar o desempenho do sistema. Agora, antes de realizar consultas ao banco de dados, verificamos se os resultados já estão em cache no Redis. Essa abordagem possibilita um retorno mais eficiente dos dados, agilizando significativamente os processos do sistema. Essa estratégia de caching não apenas melhora a velocidade das consultas, mas também contribui para uma experiência mais ágil e responsiva para os usuários, tornando o sistema mais eficiente e otimizado.
 
-### Message API
-
-### Docker
-<details> 
-	
-```yml
-
-name: Python application
-
-on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - '*'
-
-permissions:
-  contents: read
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python 3.10
-        uses: actions/setup-python@v3
-        with:
-          python-version: "3.10"
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-      - name: Lint with flake8
-        run: |
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-      - name: Sort imports with isort
-        run: |
-          isort .
-      - name: Test with pytest
-        run: |
-          pytest
-  
-```
-</details>
-
-### Front-end
-
-No frontend, assegurei que todas as bibliotecas fossem instaladas na mesma versão para evitar conflitos e inconsistências. Realizei uma verificação minuciosa das dependências, garantindo que estivessem sincronizadas. Além disso, desenvolvi e executei testes para validar a integridade e o desempenho das funcionalidades implementadas. Essas medidas garantiram não apenas a estabilidade do sistema, mas também uma experiência consistente e sem problemas para os usuários finais. 
-
-<details>
-
- ```yml
-name: Vue.js CI
-
-on:
-  push:
-    branches:
-      - '*'
-  pull_request:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build
-        run: npm run build
-      - name: Test
-        run: npm run test  
-  
-```
-</details>
-
-</details>
 
 <details>
 	
-<summary>Serviço de transferência de arquivos</summary>
+<summary>Message API</summary>
 </br>
 
-No âmbito deste projeto, desenvolvi um serviço altamente eficiente responsável por capturar as configurações pré-definidas ou definidas pelo usuário. Este serviço foi projetado para transferir arquivos de uma nuvem para outra, otimizando o processo ao transformar esses arquivos em bytes antes da transferência. Após a conclusão bem-sucedida da transferência, o serviço automaticamente realiza a exclusão do arquivo na nuvem de origem. Essa solução não apenas garante uma transferência segura e confiável dos dados, mas também otimiza o uso do espaço de armazenamento, proporcionando uma experiência eficaz e sem complicações para o usuário final.
-</br>
+Desenvolvi uma API dedicada ao envio de e-mails, uma iniciativa inspirada nos requisitos estabelecidos pela Lei Geral de Proteção de Dados (LGPD). A motivação principal foi garantir que os usuários fossem prontamente informados em caso de problemas no sistema, especialmente quando seus dados estivessem em risco. Esta API opera de forma independente do sistema principal e do banco de dados central, proporcionando uma camada adicional de resiliência.
 
-<details>
+Essa abordagem tem o propósito de assegurar a continuidade da comunicação com os usuários, mesmo em situações adversas. A separação da funcionalidade de envio de e-mails em uma API independente contribui para a operação eficiente e independente, possibilitando uma resposta rápida e eficaz aos incidentes que possam impactar a segurança dos dados.
 
-```py
-
-class FileModelService:
-    def __init__(self):
-        self.google_drive = GoogleDrive()
-        self.azure = Azure()
-
-    def transfer_files(self):
-        container_client = self.azure.connection_azure(use_json=True)
-        files_drive = self.google_drive.list_files().get('files')
-
-        if not files_drive:
-            print("Nenhum arquivo encontrado no Google Drive.")
-            return
-
-        with open(sp.PARAMETERS_TRANSFER) as f:
-            params = json.load(f)
-        folder_name = params.get('folder_azure')
-
-        for item in files_drive:
-            file_name = item.split("(")[0].strip()
-            file_id = item.split("(")[1].replace(")", "")
-            file_content = self.google_drive.download_file(file_id)
-
-            if not isinstance(file_content, bytes):
-                file_content = bytes(str(file_content), 'utf-8')
-
-            transfer = FileTransferModel()
-            transfer.name = file_name
-            transfer.size = len(file_content)
-            transfer.format = file_name.split(".")[-1]
-            transfer.date_upload = datetime.now()
-            transfer.data_transfer = datetime.now()
-            
-            blob_path = f"{folder_name}/{file_name}" if folder_name else file_name
-            
-            if blob_path != None:
-                blob_client = container_client.get_blob_client(container='midall', blob=blob_path)
-            else:
-                blob_client = container_client.get_blob_client(container='midall', blob=file_name)
-            try:
-                blob_client.upload_blob(file_content, overwrite=True)
-                print(f"Arquivo {file_name} transferido com sucesso para o Azure Blob Storage!")
-                self.google_drive.remove_files(file_id)
-                print(f"Arquivo {file_name} deletado do Google Drive!")
-                transfer.status = 'transferido'
-                plyer.notification.notify(
-                    title='Transferência Concluída',
-                    message=f'Arquivo "{file_name}" foi transferido com sucesso para o Azure Blob Storage!',
-                    app_name='Midall Transfer',
-                    timeout=5
-                )
-            except AzureError as ex:
-                print('Um erro ocorreu durante o upload do arquivo: {}'.format(ex))
-                transfer.status = 'erro: {}'.format(str(ex))
-                plyer.notification.notify(
-                    title='Ocorreu um erro ao transferir',
-                    message=f'Arquivo "{file_name}" não foi transferido!',
-                    app_name='Midall Transfer',
-                    timeout=5
-                )
-            transfer.save()
-
-            if not isinstance(file_content, bytes):
-                file_content = bytes(str(file_content), 'utf-8')
-
-```
 </details>
-
-Além disso, implementei um funcionalidade de alertas para fornecer notificações precisas durante todo o processo de transferência de arquivos. Os alertas são acionados quando o arquivo é transferido com sucesso, quando ocorre um erro durante a transferência ou quando o arquivo é deletado na nuvem de origem. Esses alertas são essenciais para manter os usuários informados em tempo real sobre o status das operações, garantindo transparência, confiabilidade e um controle eficaz sobre o fluxo de dados entre as nuvens. Para tudo isso ficar de uma forma légivel e estrutural implementei com o padrão de projeto "observer", Neste trecho, quando a transferência de um arquivo é concluída com sucesso, o código notifica os observadores sobre essa mudança de estado específica (a conclusão bem-sucedida da transferência) usando plyer.notification.notify. Portanto, neste contexto:
-
-O FileModelService atua como o objeto "observado".
-O método transfer_files atua como o método que muda o estado do objeto observado.
-O plyer.notification.notify atua como o mecanismo de notificação que informa outros objetos (observadores) sobre a mudança de estado.
 
 </br>
 </details>
 
 <details>
 
-<summary>Padrões de projetos</summary>
+<summary>Docker</summary>
 </br>
 Para conseguir fazer as transferências dos arquivos, foi necessário abrir conexão com as clouds, com isso segui com "Singleton Pattern". Concentrei a conexão em uma única classe persistente em toda a execução do programa para ambas clouds
 
