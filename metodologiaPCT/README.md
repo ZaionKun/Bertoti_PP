@@ -1248,11 +1248,29 @@ Para mais detalhes da arquitetura, acesse o link abaixo:
 
 <details>
 
-<summary>Continuous Integration</summary>
+<summary>Arquitetura do NOSQL</summary>
 
-### Back-end
-No desenvolvimento do backend, segui uma abordagem cuidadosa para evitar problemas relacionados a versões de bibliotecas e incompatibilidades. Inicialmente, implementei uma metodologia rigorosa para gerenciar as dependências, garantindo que as versões das bibliotecas fossem compatíveis entre si. Estabeleci um padrão consistente para importações de bibliotecas, promovendo uma estrutura organizada e fácil de manter. Além disso, priorizei a execução de testes unitários abrangentes, assegurando que cada componente do código fosse validado quanto à sua funcionalidade, confiabilidade e integridade
+### MongoDB
 
+### imagem aqui
+Criei essa estrutura para conseguir suportar as regras da LGPD, dentro das regras utilizamos 3 temas:
+
+1) Princípio da Limitação de Armazenamento (Artigo 6º, Inciso V) e Direito de Exclusão (Artigo 18):
+Eu assegurei que os dados pessoais são armazenados apenas pelo tempo necessário para atender aos objetivos do projeto. Após essa etapa, procedo com a exclusão adequada. Além disso, implementei medidas de backup para preservar os campos essenciais na tabela.
+
+2) Política de Privacidade (Artigo 9º da LGPD):
+Eu desenvolvi uma política de privacidade que inclui a versão atualizada, permitindo uma fácil compreensão das mudanças ao longo do tempo. Para garantir transparência, criei parâmetros para o momento em que o usuário aceita a política. Na política, detalho de forma clara e específica o motivo pelo qual os dados pessoais estão sendo coletados e como serão utilizados.
+
+3) Compartilhamento dos dados (Artigo 7° da LGPD):
+Eu me comprometo a utilizar os dados exclusivamente para a finalidade para a qual foram destinados. Além disso, estabeleci uma rota específica que permite apenas o compartilhamento necessário, alinhado com os princípios da política de privacidade.
+
+### Redis
+
+Implementei a integração do Redis para otimizar o desempenho do sistema. Agora, antes de realizar consultas ao banco de dados, verificamos se os resultados já estão em cache no Redis. Essa abordagem possibilita um retorno mais eficiente dos dados, agilizando significativamente os processos do sistema. Essa estratégia de caching não apenas melhora a velocidade das consultas, mas também contribui para uma experiência mais ágil e responsiva para os usuários, tornando o sistema mais eficiente e otimizado.
+
+### Message API
+
+### Docker
 <details> 
 	
 ```yml
