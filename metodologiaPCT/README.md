@@ -196,6 +196,8 @@ O código então chama a função sai_som para reproduzir o título da notícia 
 </details>
   
 ## Aprendizados Efetivos HS
+
+### Hard Skills
 - Introdução às APIs: 	
 	
 	Definição de API (Interface de Programação de Aplicativos)
@@ -225,9 +227,22 @@ O código então chama a função sai_som para reproduzir o título da notícia 
 	Habilidade valiosa para qualquer desenvolvedor
 	Combinação poderosa para o desenvolvimento de soluções eficientes e inovadoras
 
+### Soft Skills
+
+- Autonomia:
+	Neste primeiro projeto eu estava iniciando meus estudos com programação, 
+então tive que aprender a pesquisar sobre as tecnologias e logicas que iria aplicar;
+
+- Comunicação:
+	Para entender e realizar o projeto, tive de tirar muitas dúvidas com os 
+professores e discutir ideias com meus colegas.
+
+---
+
 </details>
 
 <details>
+
 
 <summary>Projeto 2</summary>
 
@@ -413,6 +428,8 @@ Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagir
 
 ## Aprendizados Efetivos HS
 
+### Hard Skills
+
 - Utilização de um Sistema de Gerenciamento de Banco de Dados (SGBD):
 	
 	Aprendi a utilizar um SGBD para coletar, armazenar e manipular informações.
@@ -438,10 +455,22 @@ Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagir
 	Utilizei as habilidades em manipulação de dados e consultas SQL para gerar séries históricas e métricas relevantes para os usuários da aplicação.
 	Contribuí para a geração de informações valiosas que auxiliaram os usuários na análise e tomadas de decisões.
 	Essas experiências e habilidades foram aplicadas ao longo do projeto, contribuindo para o desenvolvimento da aplicação e agregando valor ao produto final.
+
+### Soft Skills
+
+- Trabalho em equipe:
+
+  	Revisei o código de meus colegas e os ajudei a realizar suas tarefas;
+
+ - Gestão de tempo:
+
+	Para realizar as tasks definidas;
 	
 </details>
 
 <details>
+
+---
 
 <summary>Projeto 3</summary>
 
@@ -558,16 +587,30 @@ A tela do carrinho de compras visa melhorar a experiência de compra do usuário
 </details>
   
 ## Aprendizados Efetivos HS
-  
+
+### Hard Skills
  Neste projeto aprendi a trabalhar com Angular, consultando a documentação oficial da tecnologia consegui desenvolver o front-end do projeto. Com isso consegui           distinguir a velocidade de profundidade e velocidade em diferentes métodos de pesquisa e estudo. Diversos tutoriais estão disponíveis ensinando a realizar grande   partes das etapas de projetos deste tipo, e estes conteúdos possuem sua importância. Entretanto, a consulta na documentação das tecnologias, se mostrou muito mais   completa, rápida e confiável do que qualquer fonte terceira. Experiência e aprendizado valiosos até hoje.
  Aprendi mais sobre arquitetura de software. Foi a primeira vez em que trabalhei de fato com uma aplicação frontend separada dos serviços chamados de "backend".     Por conta desta experiência, fui inserido a um novo nível de exigência para a contrução de um sistema web, tendo que me preocupar com o formato e conteúdo           específico das requisições possíveis de entrada no serviço desenvolvido.
 
   - Criação de API que se provê serviços e se comunica com outros aplicações: sei fazer com autonomia
 
-  - Desenvolvimento de scripts em Angular: sei fazer com autonomia 
+  - Desenvolvimento de scripts em Angular: sei fazer com autonomia
+
+### Soft Skills
+
+- Comunicação:
+
+	Realizamos reuniões regulares para debater o andamento das tarefas definidas;
+
+- Gestão de tempo:
+
+	Para realizar as tasks definidas;
+
 </details>
  
 <details>
+
+---
 
 <summary>Projeto 4</summary>
 
@@ -739,6 +782,8 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
 </details>
 	
 ## Aprendizados Efetivos HS
+
+### Hard Skills
 	
 - Aprendizado do Vue.js: 
 	
@@ -764,9 +809,22 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
 	
 	Aprofundar-se na documentação e adquirir um conhecimento mais sólido do Vue.js resultou no desenvolvimento de habilidades valiosas, que podem ser aplicadas em futuros projetos e        
 	contribuir para o crescimento profissional.
+
+### Soft Skills
+
+- Proatividade:
+
+  	Realizei algumas tarefas que ainda não tinham sido determinadas para um membro específico do grupo;
+ 
+ - Trabalho em equipe:
+
+   	Compartilhei com o grupo os conhecimentos que aprendi durante as pesquisas para facilitar o desenvolvimento;
+   
 </details>
 
 <details>
+
+---
 
 <summary>Projeto 5</summary>
 
@@ -1086,7 +1144,9 @@ class Azure():
 </details>
 	
 ## Aprendizados Efetivos HS
-	
+
+### Hard Skills
+
 - DevOps e CI/CD:
 aprofundei meus conhecimentos sobre integração e entrega contínuas (CI/CD), implementando práticas colaborativas entre desenvolvimento e operações.
 
@@ -1103,9 +1163,25 @@ adquiri habilidades sólidas na transformação de arquivos em bytes, facilitand
 
 Estes aprendizados não apenas enriqueceram minha experiência, mas também contribuíram significativamente para a qualidade e o sucesso deste projeto, preparando-me para enfrentar desafios multifacetados no desenvolvimento de software.
 
+### Soft Skills
+
+- Liderança na equipe de back-end:
+
+  	Como era o membro da equipe que mais tinha conhecimentos sobre Python com Flask, os liderei;
+   
+ - Proatividade:
+
+   	Este projeto foi um pouco maior do que os outros, sendo assim, tomei a frente pra realizar algumas tarefas que ainda não tinham sido determinadas para um membro específico do grupo;
+
+- Trabalho em equipe:
+
+  	Revisei o código de meus colegas e os ajudei a realizar suas tarefas;
+
 </details>
 
 <details>
+
+---
 
 <summary>Projeto 6</summary>
 
