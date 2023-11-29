@@ -1252,8 +1252,9 @@ Para mais detalhes da arquitetura, acesse o link abaixo:
 
 ### MongoDB
 
-### imagem aqui
 Criei essa estrutura para conseguir suportar as regras da LGPD, dentro das regras utilizamos 3 temas:
+
+<h1 align="center"> <img src = "https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/mongodb.jpeg" /></h1>
 
 1) Princípio da Limitação de Armazenamento (Artigo 6º, Inciso V) e Direito de Exclusão (Artigo 18):
 Eu assegurei que os dados pessoais são armazenados apenas pelo tempo necessário para atender aos objetivos do projeto. Após essa etapa, procedo com a exclusão adequada. Além disso, implementei medidas de backup para preservar os campos essenciais na tabela.
@@ -1262,12 +1263,51 @@ Eu assegurei que os dados pessoais são armazenados apenas pelo tempo necessári
 Eu desenvolvi uma política de privacidade que inclui a versão atualizada, permitindo uma fácil compreensão das mudanças ao longo do tempo. Para garantir transparência, criei parâmetros para o momento em que o usuário aceita a política. Na política, detalho de forma clara e específica o motivo pelo qual os dados pessoais estão sendo coletados e como serão utilizados.
 
 3) Compartilhamento dos dados (Artigo 7° da LGPD):
-Eu me comprometo a utilizar os dados exclusivamente para a finalidade para a qual foram destinados. Além disso, estabeleci uma rota específica que permite apenas o compartilhamento necessário, alinhado com os princípios da política de privacidade.
+Utilizar os dados exclusivamente para a finalidade para a qual foram destinados. Além disso, estabeleci uma rota específica que permite apenas o compartilhamento necessário, alinhado com os princípios da política de privacidade.
 
 ### Redis
 
 Implementei a integração do Redis para otimizar o desempenho do sistema. Agora, antes de realizar consultas ao banco de dados, verificamos se os resultados já estão em cache no Redis. Essa abordagem possibilita um retorno mais eficiente dos dados, agilizando significativamente os processos do sistema. Essa estratégia de caching não apenas melhora a velocidade das consultas, mas também contribui para uma experiência mais ágil e responsiva para os usuários, tornando o sistema mais eficiente e otimizado.
 
+Exemplo da chave que crie para retornar os valores de uma query:
+
+```py
+def query_return_land(
+        self, lowest_latitude, greatest_latitude, lowest_longitude, greatest_longitude
+    ):
+        cache_key = f"gleba:{lowest_latitude}:{greatest_latitude}:{lowest_longitude}:{greatest_longitude}"
+
+        try:
+            if redis_available:
+                cached_data = redis_server.get(cache_key)
+                if cached_data:
+                    result = cached_data
+                    return eval(result)
+        except redis.ConnectionError:
+            print("Não foi possível conectar ao servidor Redis")
+```
+
+Nesse exemplo eu criei uma função para retornar as glebas com base nos parametros passados na própria função, que seria:
+
+lowest_latitude, greatest_latitude, lowest_longitude, greatest_longitude.
+
+Com base nisso, elaborei uma chave incorporando esses parâmetros para consultar o Redis e obter os valores desejados. Além disso, implementei procedimentos adicionais para a aplicação, como a inclusão de uma condição que verifica a existência do cache. Caso o cache não esteja presente, é realizada uma nova consulta ao banco de dados, e os resultados são utilizados para popular um novo cache.
+
+É importante destacar que, em casos em que o Redis não esteja operacional, a lógica foi desenvolvida para recuperar diretamente os dados do banco MySQL, assegurando assim uma abordagem resiliente e eficiente para a aplicação
+
+lógica:
+
+```py
+	result = gleba_instance.exec_query(sql)
+	try:
+	    if redis_available:
+		redis_server.set(cache_key, str(result))
+	except redis.ConnectionError:
+	    print("Não foi possível conectar ao servidor Redis")
+	return result
+```
+
+</details>
 
 <details>
 	
@@ -1278,104 +1318,115 @@ Desenvolvi uma API dedicada ao envio de e-mails, uma iniciativa inspirada nos re
 
 Essa abordagem tem o propósito de assegurar a continuidade da comunicação com os usuários, mesmo em situações adversas. A separação da funcionalidade de envio de e-mails em uma API independente contribui para a operação eficiente e independente, possibilitando uma resposta rápida e eficaz aos incidentes que possam impactar a segurança dos dados.
 
-</details>
+Exemplo de um envio de teste para a API:
 
-</br>
+```py
+from requests import post
+
+def send_email():
+    data = {
+            'from_addr': 'zaion.arruda@fatec.sp.gov.br',
+            'to_addrs': ['zaion.arruda@fatec.sp.gov.br'],
+            'cc_addrs': ['zaion.arruda@fatec.sp.gov.br'],
+            'subject': 'Testando',
+            'content': 'Conteúdo do teste',
+
+            }
+
+    post('http://localhost:8081/send_email', json=data)
+
+send_email()
+
+```
+
+Com isso criei o servico para disparar os e-mails para os usuários do sistema
+
+```py
+
+class MessageService:
+    def __init__(self):
+        super().__init__()
+        db_instance = conn_mongo_validation()
+        self.user_instance = db_instance.users
+
+    def send_email_everyone(self, enabled=False):
+        if enabled:
+            emails = MessageService.get_emails(self)
+
+            data = {
+                "from_addr": "zaion.arruda@fatec.sp.gov.br",
+                "to_addrs": emails,
+                "cc_addrs": ["zaion.arruda@fatec.sp.gov.br"],
+                "subject": "Testando",
+                "content": "Conteúdo do teste",
+            }
+
+            result = post("http://localhost:5001/send_email", json=data)
+            print(emails)
+            return result
+
+    def get_emails(self):
+        users = self.user_instance.find()
+        emails = []
+        for _user in users:
+            emails.append(_user["email"])
+
+        return emails
+
+```
+Message API 
+
+<h1 align="center"> <img src = "https://github.com/ZaionKun/Bertoti_PP/blob/main/metodologiaPCT/img/messa_api.jpg" /></h1>
+
 </details>
 
 <details>
 
 <summary>Docker</summary>
 </br>
-Para conseguir fazer as transferências dos arquivos, foi necessário abrir conexão com as clouds, com isso segui com "Singleton Pattern". Concentrei a conexão em uma única classe persistente em toda a execução do programa para ambas clouds
 
-</br>
+Com a implementação das regras de negócio, identifiquei a necessidade de incorporar o Docker para atender a determinadas exigências e facilitar o desenvolvimento. Em particular, a regra que envolve o envio de e-mails como alerta aos usuários, em conformidade com a LGPD, foi um cenário propício para a criação de um contêiner Docker independente. Essa abordagem permite que a aplicação realize solicitações a uma API dedicada, fornecendo uma solução modular e escalável para o serviço de envio de e-mails, enquanto mantém a independência e a separação de responsabilidades. Dessa forma, a aplicação principal pode fazer requisições a este serviço específico de forma eficiente, sem a necessidade de incorporar diretamente a lógica de envio de e-mails em seu código-base principal
 
-Drive:
+```yml
 
-<details>
-	
-```py
+FROM python:3.10.12-slim-buster
 
-class GoogleDrive:
-    def __init__(self):
-        self.credentials = None
+RUN apt-get update && apt-get install -y build-essential
 
-    def get_creds(client_id, client_secret):
-        flow = InstalledAppFlow.from_client_config(
-            {
-                "installed": {
-                    "client_id": client_id,
-                    "client_secret": client_secret,
-                    "redirect_uris": ["urn:ietf:wg:oauth:2.0:oob"],
-                    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
-                    "token_uri": "https://oauth2.googleapis.com/token",
-                    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-                }
-            },
-            scopes=["https://www.googleapis.com/auth/drive"],
-        )
+WORKDIR /tech-backend/
 
-        credentials = flow.run_local_server(port=0, access_type='offline', include_granted_scopes=False)
+COPY . .
 
-        with open(sp.DRIVE_CREDENTIALS, "w") as token:
-            json.dump({
-                "token": credentials.token,
-                "refresh_token": credentials.refresh_token,
-                "token_uri": credentials.token_uri,
-                "client_id": credentials.client_id,
-                "client_secret": credentials.client_secret,
-                "scopes": credentials.scopes,
-            }, token)
+RUN pip install --upgrade pip setuptools wheel
+RUN pip install -r requirements.txt
 
-        credentials = credentials
-        return credentials, {"message": "Conexão realizada com sucesso."}
+WORKDIR /tech-backend/message_api
+
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0", "--port=5001"]
 
 ```
-</br>
-</details>
 
-Azure:
+A outra demanda crítica surgiu em relação ao desempenho das consultas, que estava impactando diretamente a performance da aplicação. Para otimizar esse processo, optamos por implementar o Redis e utilizar o cache para armazenar as consultas frequentes. Contudo, deparando-nos com a diversidade de sistemas operacionais dentro do grupo, percebemos que o Redis apresenta um desempenho superior em ambientes Linux.
 
-<details>
-	
-```py
+Como uma solução para garantir a uniformidade e eficiência na equipe, decidi criar um contêiner Docker específico para o banco Redis. Essa abordagem permitiu que os membros do grupo, mesmo aqueles que não utilizam Linux diretamente, pudessem acessar o Redis de maneira simplificada. Utilizando o WSL (Windows Subsystem for Linux), foi possível executar a imagem Docker do Redis de forma transparente, proporcionando uma solução harmoniosa para todos os desenvolvedores, independentemente do sistema operacional que estivessem utilizando.
 
-class Azure():
-    def __init__(self):
-        self.account_name = None
-        self.account_key = None
-        self.container_name = None
+```yml
 
-    def connection_azure(self, account_name=None, account_key=None, container_name=None, use_json=True):
-        if use_json:
-            if os.path.exists(sp.AZURE_CREDENTIALS):
-                with open(sp.AZURE_CREDENTIALS, "r") as f:
-                    credentials = json.load(f)
-                if (account_name is None or account_name == credentials["account_name"]) and \
-                (account_key is None or account_key == credentials["account_key"]) and \
-                (container_name is None or container_name == credentials["container_name"]):
-                    connect_str = f'DefaultEndpointsProtocol=https;AccountName={credentials["account_name"]};AccountKey={credentials["account_key"]};EndpointSuffix=core.windows.net'
-                    return BlobServiceClient.from_connection_string(connect_str)
+tech-redis:
+    image: redis
+    ports:
+      - "6380:6380"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes --port 6380
 
-            use_json = False
+volumes:
+  redis-data:
 
-        if account_name is not None and account_key is not None and container_name is not None:
-            credentials = {"account_name": account_name, "account_key": account_key, "container_name": container_name}
-            with open(sp.AZURE_CREDENTIALS, "w") as f:
-                json.dump(credentials, f)
-
-        connect_str = 'DefaultEndpointsProtocol=https;AccountName={};AccountKey={};EndpointSuffix=core.windows.net'.format(credentials["account_name"], credentials["account_key"])
-
-        blob_service_client = BlobServiceClient.from_connection_string(connect_str)
-
-        return blob_service_client
 ```
-</br>
-</details>
-
 
 </details>
+
 	
 ## Aprendizados Efetivos HS
 	
