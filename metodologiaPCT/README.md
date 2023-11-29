@@ -465,12 +465,14 @@ Essa estrutura de menu fornece uma maneira intuitiva para os usuários interagir
  - Gestão de tempo:
 
 	Para realizar as tasks definidas;
-	
+
+
+ ---
+ 
 </details>
 
 <details>
 
----
 
 <summary>Projeto 3</summary>
 
@@ -606,11 +608,12 @@ A tela do carrinho de compras visa melhorar a experiência de compra do usuário
 
 	Para realizar as tasks definidas;
 
+---
+
 </details>
  
 <details>
 
----
 
 <summary>Projeto 4</summary>
 
@@ -819,12 +822,13 @@ O token é usado para autenticação e autorização, garantindo que apenas usu�
  - Trabalho em equipe:
 
    	Compartilhei com o grupo os conhecimentos que aprendi durante as pesquisas para facilitar o desenvolvimento;
-   
+
+
+---
+
 </details>
 
 <details>
-
----
 
 <summary>Projeto 5</summary>
 
@@ -1177,11 +1181,11 @@ Estes aprendizados não apenas enriqueceram minha experiência, mas também cont
 
   	Revisei o código de meus colegas e os ajudei a realizar suas tarefas;
 
+---
+
 </details>
 
 <details>
-
----
 
 <summary>Projeto 6</summary>
 
