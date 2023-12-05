@@ -1196,10 +1196,10 @@ Estes aprendizados não apenas enriqueceram minha experiência, mas também cont
   
  ### Descrição do Projeto
  
-A organização reconhece a necessidade crucial de implementar um Sistema de Informação Geográfica (SIG) para otimizar análises e aprimorar os processos internos. Os dados essenciais para esta iniciativa estão disponíveis na esfera pública do ProAgro, um programa do governo federal dedicado ao financiamento agrícola para pequenos e médios produtores brasileiros.
-No entanto, enfrentamos desafios significativos que exigem atenção cuidadosa durante a implementação. Um desses desafios é a falta de organização dos dados, o que pode impactar negativamente a eficácia do SIG. Além disso, a presença de informações sensíveis requer uma abordagem de segurança robusta para garantir a confidencialidade e integridade dos dados.
-Outro ponto crítico a ser abordado é o volume considerável de dados disponíveis no ProAgro. O excesso de informações pode sobrecarregar o sistema, tornando imperativa a implementação de estratégias eficientes de gerenciamento de dados para garantir a eficácia e a rapidez das análises.
-Dessa forma, a implementação bem-sucedida do SIG não apenas implica a integração tecnológica, mas também a resolução desses desafios específicos, garantindo que o sistema seja uma ferramenta eficiente e segura para melhorar a tomada de decisões e a gestão de processos relacionados ao financiamento agrícola.
+A organização Visiona reconhece a necessidade crucial de implementar um Sistema de Informação Geográfica (SIG) para otimizar análises e aprimorar os processos internos. Os dados essenciais para esta iniciativa estão disponíveis na esfera pública do ProAgro, um programa do governo federal dedicado ao financiamento agrícola para pequenos e médios produtores brasileiros.
+No entanto, foram enfrentados desafios significativos que exigiram atenção cuidadosa durante a implementação. Um desses desafios consistiu a falta de organização dos dados, o que poderia impactar negativamente a eficácia do SIG. Além disso, a presença de informações sensíveis requereu uma abordagem de segurança robusta para garantir a confidencialidade e integridade dos dados.
+Outro ponto crítico consistiu no volume considerável de dados disponíveis no ProAgro. O excesso de informações poderia sobrecarregar o sistema, tornando imperativa a implementação de estratégias eficientes de gerenciamento de dados para garantir a eficácia e a rapidez das análises.
+Dessa forma, a implementação bem-sucedida do SIG não apenas implicou a integração tecnológica, mas também a resolução desses desafios específicos, garantindo que o sistema fosse uma ferramenta eficiente e segura para melhorar a tomada de decisões e a gestão de processos relacionados ao financiamento agrícola.
 
 
 ### Tecnologias adotadas na solução
@@ -1230,7 +1230,7 @@ O React é uma biblioteca front-end JavaScript de código aberto com foco em cri
 
 ### Contribuições Pessoais 
 
-Fui encarregado a de definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lidei com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas que garantam a eficiência operacional, colaboração contínua e entrega confiável do produto final.
+Fui encarregado em definir e estruturar a arquitetura do projeto, responsável por escolher as tecnologias e bibliotecas mais adequadas para enfrentar os desafios específicos do projeto. Além disso, lidei com questões relacionadas a práticas DevOps para assegurar a mais alta qualidade do projeto, implementando processos e ferramentas para garantir a eficiência operacional, colaboração contínua e entrega confiável do produto final.
 
 <details>
 
