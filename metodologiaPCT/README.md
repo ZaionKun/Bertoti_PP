@@ -272,7 +272,7 @@ Por meio de sua consultas, os usuários da aplicação puderam obter informaçõ
 
 <details>
 
-<summary>Consulta para retornar o tamanhao do banco de dados</summary>
+<summary>Consulta para retornar o tamanho do banco de dados</summary>
 	
 ```Java
 
