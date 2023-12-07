@@ -100,8 +100,6 @@ def perfil():
     sai_som('Você conseguiria destinar de 10% a 15% do seu salario a investimentos? ')
     p6 = str(input('')).upper()
 	
-    #bloco de condição -> atribuir link do código completo
-	
     if result <8:
         sai_som(f'Você é um investidor Iniciante pois sua pontuação foi de {result} pontos!')
     if result >= 8 and result <10:
