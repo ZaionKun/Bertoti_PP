@@ -1468,9 +1468,6 @@ Para mais detalhes da arquitetura, acesse o link abaixo:
 
 ### Back-end
 #### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVNJ7807c=/)
-
-### NOSql
-#### 🔗 [Flowchart Miro Link](https://miro.com/app/board/uXjVMCVa9pE=/)
 	
 </details>
 
